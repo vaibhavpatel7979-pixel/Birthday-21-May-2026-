@@ -258,7 +258,48 @@ I’ll Never Leave You — No matter what life brings… I will always stay with
 
 <div class="cake">🎂</div>
 
-<button class="cake-btn" onclick="wish()">Make Wish ✨</button>
+<button class="cake-btn" onclick="wfunction wish(){
+
+document.getElementById("wishBox").style.display="block";
+
+/* 🎧 MUSIC DROP EFFECT */
+let music=document.getElementById("birthdayMusic");
+music.volume=0.2;
+music.play().catch(()=>{});
+
+setTimeout(()=>{ music.volume=1; },400);
+
+/* 🎬 ZOOM EFFECT */
+document.body.classList.add("zoom-effect");
+setTimeout(()=>document.body.classList.remove("zoom-effect"),1200);
+
+/* 🎆 BIG FIREWORK BURST */
+for(let i=0;i<35;i++){
+let f=document.createElement("div");
+f.className="big-firework";
+f.innerHTML=["🎆","✨","🎇","💥"][Math.floor(Math.random()*4)];
+f.style.left=Math.random()*100+"vw";
+f.style.top=Math.random()*70+"vh";
+document.body.appendChild(f);
+
+setTimeout(()=>f.remove(),1500);
+}
+
+/* 🎊 CONFETTI */
+for(let i=0;i<100;i++){
+let c=document.createElement("div");
+c.className="confetti";
+c.style.left=Math.random()*100+"vw";
+document.body.appendChild(c);
+setTimeout(()=>c.remove(),3000);
+}
+
+/* 📲 WHATSAPP */
+setTimeout(()=>{
+  window.location.href="https://wa.me/919399348807?text=Make%20a%20wish%20Vidhuuu%20🫶🏻✨";
+},1500);
+
+}">Make Wish ✨</button>
 
 <div id="wishBox" style="display:none;color:#ffb3ec;margin-top:10px;">
 ✨ Wish received 💗
