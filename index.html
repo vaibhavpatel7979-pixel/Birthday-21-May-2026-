@@ -1,3 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Movie ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+font-family:Poppins,sans-serif;
+background:black;
+color:white;
+overflow-x:hidden;
+}
+
+/* BACKGROUND */
+body::before{
+content:'';
+position:fixed;
+inset:0;
+background:
+radial-gradient(circle at top,#3b0764,#000),
+radial-gradient(circle at bottom,#12001f,#000);
+z-index:-2;
+}
+
+body::after{
+content:'';
+position:fixed;
+inset:0;
+background:radial-gradient(circle at center,rgba(255,20,147,0.15),transparent 60%);
+z-index:-1;
+animation:glow 6s infinite alternate;
+}
+
+@keyframes glow{
+0%{opacity:0.2;}
+100%{opacity:0.6;}
+}
+
+/* ENTRY */
+#entry{
+position:fixed;
+inset:0;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background:black;
+z-index:9999;
+text-align:center;
+}
+
+#introText{
+font-size:40px;
+background:linear-gradient(to right,#ffb3ec,#fff,#d8b4fe);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.btn{
+margin-top:20px;
+padding:14px 40px;
+border:none;
+border-radius:40px;
+background:#ff1493;
+color:white;
+font-size:18px;
+cursor:pointer;
+}
+
+/* SCROLL */
+#scrollHint{
+display:none;
+margin-top:15px;
+color:#ffb3ec;
+font-size:15px;
+animation:blink 1.5s infinite;
+}
+
+@keyframes blink{
+50%{opacity:0.4;}
+}
+
+/* SECTIONS */
+section{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:70px 20px;
+}
+
+h1{
+font-size:58px;
+background:linear-gradient(to right,#ffb3ec,#fff,#d8b4fe);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+p{
+font-size:20px;
+color:#ddd;
+max-width:900px;
+line-height:1.9;
+}
+
+/* BOX */
+.song-box{
+background:rgba(255,255,255,.06);
+padding:18px;
+margin:12px;
+border-radius:14px;
+max-width:850px;
+backdrop-filter:blur(10px);
+}
+
+/* IMAGE */
+img{
+width:100%;
+max-width:300px;
+border-radius:12px;
+margin:10px;
+}
+
+/* CAKE */
+.cake{
+font-size:180px;
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+50%{transform:scale(1.1);}
+}
+
+.cake-btn{
+padding:14px 40px;
+border:none;
+border-radius:30px;
+background:#9333ea;
+color:white;
+cursor:pointer;
+margin-top:15px;
+}
+
+/* CONFETTI */
+.confetti{
+position:fixed;
+width:8px;
+height:8px;
+top:-10px;
+animation:fall 3s linear forwards;
+}
+
+@keyframes fall{
+to{transform:translateY(110vh) rotate(720deg);opacity:0;}
+}
+
+/* FIREWORK */
+.big-firework{
+position:fixed;
+font-size:28px;
+z-index:9999;
+animation:burst 1.5s ease-out forwards;
+}
+
+@keyframes burst{
+0%{transform:scale(0);opacity:1;}
+100%{transform:scale(4);opacity:0;}
+}
+
+/* ZOOM */
+.zoom-effect{
+animation:zoomIn 1.2s ease-in-out;
+}
+
+@keyframes zoomIn{
+0%{transform:scale(1);}
+50%{transform:scale(1.15);}
+100%{transform:scale(1);}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ENTRY -->
+<div id="entry">
+<h1 id="introText"></h1>
+<button class="btn" onclick="enter()">Enter ✨</button>
+
+<div id="scrollHint">⬇ Scroll down to explore your surprise ✨</div>
+</div>
+
+<!-- AUDIO -->
+<audio id="bgMusic" loop src="song.mp3"></audio>
+<audio id="birthdayMusic" src="birthday.mp3"></audio>
+<audio id="voiceNote" src="voice.mp3"></audio>
+
+<!-- HERO -->
+<section>
+<h1>Happy Birthday Vidhii ❤️</h1>
+<p>
+From a random moment… to something unforgettable ✨<br><br>
+Today is not just a day… it’s a feeling ❤️
+</p>
+</section>
+
+<!-- STORY -->
+<section>
+<h1>Our Story ✨</h1>
+<p>
+6 June 2025 — First time we crossed paths ✨<br><br>
+28 September 2025 — Everything changed 💗
+</p>
+</section>
+
+<!-- MY BEAUTIFUL -->
+<section>
+<h1>MY BEAUTIFUL 💟</h1>
+
+<img src="photo1.jpg">
+<img src="photo2.jpg">
+<img src="photo3.jpg">
+<img src="photo4.jpg">
+<img src="photo5.jpg">
+
+<div class="song-box">
+💗 Every picture of you feels like a memory I want to keep forever<br>
+✨ You are already the definition of beauty for me<br>
+🌙 No photo can ever capture your real softness
+</div>
+</section>
+
+<!-- INSECURITY -->
+<section>
+<h1>To Me You're Beautiful ❤️</h1>
+
+<p>
+Sometimes you might feel a little unsure about yourself, especially without specs…<br><br>
+But for me, you are never defined by anything like that ❤️<br><br>
+You feel complete exactly the way you are, even on days you don’t feel it 💗<br><br>
+Nothing about you needs to be changed… you already feel like peace to me ✨
+</p>
+</section>
+
+<!-- ALWAYS YOU -->
+<section>
+<h1>Always You ❤️</h1>
+
+<img src="photo6.jpg">
+<img src="photo7.jpg">
+
+<div class="song-box">
+❤️ With or without specs, you are still the same beautiful person to me<br>
+💫 Nothing changes how I see you<br>
+🌸 You stay special in every version of you
+</div>
+</section>
+
+<!-- SONGS -->
+<section>
+<h1>Songs 🎵</h1>
+
+<div class="song-box">
+<b>Night Changes</b><br>
+Some feelings don’t change with time… they just stay quietly in the heart ❤️
+</div>
+
+<div class="song-box">
+<b>Until I Found You</b><br>
+It feels like destiny wrote your name into my story ✨
+</div>
+
+<div class="song-box">
+<b>Apocalypse</b><br>
+Even in silence, my mind still finds you 🌙
+</div>
+
+<div class="song-box">
+<b>I’ll Never Leave You</b><br>
+Some promises are not spoken… they are felt ❤️
+</div>
+
+</section>
+
+<!-- CAKE -->
+<section>
+<h1>🎂 Cake Moment</h1>
+
+<div class="cake">🎂</div>
+
+<button class="cake-btn" onclick="wish()">Make Wish ✨</button>
+
+<div id="wishBox" style="display:none;color:#ffb3ec;margin-top:10px;">
+✨ Wish received 💗
+</div>
+</section>
+
+<!-- VOICE -->
+<section>
+<h1>A Message 🎙️</h1>
+<button class="cake-btn" onclick="playVoice()">Play Voice Note</button>
+</section>
+
+<!-- FINAL -->
+<section>
+<h1>Made With Love ❤️</h1>
+
+<p><b>Vaibhav Patel</b></p>
+
+<div class="song-box">
+✨ You became a feeling I never want to lose<br>
+💗 Even silence feels better with you<br>
+🌙 My heart quietly chose you… always
+</div>
+
+</section>
+
+<script>
+
+/* TYPEWRITER */
 let text="This is for you 🫶🏻💟";
 let i=0;
 
@@ -10,7 +339,7 @@ setTimeout(typeWriter,70);
 }
 typeWriter();
 
-/* ENTRY FIX + MUSIC INSTANT START */
+/* MUSIC CONTROL */
 let currentAudio=null;
 
 function playOnly(audio){
@@ -19,16 +348,59 @@ currentAudio.pause();
 currentAudio.currentTime=0;
 }
 currentAudio=audio;
-audio.volume=0.6;
 audio.play().catch(()=>{});
 }
 
+/* ENTER */
 function enter(){
 document.getElementById("entry").style.display="none";
-
-/* SCROLL LINE (NOW CORRECT) */
 document.getElementById("scrollHint").style.display="block";
-
-/* INSTANT MUSIC START (FIXED LAG) */
 playOnly(document.getElementById("bgMusic"));
 }
+
+/* WISH */
+function wish(){
+
+document.getElementById("wishBox").style.display="block";
+
+playOnly(document.getElementById("birthdayMusic"));
+
+document.body.classList.add("zoom-effect");
+setTimeout(()=>document.body.classList.remove("zoom-effect"),1200);
+
+/* FIREWORKS */
+for(let i=0;i<35;i++){
+let f=document.createElement("div");
+f.className="big-firework";
+f.innerHTML=["🎆","✨","🎇","💥"][Math.floor(Math.random()*4)];
+f.style.left=Math.random()*100+"vw";
+f.style.top=Math.random()*70+"vh";
+document.body.appendChild(f);
+setTimeout(()=>f.remove(),1500);
+}
+
+/* CONFETTI */
+for(let i=0;i<80;i++){
+let c=document.createElement("div");
+c.className="confetti";
+c.style.left=Math.random()*100+"vw";
+document.body.appendChild(c);
+setTimeout(()=>c.remove(),3000);
+}
+
+/* WHATSAPP */
+setTimeout(()=>{
+window.location.href="https://wa.me/919399348807?text=Make%20a%20wish%20Vidhuuu%20🫶🏻✨";
+},1500);
+
+}
+
+/* VOICE */
+function playVoice(){
+playOnly(document.getElementById("voiceNote"));
+}
+
+</script>
+
+</body>
+</html>
