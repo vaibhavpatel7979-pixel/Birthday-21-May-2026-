@@ -82,7 +82,7 @@ animation:bounce 2s infinite;
 }
 
 .hero h1{
-font-size:85px;
+font-size:90px;
 font-weight:800;
 line-height:1.1;
 background:linear-gradient(to right,#ffb3ec,#fff,#d8b4fe);
@@ -97,6 +97,7 @@ font-size:26px;
 color:#ddd;
 line-height:1.8;
 max-width:900px;
+text-shadow:0 0 10px rgba(255,255,255,.2);
 }
 
 .tap-btn{
@@ -115,6 +116,7 @@ transition:.4s;
 
 .tap-btn:hover{
 transform:scale(1.08);
+box-shadow:0 0 60px rgba(255,20,147,.8);
 }
 
 .title{
@@ -132,6 +134,7 @@ font-size:24px;
 line-height:1.9;
 color:#ddd;
 max-width:900px;
+text-shadow:0 0 10px rgba(255,255,255,.2);
 }
 
 .quote-box{
@@ -143,12 +146,26 @@ border-radius:30px;
 margin:25px 0;
 max-width:900px;
 width:100%;
-box-shadow:0 0 40px rgba(255,255,255,.05);
 transition:.4s;
+animation:softGlow 4s infinite alternate;
 }
 
 .quote-box:hover{
 transform:translateY(-10px);
+}
+
+@keyframes softGlow{
+
+from{
+box-shadow:
+0 0 20px rgba(255,20,147,.15);
+}
+
+to{
+box-shadow:
+0 0 60px rgba(255,20,147,.45);
+}
+
 }
 
 .quote-box h2{
@@ -185,7 +202,7 @@ overflow:hidden;
 
 .photo-frame:hover{
 transform:scale(1.05) translateY(-10px);
-box-shadow:0 0 60px rgba(255,20,147,.4);
+box-shadow:0 0 70px rgba(255,20,147,.5);
 }
 
 .photo-frame img{
@@ -201,7 +218,7 @@ transform:scale(1.08);
 }
 
 .cake{
-font-size:150px;
+font-size:170px;
 animation:pulse 2s infinite;
 }
 
@@ -220,6 +237,7 @@ padding:35px;
 border-radius:35px;
 backdrop-filter:blur(15px);
 border:1px solid rgba(255,255,255,.1);
+animation:softGlow 4s infinite alternate;
 }
 
 .play-btn{
@@ -257,7 +275,7 @@ transform:scale(1);
 }
 
 50%{
-transform:scale(1.05);
+transform:scale(1.08);
 }
 }
 
@@ -506,27 +524,6 @@ Every picture of yours feels special to me ✨
 </div>
 </div>
 
-<div class="photo-frame">
-<img src="photo6.jpg">
-<div class="quote-box" style="margin-top:20px;">
-<p>You are genuinely beautiful ❤️</p>
-</div>
-</div>
-
-<div class="photo-frame">
-<img src="photo7.jpg">
-<div class="quote-box" style="margin-top:20px;">
-<p>Your little expressions are adorable 💗</p>
-</div>
-</div>
-
-<div class="photo-frame">
-<img src="photo8.jpg">
-<div class="quote-box" style="margin-top:20px;">
-<p>I just see the girl I love ❤️</p>
-</div>
-</div>
-
 </div>
 
 </section>
@@ -600,6 +597,31 @@ I just see the girl I love ❤️
 
 </div>
 
+<div class="gallery">
+
+<div class="photo-frame">
+<img src="photo6.jpg">
+<div class="quote-box" style="margin-top:20px;">
+<p>This smile deserves happiness, always ❤️</p>
+</div>
+</div>
+
+<div class="photo-frame">
+<img src="photo7.jpg">
+<div class="quote-box" style="margin-top:20px;">
+<p>You look beautiful exactly the way you are ✨</p>
+</div>
+</div>
+
+<div class="photo-frame">
+<img src="photo8.jpg">
+<div class="quote-box" style="margin-top:20px;">
+<p>To me, you'll always be the prettiest girl ❤️</p>
+</div>
+</div>
+
+</div>
+
 </section>
 
 <section>
@@ -608,7 +630,7 @@ I just see the girl I love ❤️
 Make A Wish 🎂
 </h1>
 
-<div class="cake" id="cake">
+<div class="cake">
 🎂
 </div>
 
@@ -629,7 +651,7 @@ Blow Candles ✨
 <section>
 
 <h1 class="title">
-One Last Thing... ❤️
+A Message For You 🎙️
 </h1>
 
 <p class="subtitle">
@@ -700,19 +722,19 @@ Hope you like it 💗
 
 <script>
 
-const stars = document.getElementById('stars');
+const stars=document.getElementById('stars');
 
 for(let i=0;i<250;i++){
 
-const star = document.createElement('div');
+const star=document.createElement('div');
 
 star.classList.add('star');
 
-star.style.left = Math.random()*100 + '%';
+star.style.left=Math.random()*100+'%';
 
-star.style.top = Math.random()*100 + '%';
+star.style.top=Math.random()*100+'%';
 
-star.style.animationDuration = (Math.random()*3+2)+'s';
+star.style.animationDuration=(Math.random()*3+2)+'s';
 
 stars.appendChild(star);
 
@@ -740,7 +762,7 @@ createHearts();
 setTimeout(()=>{
 
 window.open(
-'https://wa.me/919399348807?text=She%20made%20a%20wish%20❤️✨'
+'https://wa.me/919399348807?text=Please%20make%20a%20wish%20for%20Vidhii%20❤️✨'
 );
 
 },2500);
@@ -749,11 +771,11 @@ window.open(
 
 function createHearts(){
 
-for(let i=0;i<40;i++){
+for(let i=0;i<70;i++){
 
-const heart = document.createElement('div');
+const heart=document.createElement('div');
 
-heart.innerHTML='❤️';
+heart.innerHTML=['❤️','✨','🎆','💖','🎇'][Math.floor(Math.random()*5)];
 
 heart.style.position='fixed';
 
@@ -761,7 +783,7 @@ heart.style.left=Math.random()*100+'vw';
 
 heart.style.top='100vh';
 
-heart.style.fontSize=(Math.random()*20+20)+'px';
+heart.style.fontSize=(Math.random()*25+20)+'px';
 
 heart.style.zIndex='9999';
 
