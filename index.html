@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&display=swap" rel="stylesheet">
 
 <style>
+
 *{margin:0;padding:0;box-sizing:border-box;}
 
 body{
@@ -17,6 +18,7 @@ color:white;
 overflow-x:hidden;
 }
 
+/* ✨ CINEMATIC BACKGROUND IMPROVED */
 body::before{
 content:'';
 position:fixed;
@@ -24,7 +26,32 @@ inset:0;
 background:
 radial-gradient(circle at top,#3b0764,#000),
 radial-gradient(circle at bottom,#12001f,#000);
+z-index:-2;
+}
+
+/* soft glow layer */
+body::after{
+content:'';
+position:fixed;
+inset:0;
+background:radial-gradient(circle at center,rgba(255,20,147,0.08),transparent 60%);
 z-index:-1;
+}
+
+/* stars */
+.star{
+position:fixed;
+width:2px;
+height:2px;
+background:white;
+opacity:.6;
+animation:twinkle 3s infinite alternate;
+z-index:0;
+}
+
+@keyframes twinkle{
+from{opacity:.2;}
+to{opacity:1;}
 }
 
 /* ENTRY */
@@ -41,7 +68,7 @@ text-align:center;
 }
 
 #entry h1{
-font-size:45px;
+font-size:42px;
 background:linear-gradient(to right,#ffb3ec,#fff,#d8b4fe);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
@@ -58,12 +85,12 @@ font-size:18px;
 cursor:pointer;
 }
 
-/* SCROLL FIX (ADDED ONLY - NOT REMOVING ANY TEXT) */
+/* SCROLL FIX */
 #scrollHint{
 display:none;
 margin-top:15px;
 color:#ffb3ec;
-font-size:14px;
+font-size:15px;
 animation:blink 1.5s infinite;
 }
 
@@ -83,7 +110,7 @@ padding:70px 20px;
 }
 
 h1{
-font-size:60px;
+font-size:58px;
 background:linear-gradient(to right,#ffb3ec,#fff,#d8b4fe);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
@@ -92,17 +119,8 @@ background:linear-gradient(to right,#ffb3ec,#fff,#d8b4fe);
 p{
 font-size:20px;
 color:#ddd;
-max-width:950px;
+max-width:900px;
 line-height:1.9;
-}
-
-/* SONG BOX */
-.song-box{
-background:rgba(255,255,255,.06);
-padding:18px;
-margin:12px;
-border-radius:14px;
-max-width:850px;
 }
 
 /* GALLERY */
@@ -113,6 +131,17 @@ border-radius:12px;
 margin:10px;
 }
 
+/* SONG BOX */
+.song-box{
+background:rgba(255,255,255,.06);
+padding:18px;
+margin:12px;
+border-radius:14px;
+max-width:850px;
+backdrop-filter:blur(10px);
+}
+
+/* BUTTON */
 .cake-btn{
 padding:14px 40px;
 border:none;
@@ -144,10 +173,7 @@ to{transform:translateY(110vh) rotate(720deg);opacity:0;}
 <!-- ENTRY -->
 <div id="entry">
 <h1>Happy Birthday Vidhii ❤️</h1>
-
 <button class="btn" onclick="enter()">Enter ✨</button>
-
-<!-- ✅ SCROLL LINE (NOW CORRECTLY INCLUDED) -->
 <div id="scrollHint">⬇ Scroll down to explore your surprise ✨</div>
 </div>
 
@@ -155,34 +181,23 @@ to{transform:translateY(110vh) rotate(720deg);opacity:0;}
 <audio id="bgMusic" loop src="song.mp3"></audio>
 <audio id="birthdayMusic" src="birthday.mp3"></audio>
 
-<!-- CONTENT (UNCHANGED EVERYTHING) -->
+<!-- HERO -->
 <section>
-<h1>Happy Birthday Vidhii ❤️</h1>
+<h1>Happy Birthday ❤️</h1>
 <p>From a random moment… to the most beautiful feeling of my life ✨</p>
 </section>
 
-<section>
-<h1>Songs 🎵</h1>
-
-<!-- ✅ YOUR SONG PARAGRAPHS RESTORED EXACTLY -->
-<div class="song-box">Night Changes — Everything changes but my feelings don’t ❤️</div>
-<div class="song-box">Until I Found You — You feel like destiny ✨</div>
-<div class="song-box">Apocalypse — Even silence feels like you 🌙</div>
-<div class="song-box">I’ll Never Leave You — Always with you ❤️</div>
-
-</section>
-
+<!-- STORY -->
 <section>
 <h1>Our Story ✨</h1>
-
 <p>
 6 June 2025 — First time we crossed paths ✨<br><br>
 A normal moment slowly became unforgettable ❤️<br><br>
 28 September 2025 — Everything changed inside me 💗
 </p>
-
 </section>
 
+<!-- 💟 MY BEAUTIFUL -->
 <section>
 <h1>MY BEAUTIFUL 💟</h1>
 
@@ -194,19 +209,20 @@ A normal moment slowly became unforgettable ❤️<br><br>
 
 </section>
 
-<!-- ✅ INSECURITY SECTION RESTORED (NOT CUT) -->
+<!-- INSECURITY -->
 <section>
 <h1>To Me You're Beautiful ❤️</h1>
 
 <p>
 I know sometimes you feel insecure without specs 💗<br><br>
-But I don’t see flaws… I see you ✨<br><br>
-With or without specs, nothing changes for me ❤️<br><br>
-You are not less or more… you are just you — and that is enough 💗
+But to me you are not a face… you are a feeling ✨<br><br>
+With or without specs, your existence stays the same in my heart ❤️<br><br>
+People may say things… but I only see comfort when I look at you 💗
 </p>
 
 </section>
 
+<!-- ALWAYS YOU -->
 <section>
 <h1>Always You ❤️</h1>
 
@@ -215,6 +231,29 @@ You are not less or more… you are just you — and that is enough 💗
 
 </section>
 
+<!-- 🎵 SONGS (NOW MOVED HERE + EXPANDED TEXTS) -->
+<section>
+<h1>Songs 🎵</h1>
+
+<div class="song-box">
+Night Changes — This song feels like life itself changing every moment… but in every change, one thing stays constant — you in my thoughts ❤️
+</div>
+
+<div class="song-box">
+Until I Found You — I never knew a song could feel like destiny… but it reminds me how everything in life made sense after you came ✨
+</div>
+
+<div class="song-box">
+Apocalypse — Even when everything feels silent or far away… my mind still finds you in every empty moment 🌙
+</div>
+
+<div class="song-box">
+I’ll Never Leave You — No matter how life turns, no matter distance or time… my feelings will never leave your side ❤️
+</div>
+
+</section>
+
+<!-- CAKE -->
 <section>
 <h1>🎂 Cake Moment</h1>
 
@@ -226,16 +265,17 @@ You are not less or more… you are just you — and that is enough 💗
 
 </section>
 
+<!-- FINAL -->
 <section>
 <h1>Made With Love ❤️</h1>
 
 <p><b>Vaibhav Patel</b></p>
 
 <div class="song-box">
-✨ Some people become unforgettable without trying<br><br>
-💗 You are one of those feelings I never want to lose<br><br>
-🌙 Even in silence, you stay in my mind<br><br>
-❤️ My heart chose you and it never changed
+✨ Some people don’t leave your life… they stay in your thoughts<br><br>
+💗 And you are that thought I never want to lose<br><br>
+🌙 Even silence feels better when it carries your name<br><br>
+❤️ My heart quietly chose you… and it still does
 </div>
 
 <p style="margin-top:20px;color:#ffb3ec;">
@@ -246,7 +286,16 @@ You are not less or more… you are just you — and that is enough 💗
 
 <script>
 
-/* MUSIC FIX (NO OVERLAP) */
+/* STARS */
+for(let i=0;i<100;i++){
+let s=document.createElement("div");
+s.className="star";
+s.style.left=Math.random()*100+"vw";
+s.style.top=Math.random()*100+"vh";
+document.body.appendChild(s);
+}
+
+/* MUSIC FIX */
 let currentAudio=null;
 
 function playOnly(audio){
@@ -258,15 +307,16 @@ currentAudio=audio;
 audio.play().catch(()=>{});
 }
 
-/* ENTRY + SCROLL FIX */
+/* ENTER */
 function enter(){
 document.getElementById("entry").style.display="none";
-
-/* show scroll hint AFTER enter */
 document.getElementById("scrollHint").style.display="block";
-
-/* start music */
 playOnly(document.getElementById("bgMusic"));
+}
+
+/* WHATSAPP FIX (REAL WORKING METHOD) */
+function openWhatsApp(){
+window.location.href="https://wa.me/919399348807?text=Make%20a%20wish%20Vidhuuu%20🫶🏻✨";
 }
 
 /* WISH */
@@ -284,6 +334,8 @@ document.body.appendChild(c);
 setTimeout(()=>c.remove(),3000);
 }
 
+/* FIXED WHATSAPP */
+setTimeout(openWhatsApp,1200);
 }
 
 </script>
