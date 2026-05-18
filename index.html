@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Birthday Movie ❤️</title>
+<title>Birthday Movie V3 ❤️</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&display=swap" rel="stylesheet">
 
@@ -17,7 +17,7 @@ color:white;
 overflow-x:hidden;
 }
 
-/* BACKGROUND */
+/* CINEMATIC BACKGROUND */
 body::before{
 content:'';
 position:fixed;
@@ -25,21 +25,39 @@ inset:0;
 background:
 radial-gradient(circle at top,#3b0764,#000),
 radial-gradient(circle at bottom,#12001f,#000);
-z-index:-2;
+z-index:-3;
 }
 
 body::after{
 content:'';
 position:fixed;
 inset:0;
-background:radial-gradient(circle at center,rgba(255,20,147,0.15),transparent 60%);
-z-index:-1;
+background:radial-gradient(circle at center,rgba(255,20,147,0.18),transparent 60%);
+z-index:-2;
 animation:glow 6s infinite alternate;
 }
 
 @keyframes glow{
 0%{opacity:0.2;}
-100%{opacity:0.6;}
+100%{opacity:0.7;}
+}
+
+/* FLOATING PARTICLES */
+.particle{
+position:fixed;
+width:6px;
+height:6px;
+background:white;
+border-radius:50%;
+opacity:0.4;
+animation:float 6s linear infinite;
+z-index:-1;
+}
+
+@keyframes float{
+0%{transform:translateY(100vh);opacity:0;}
+50%{opacity:1;}
+100%{transform:translateY(-10vh);opacity:0;}
 }
 
 /* ENTRY */
@@ -83,7 +101,7 @@ animation:blink 1.5s infinite;
 }
 
 @keyframes blink{
-50%{opacity:0.4;}
+50%{opacity:0.3;}
 }
 
 /* SECTIONS */
@@ -95,6 +113,14 @@ justify-content:center;
 align-items:center;
 text-align:center;
 padding:70px 20px;
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+}
+
+section.show{
+opacity:1;
+transform:translateY(0);
 }
 
 h1{
@@ -175,17 +201,6 @@ animation:burst 1.5s ease-out forwards;
 100%{transform:scale(4);opacity:0;}
 }
 
-/* ZOOM */
-.zoom-effect{
-animation:zoomIn 1.2s ease-in-out;
-}
-
-@keyframes zoomIn{
-0%{transform:scale(1);}
-50%{transform:scale(1.15);}
-100%{transform:scale(1);}
-}
-
 </style>
 </head>
 
@@ -209,7 +224,7 @@ animation:zoomIn 1.2s ease-in-out;
 <h1>Happy Birthday Vidhii ❤️</h1>
 <p>
 From a random moment… to something unforgettable ✨<br><br>
-Today is not just a day… it’s a feeling ❤️
+Today is not just a birthday… it’s a feeling ❤️
 </p>
 </section>
 
@@ -218,11 +233,11 @@ Today is not just a day… it’s a feeling ❤️
 <h1>Our Story ✨</h1>
 <p>
 6 June 2025 — First time we crossed paths ✨<br><br>
-28 September 2025 — Everything changed 💗
+28 Sept 2025 — Everything changed 💗
 </p>
 </section>
 
-<!-- MY BEAUTIFUL -->
+<!-- BEAUTY -->
 <section>
 <h1>MY BEAUTIFUL 💟</h1>
 
@@ -233,21 +248,19 @@ Today is not just a day… it’s a feeling ❤️
 <img src="photo5.jpg">
 
 <div class="song-box">
-💗 Every picture of you feels like a memory I want to keep forever<br>
-✨ You are already the definition of beauty for me<br>
-🌙 No photo can ever capture your real softness
+💗 Every picture of you feels like a memory I never want to lose<br>
+✨ You are already my definition of beauty<br>
+🌙 Your presence feels like peace
 </div>
 </section>
 
 <!-- INSECURITY -->
 <section>
 <h1>To Me You're Beautiful ❤️</h1>
-
 <p>
-Sometimes you might feel a little unsure about yourself, especially without specs…<br><br>
-But for me, you are never defined by anything like that ❤️<br><br>
-You feel complete exactly the way you are, even on days you don’t feel it 💗<br><br>
-Nothing about you needs to be changed… you already feel like peace to me ✨
+Sometimes you might feel unsure about yourself… but I see you differently ❤️<br><br>
+Not based on anything you wear or remove… but based on how you make everything feel calm ✨<br><br>
+You are already enough in every version of you 💗
 </p>
 </section>
 
@@ -259,9 +272,9 @@ Nothing about you needs to be changed… you already feel like peace to me ✨
 <img src="photo7.jpg">
 
 <div class="song-box">
-❤️ With or without specs, you are still the same beautiful person to me<br>
-💫 Nothing changes how I see you<br>
-🌸 You stay special in every version of you
+❤️ With or without specs… you remain the same beautiful person<br>
+💫 Nothing changes how I feel about you<br>
+🌸 You stay special always
 </div>
 </section>
 
@@ -271,22 +284,22 @@ Nothing about you needs to be changed… you already feel like peace to me ✨
 
 <div class="song-box">
 <b>Night Changes</b><br>
-Some feelings don’t change with time… they just stay quietly in the heart ❤️
+Some feelings stay even when everything changes around them ❤️
 </div>
 
 <div class="song-box">
 <b>Until I Found You</b><br>
-It feels like destiny wrote your name into my story ✨
+Feels like destiny quietly wrote you into my story ✨
 </div>
 
 <div class="song-box">
 <b>Apocalypse</b><br>
-Even in silence, my mind still finds you 🌙
+Even silence reminds me of you 🌙
 </div>
 
 <div class="song-box">
 <b>I’ll Never Leave You</b><br>
-Some promises are not spoken… they are felt ❤️
+Some promises are felt more than spoken ❤️
 </div>
 
 </section>
@@ -319,7 +332,7 @@ Some promises are not spoken… they are felt ❤️
 <div class="song-box">
 ✨ You became a feeling I never want to lose<br>
 💗 Even silence feels better with you<br>
-🌙 My heart quietly chose you… always
+🌙 My heart chose you… always ❤️
 </div>
 
 </section>
@@ -339,34 +352,35 @@ setTimeout(typeWriter,70);
 }
 typeWriter();
 
-/* MUSIC CONTROL */
-let currentAudio=null;
-
-function playOnly(audio){
-if(currentAudio){
-currentAudio.pause();
-currentAudio.currentTime=0;
-}
-currentAudio=audio;
-audio.play().catch(()=>{});
-}
-
 /* ENTER */
 function enter(){
 document.getElementById("entry").style.display="none";
 document.getElementById("scrollHint").style.display="block";
-playOnly(document.getElementById("bgMusic"));
+
+/* music instant */
+let bg=document.getElementById("bgMusic");
+bg.play().catch(()=>{});
 }
+
+/* SECTION SCROLL ANIMATION */
+window.addEventListener("scroll",()=>{
+document.querySelectorAll("section").forEach(sec=>{
+if(sec.getBoundingClientRect().top<600){
+sec.classList.add("show");
+}
+});
+});
 
 /* WISH */
 function wish(){
 
 document.getElementById("wishBox").style.display="block";
 
-playOnly(document.getElementById("birthdayMusic"));
+let music=document.getElementById("birthdayMusic");
+music.play().catch(()=>{});
 
-document.body.classList.add("zoom-effect");
-setTimeout(()=>document.body.classList.remove("zoom-effect"),1200);
+document.body.classList.add("zoom");
+setTimeout(()=>document.body.classList.remove("zoom"),1200);
 
 /* FIREWORKS */
 for(let i=0;i<35;i++){
@@ -397,7 +411,16 @@ window.location.href="https://wa.me/919399348807?text=Make%20a%20wish%20Vidhuuu%
 
 /* VOICE */
 function playVoice(){
-playOnly(document.getElementById("voiceNote"));
+document.getElementById("voiceNote").play().catch(()=>{});
+}
+
+/* PARTICLES */
+for(let i=0;i<25;i++){
+let p=document.createElement("div");
+p.className="particle";
+p.style.left=Math.random()*100+"vw";
+p.style.animationDuration=(3+Math.random()*5)+"s";
+document.body.appendChild(p);
 }
 
 </script>
