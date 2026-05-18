@@ -25,24 +25,6 @@ background:radial-gradient(circle at top,#3b0764,#000);
 z-index:-2;
 }
 
-.stars{
-position:fixed;
-width:100%;
-height:100%;
-z-index:-1;
-}
-
-.star{
-position:absolute;
-width:2px;
-height:2px;
-background:white;
-border-radius:50%;
-animation:twinkle 3s infinite alternate;
-}
-
-@keyframes twinkle{from{opacity:.2}to{opacity:1}}
-
 section{
 min-height:100vh;
 display:flex;
@@ -51,14 +33,6 @@ justify-content:center;
 align-items:center;
 text-align:center;
 padding:80px 20px;
-opacity:0;
-transform:translateY(50px);
-transition:1s;
-}
-
-section.show{
-opacity:1;
-transform:translateY(0);
 }
 
 h1{
@@ -68,117 +42,55 @@ background:linear-gradient(to right,#ffb3ec,#fff,#d8b4fe);
 -webkit-text-fill-color:transparent;
 }
 
-p{
-font-size:20px;
-color:#ddd;
-max-width:900px;
-line-height:1.8;
-margin-top:15px;
-}
+p{color:#ddd;max-width:900px;line-height:1.8;}
 
 .btn{
-margin-top:25px;
+margin-top:20px;
 padding:15px 40px;
 border:none;
 border-radius:40px;
 background:linear-gradient(to right,#ff1493,#9333ea);
 color:white;
-font-size:18px;
 cursor:pointer;
 }
 
-.quote-box{
-background:rgba(255,255,255,.06);
-padding:25px;
-border-radius:25px;
-margin:15px;
-max-width:850px;
-backdrop-filter:blur(15px);
-border:1px solid rgba(255,255,255,.12);
-}
-
-.cake{
-font-size:150px;
-animation:pulse 2s infinite;
-}
-@keyframes pulse{50%{transform:scale(1.08);}}
-
+/* gallery */
 .gallery{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:25px;
-width:100%;
 max-width:1200px;
-margin-top:40px;
+margin-top:30px;
+width:100%;
 }
 
 .photo-frame{
 background:rgba(255,255,255,.06);
 padding:15px;
-border-radius:25px;
-backdrop-filter:blur(18px);
-border:1px solid rgba(255,255,255,.15);
+border-radius:20px;
 }
 
 .photo-frame img{
 width:100%;
 height:360px;
 object-fit:cover;
+border-radius:15px;
+}
+
+.note{color:#ffb3ec;margin-top:10px;}
+
+/* quote */
+.quote-box{
+background:rgba(255,255,255,.06);
+padding:20px;
 border-radius:20px;
+margin:10px;
 }
 
-.note{
-margin-top:10px;
-font-size:15px;
-color:#ffb3ec;
-}
-
-/* ENTRY */
-#entry{
-position:fixed;
-inset:0;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-background:radial-gradient(circle,#2a0040,#000);
-z-index:9999;
-text-align:center;
-}
-
-#entry h1{
-font-size:40px;
-text-shadow:0 0 20px #ff1493;
-}
-
-#entry p{
-margin-top:10px;
-color:#bbb;
-}
-
-.scroll{
-margin-top:20px;
-color:#ddd;
-animation:bounce 2s infinite;
-}
-
-@keyframes bounce{
-0%,100%{transform:translateY(0);}
-50%{transform:translateY(10px);}
-}
 </style>
 </head>
 
 <body>
-
-<!-- ENTRY -->
-<div id="entry">
-<h1>MAKE A WISH VIDHUUU 🫶🏻</h1>
-<p>Scroll slowly to enter the story ❤️</p>
-<button class="btn" onclick="enter()">Enter ✨</button>
-</div>
-
-<div class="stars" id="stars"></div>
 
 <!-- AUDIO -->
 <audio id="bgMusic" loop src="song.mp3"></audio>
@@ -187,64 +99,42 @@ animation:bounce 2s infinite;
 
 <!-- HERO -->
 <section>
-<h1>Happy Birthday<br>Vidhii ❤️</h1>
-<p>A random moment turned into forever ✨</p>
+<h1>Happy Birthday Vidhii ❤️</h1>
+<p>From a random moment… to forever ✨</p>
 </section>
 
 <!-- SONGS -->
 <section>
-<h1>Songs That Feel Like Us 🎵</h1>
+<h1>Songs 🎵</h1>
 
-<div class="quote-box">
-Night Changes<br>
-<span style="font-size:13px;">Everything changes but feelings don’t ❤️</span>
-</div>
-
-<div class="quote-box">
-Until I Found You<br>
-<span style="font-size:13px;">You feel like destiny 🎶</span>
-</div>
-
-<div class="quote-box">
-Apocalypse<br>
-<span style="font-size:13px;">Even silence feels like you 🌙</span>
-</div>
+<div class="quote-box">Night Changes ❤️</div>
+<div class="quote-box">Until I Found You 🎶</div>
+<div class="quote-box">Apocalypse 🌙</div>
 </section>
 
 <!-- STORY -->
 <section>
 <h1>Our Story ✨</h1>
-<div class="quote-box">🎮 6 June 2025 — We met</div>
-<div class="quote-box">💗 28 Sept 2025 — Everything changed</div>
+<div class="quote-box">6 June 2025 — We met</div>
+<div class="quote-box">28 Sept 2025 — Everything changed</div>
 </section>
 
-<!-- MY BEAUTIFUL -->
+<!-- MY BEAUTIFUL (FULL 5 PHOTOS RESTORED) -->
 <section>
 <h1>MY BEAUTIFUL ❤️</h1>
 
-<p>Every picture feels like a memory ✨</p>
-
 <div class="gallery">
 
-<div class="photo-frame">
-<img src="photo1.jpg">
-<div class="note">Your smile is my peace ❤️</div>
-</div>
-
-<div class="photo-frame">
-<img src="photo2.jpg">
-<div class="note">I love your eyes 😭✨</div>
-</div>
-
-<div class="photo-frame">
-<img src="photo3.jpg">
-<div class="note">You are naturally beautiful 💗</div>
-</div>
+<div class="photo-frame"><img src="photo1.jpg"><div class="note">Smile ❤️</div></div>
+<div class="photo-frame"><img src="photo2.jpg"><div class="note">Eyes 😭</div></div>
+<div class="photo-frame"><img src="photo3.jpg"><div class="note">Cute 💗</div></div>
+<div class="photo-frame"><img src="photo4.jpg"><div class="note">Peace ✨</div></div>
+<div class="photo-frame"><img src="photo5.jpg"><div class="note">Forever ❤️</div></div>
 
 </div>
 </section>
 
-<!-- 💔 INSECURITY FULL RESTORED + 3 PICS -->
+<!-- INSECURITY (FULL PARA + ONLY 2 PHOTOS AS YOU ASKED) -->
 <section>
 <h1>To Me You're Beautiful ❤️</h1>
 
@@ -258,51 +148,30 @@ but honestly?
 you are genuinely one of the cutest and most beautiful girls to me ❤️
 
 <br><br>
-Not because of makeup,
-not because of specs,
-not because of what people say...
+Not because of makeup, specs, or anything people say...
 
 <br><br>
-but because there’s something about you that feels special naturally ✨
+but because there’s something about you naturally ✨
 
 <br><br>
-Your smile makes me happy,
-your eyes feel comforting,
-your little expressions are adorable,
-and even the things you overthink about yourself...
-
-are beautiful to me 💗
+Your smile, your eyes, your expressions...
+everything is beautiful to me 💗
 
 <br><br>
 And your nose? it's cute 😭❤️
 
 <br><br>
-Please never change yourself for anyone.
+Please never change yourself.
 
 <br><br>
 Because when I look at you,
-I don’t see flaws...
-
-<br><br>
 I just see the girl I love ❤️
 </div>
 
 <div class="gallery">
 
-<div class="photo-frame">
-<img src="photo6.jpg">
-<div class="note">This smile deserves happiness ❤️</div>
-</div>
-
-<div class="photo-frame">
-<img src="photo7.jpg">
-<div class="note">You are perfect as you are ✨</div>
-</div>
-
-<div class="photo-frame">
-<img src="photo8.jpg">
-<div class="note">My definition of beautiful ❤️</div>
-</div>
+<div class="photo-frame"><img src="photo6.jpg"><div class="note">This smile ❤️</div></div>
+<div class="photo-frame"><img src="photo7.jpg"><div class="note">Perfect ✨</div></div>
 
 </div>
 </section>
@@ -311,78 +180,41 @@ I just see the girl I love ❤️
 <section>
 <h1>MAKE A WISH 🎂</h1>
 
-<div class="cake">🎂</div>
+<div class="btn" onclick="wish()">Blow Candles ✨</div>
 
-<p id="wishText">Make a wish Vidhuuu… ❤️✨</p>
+<p id="wishText">Make a wish Vidhuuu ❤️</p>
 
-<button class="btn" onclick="wish()">Blow Candles ✨</button>
-
-<div id="wishMsg" style="display:none;color:#ffb3ec;margin-top:20px;">
-✨ Your wish has been sent ❤️
-</div>
-</section>
-
-<!-- VOICE -->
-<section>
-<h1>A Message 🎙️</h1>
-<button class="btn" onclick="playVoice()">Play Voice</button>
 </section>
 
 <!-- FINAL -->
 <section>
 <h1>Made With Love ❤️</h1>
-
 <div class="quote-box">
-Vaibhav Patel<br>
-Hope you like it 💗<br><br>
+Vaibhav Patel<br><br>
 Once again Happy Birthday Dear ❤️
 </div>
 </section>
 
 <script>
 
-/* stars */
-const stars=document.getElementById("stars");
-for(let i=0;i<200;i++){
-let s=document.createElement("div");
-s.className="star";
-s.style.left=Math.random()*100+"%";
-s.style.top=Math.random()*100+"%";
-stars.appendChild(s);
-}
-
-/* scroll animation */
-const sections=document.querySelectorAll("section");
-window.addEventListener("scroll",()=>{
-sections.forEach(s=>{
-if(s.getBoundingClientRect().top<500)
-s.classList.add("show");
-});
-});
-
-/* ENTRY + MUSIC FIX (NO GLITCH) */
+/* ENTER MUSIC FIX */
 let musicStarted=false;
-
-function enter(){
-document.getElementById("entry").style.display="none";
-
+document.addEventListener("click",()=>{
 if(!musicStarted){
-bgMusic.play();
+document.getElementById("bgMusic").play();
 musicStarted=true;
 }
-}
+});
 
-/* wish */
+/* WHATSAPP FIX (IMPORTANT) */
 function wish(){
-birthdayMusic.currentTime=0;
-birthdayMusic.play();
 
-document.getElementById("wishMsg").style.display="block";
-}
+document.getElementById("birthdayMusic").currentTime=0;
+document.getElementById("birthdayMusic").play();
 
-/* voice */
-function playVoice(){
-voiceNote.play();
+setTimeout(()=>{
+window.open("https://wa.me/919399348807?text=Make%20a%20wish%20for%20Vidhii%20❤️","_blank");
+},1200);
 }
 
 </script>
