@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
+
 *{margin:0;padding:0;box-sizing:border-box;}
 
 body{
@@ -17,14 +18,94 @@ color:white;
 overflow-x:hidden;
 }
 
+/* 🌌 BACKGROUND */
 body::before{
 content:'';
 position:fixed;
 inset:0;
 background:radial-gradient(circle at top,#3b0764,#000);
+z-index:-3;
+}
+
+/* ✨ STARS */
+.stars{
+position:fixed;
+inset:0;
 z-index:-2;
 }
 
+.star{
+position:absolute;
+width:2px;
+height:2px;
+background:white;
+border-radius:50%;
+opacity:.6;
+animation:twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle{
+from{opacity:.2;transform:scale(.8);}
+to{opacity:1;transform:scale(1.2);}
+}
+
+/* ❤️ FLOATING HEARTS */
+.heart{
+position:fixed;
+bottom:-20px;
+font-size:20px;
+animation:floatUp 6s linear forwards;
+opacity:.8;
+}
+
+@keyframes floatUp{
+0%{transform:translateY(0) scale(.8);opacity:1;}
+100%{transform:translateY(-110vh) scale(1.4);opacity:0;}
+}
+
+/* ENTRY */
+#entry{
+position:fixed;
+inset:0;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background:radial-gradient(circle,#2a0040,#000);
+z-index:9999;
+text-align:center;
+}
+
+#entry h1{
+font-size:42px;
+background:linear-gradient(to right,#ffb3ec,#fff,#d8b4fe);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+text-shadow:0 0 25px rgba(255,20,147,.4);
+}
+
+#typeText{
+margin-top:10px;
+color:#ccc;
+min-height:20px;
+}
+
+.btn{
+margin-top:25px;
+padding:16px 45px;
+border:none;
+border-radius:50px;
+background:linear-gradient(135deg,#ff1493,#9333ea);
+color:white;
+cursor:pointer;
+font-size:18px;
+box-shadow:0 10px 40px rgba(255,20,147,.35);
+transition:.3s;
+}
+
+.btn:hover{transform:scale(1.08);}
+
+/* SECTIONS */
 section{
 min-height:100vh;
 display:flex;
@@ -33,8 +114,17 @@ justify-content:center;
 align-items:center;
 text-align:center;
 padding:80px 20px;
+opacity:0;
+transform:translateY(40px);
+transition:1s;
 }
 
+section.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* TITLES */
 h1{
 font-size:65px;
 background:linear-gradient(to right,#ffb3ec,#fff,#d8b4fe);
@@ -49,21 +139,11 @@ max-width:900px;
 line-height:1.8;
 }
 
-.btn{
-margin-top:20px;
-padding:15px 40px;
-border:none;
-border-radius:40px;
-background:linear-gradient(to right,#ff1493,#9333ea);
-color:white;
-cursor:pointer;
-font-size:18px;
-}
-
+/* GALLERY */
 .gallery{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:20px;
+gap:25px;
 width:100%;
 max-width:1200px;
 margin-top:30px;
@@ -71,8 +151,10 @@ margin-top:30px;
 
 .photo-frame{
 background:rgba(255,255,255,.06);
-padding:12px;
+padding:14px;
 border-radius:20px;
+backdrop-filter:blur(12px);
+border:1px solid rgba(255,255,255,.12);
 }
 
 .photo-frame img{
@@ -88,41 +170,28 @@ color:#ffb3ec;
 font-size:14px;
 }
 
-#entry{
-position:fixed;
-inset:0;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-background:radial-gradient(circle,#2a0040,#000);
-z-index:9999;
-text-align:center;
+/* GLASS BOX */
+.quote-box{
+background:rgba(255,255,255,.06);
+border:1px solid rgba(255,255,255,.1);
+padding:25px;
+border-radius:25px;
+margin:15px;
+max-width:900px;
+backdrop-filter:blur(12px);
 }
 
-#entry h1{
-font-size:38px;
-}
-
-.scroll{
-margin-top:15px;
-animation:bounce 2s infinite;
-}
-
-@keyframes bounce{
-0%,100%{transform:translateY(0);}
-50%{transform:translateY(10px);}
-}
 </style>
 </head>
 
 <body>
 
+<div class="stars" id="stars"></div>
+
 <!-- ENTRY -->
 <div id="entry">
 <h1>Welcome ❤️</h1>
-<p>Click Enter to start your surprise</p>
-<div class="scroll">⬇ Scroll Slowly</div>
+<div id="typeText"></div>
 <button class="btn" onclick="enter()">Enter ✨</button>
 </div>
 
@@ -149,7 +218,7 @@ animation:bounce 2s infinite;
 <p>6 June 2025 — We met<br>28 Sept 2025 — Everything changed</p>
 </section>
 
-<!-- MY BEAUTIFUL (5 PHOTOS RESTORED) -->
+<!-- MY BEAUTIFUL -->
 <section>
 <h1>MY BEAUTIFUL ❤️</h1>
 
@@ -162,28 +231,21 @@ animation:bounce 2s infinite;
 </div>
 </section>
 
-<!-- INSECURITY (FULL PARA + 2 PHOTOS) -->
+<!-- INSECURITY -->
 <section>
 <h1>To Me You're Beautiful ❤️</h1>
 
-<p>
+<div class="quote-box">
 I know sometimes you don't see yourself the way I see you...
 
 <br><br>
-but honestly?
+but honestly you are genuinely one of the cutest girls to me ❤️
 
 <br><br>
-you are genuinely one of the cutest and most beautiful girls to me ❤️
+Everything about you is naturally beautiful ✨
 
 <br><br>
-Not because of makeup or anything...
-
-<br><br>
-but because there’s something about you naturally ✨
-
-<br><br>
-Your smile, your eyes, your expressions...
-everything is beautiful to me 💗
+Your smile, eyes, expressions… all perfect 💗
 
 <br><br>
 And your nose? it's cute 😭❤️
@@ -192,9 +254,8 @@ And your nose? it's cute 😭❤️
 Please never change yourself.
 
 <br><br>
-Because when I look at you,
-I just see the girl I love ❤️
-</p>
+Because when I look at you, I just see the girl I love ❤️
+</div>
 
 <div class="gallery">
 <div class="photo-frame"><img src="photo6.jpg"><div class="note">This smile ❤️</div></div>
@@ -205,13 +266,12 @@ I just see the girl I love ❤️
 <!-- WISH -->
 <section>
 <h1>MAKE A WISH 🎂</h1>
-
 <p>Blow candles and make your wish ❤️</p>
 
 <button class="btn" onclick="wish()">Blow Candles ✨</button>
 
 <div id="wishMsg" style="display:none;color:#ffb3ec;margin-top:15px;">
-✨ Wish sent ❤️
+✨ Wish sent to stars ❤️
 </div>
 </section>
 
@@ -224,14 +284,45 @@ I just see the girl I love ❤️
 <!-- FINAL -->
 <section>
 <h1>Made With Love ❤️</h1>
-<p>Once again Happy Birthday Dear ❤️</p>
+<p><b>Vaibhav Patel</b><br><br>Once again Happy Birthday Dear ❤️</p>
 </section>
 
 <script>
 
-let musicStarted=false;
+/* ⭐ STARS */
+const stars=document.getElementById("stars");
+for(let i=0;i<120;i++){
+let s=document.createElement("div");
+s.className="star";
+s.style.left=Math.random()*100+"%";
+s.style.top=Math.random()*100+"%";
+stars.appendChild(s);
+}
+
+/* ❤️ HEARTS */
+setInterval(()=>{
+const h=document.createElement("div");
+h.className="heart";
+h.innerHTML="❤️";
+h.style.left=Math.random()*100+"vw";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),6000);
+},600);
+
+/* TYPE EFFECT */
+let text="A small world made just for you...";
+let i=0;
+function type(){
+if(i<text.length){
+document.getElementById("typeText").innerHTML+=text.charAt(i);
+i++;
+setTimeout(type,60);
+}
+}
+type();
 
 /* ENTER */
+let musicStarted=false;
 function enter(){
 document.getElementById("entry").style.display="none";
 if(!musicStarted){
