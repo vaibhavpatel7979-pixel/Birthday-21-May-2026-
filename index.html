@@ -9,6 +9,7 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
+
 body{
 font-family:Poppins,sans-serif;
 background:black;
@@ -17,39 +18,44 @@ overflow-x:hidden;
 }
 
 /* 🌌 background */
-.stars{position:fixed;width:100%;height:100%;z-index:-2;}
-.star{position:absolute;width:2px;height:2px;background:white;border-radius:50%;animation:twinkle 3s infinite alternate;}
-@keyframes twinkle{from{opacity:.2}to{opacity:1}}
-
-canvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;}
-
-/* 🔒 LOCK */
-#lock{
-position:fixed;inset:0;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-background:radial-gradient(circle,#2a0040,#000);
-z-index:9999;
+body::before{
+content:'';
+position:fixed;
+inset:0;
+background:radial-gradient(circle at top,#3b0764,#000);
+z-index:-3;
 }
 
-#lock h1{
-font-size:40px;
-background:linear-gradient(to right,#ffb3ec,#fff);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+body::after{
+content:'';
+position:fixed;
+inset:0;
+background:
+radial-gradient(circle at 20% 30%, rgba(255,20,147,.08), transparent 40%),
+radial-gradient(circle at 80% 70%, rgba(147,51,234,.08), transparent 40%);
+z-index:-2;
+animation:glowMove 10s infinite alternate;
 }
 
-.btn{
-margin-top:25px;
-padding:15px 40px;
-border:none;
-border-radius:40px;
-font-size:18px;
-background:linear-gradient(to right,#ff1493,#9333ea);
-color:white;
-cursor:pointer;
+@keyframes glowMove{
+from{transform:scale(1);}
+to{transform:scale(1.1);}
+}
+
+/* 🌟 stars */
+.stars{position:fixed;width:100%;height:100%;z-index:-1;}
+.star{
+position:absolute;
+width:2px;
+height:2px;
+background:white;
+border-radius:50%;
+animation:twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle{
+from{opacity:.2}
+to{opacity:1}
 }
 
 /* sections */
@@ -60,24 +66,81 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-padding:60px 20px;
+padding:80px 20px;
+
 opacity:0;
-transform:translateY(40px);
-transition:1s;
+transform:translateY(50px) scale(.98);
+filter:blur(6px);
+transition:1.2s ease;
 }
 
-section.show{opacity:1;transform:translateY(0);}
+section.show{
+opacity:1;
+transform:translateY(0) scale(1);
+filter:blur(0);
+}
 
+/* headings */
 h1{
 font-size:70px;
 background:linear-gradient(to right,#ffb3ec,#fff,#d8b4fe);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
+animation:titleGlow 3s infinite alternate;
 }
 
-p{font-size:20px;color:#ddd;max-width:800px;margin-top:15px;}
+@keyframes titleGlow{
+from{text-shadow:0 0 10px rgba(255,255,255,.1);}
+to{text-shadow:0 0 25px rgba(255,20,147,.4);}
+}
 
-/* 💌 letter */
+p{
+font-size:20px;
+color:#ddd;
+max-width:900px;
+line-height:1.8;
+margin-top:15px;
+}
+
+/* buttons */
+.btn{
+margin-top:30px;
+padding:15px 40px;
+border:none;
+border-radius:40px;
+background:linear-gradient(to right,#ff1493,#9333ea);
+color:white;
+font-size:18px;
+cursor:pointer;
+}
+
+/* 💖 quote box */
+.quote-box{
+background:rgba(255,255,255,.06);
+padding:25px;
+border-radius:25px;
+margin:15px;
+max-width:850px;
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,.12);
+transition:.5s;
+}
+
+.quote-box:hover{
+transform:translateY(-8px);
+}
+
+/* 🎂 cake */
+.cake{
+font-size:150px;
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+50%{transform:scale(1.08);}
+}
+
+/* 💌 typing */
 #letter{
 margin-top:25px;
 font-size:22px;
@@ -87,74 +150,154 @@ color:#ffb3ec;
 white-space:pre-line;
 }
 
-/* 🖼 slider */
-.slider{
-margin-top:30px;
-width:300px;
-height:400px;
-overflow:hidden;
-border-radius:25px;
-box-shadow:0 0 40px rgba(255,20,147,.4);
-}
-.slider img{
+/* 🖼 gallery */
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
 width:100%;
-height:100%;
-object-fit:cover;
+max-width:1200px;
+margin-top:40px;
 }
 
-/* 🎂 wish */
-.cake{font-size:140px;animation:pulse 2s infinite;}
-@keyframes pulse{50%{transform:scale(1.08)}}
+.photo-frame{
+background:rgba(255,255,255,.06);
+padding:15px;
+border-radius:25px;
+backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,.15);
+transition:.6s;
+overflow:hidden;
+position:relative;
+}
+
+.photo-frame img{
+width:100%;
+height:360px;
+object-fit:cover;
+border-radius:20px;
+}
+
+.photo-frame:hover{
+transform:translateY(-10px) scale(1.03);
+box-shadow:0 0 60px rgba(255,20,147,.4);
+}
+
+.note{
+margin-top:10px;
+font-size:15px;
+color:#ffb3ec;
+}
+
+/* heart animation */
+@keyframes floatUp{
+to{transform:translateY(-120vh);opacity:0;}
+}
+
 </style>
 </head>
 
 <body>
 
-<div id="lock">
-<h1>💖 A Surprise Awaits Vidhii</h1>
-<button class="btn" onclick="unlock()">Enter ✨</button>
-</div>
-
 <div class="stars" id="stars"></div>
-<canvas id="fx"></canvas>
 
-<audio id="bg" loop src="song.mp3"></audio>
-<audio id="bd" src="birthday.mp3"></audio>
+<!-- AUDIO -->
+<audio id="bgMusic" loop src="song.mp3"></audio>
+<audio id="birthdayMusic" src="birthday.mp3"></audio>
+<audio id="voiceNote" src="voice.mp3"></audio>
 
 <!-- HERO -->
 <section>
 <h1>Happy Birthday<br>Vidhii ❤️</h1>
-<p>You are not just a name… you are a feeling ✨</p>
-<button class="btn" onclick="start()">Start Journey ✨</button>
+<p>From a random moment… to my forever person ✨</p>
+<button class="btn" onclick="startWebsite()">Tap To Begin ✨</button>
 </section>
 
-<!-- LETTER -->
+<!-- FOR YOU -->
 <section>
-<h1>💌 Message</h1>
-<div id="letter"></div>
+<h1>For You ❤️</h1>
+
+<div class="quote-box">💗 You are my peace in chaos</div>
+<div class="quote-box">💟 You are the most special person</div>
+<div class="quote-box">🫶 I will always be there for you</div>
 </section>
 
-<!-- SLIDER -->
+<!-- SONGS -->
 <section>
-<h1>📸 Memories</h1>
-<div class="slider">
-<img id="img" src="photo1.jpg">
+<h1>Songs That Feel Like Us 🎵</h1>
+<div class="quote-box">
+Night Changes • Until I Found You • Apocalypse • Perfect ❤️
+</div>
+</section>
+
+<!-- STORY -->
+<section>
+<h1>Our Story ✨</h1>
+<div class="quote-box">🎮 6 June 2025 — We met</div>
+<div class="quote-box">💗 28 Sept 2025 — My heart changed</div>
+</section>
+
+<!-- MY BEAUTIFUL -->
+<section>
+<h1>MY BEAUTIFUL ❤️</h1>
+<p>Every picture of yours feels like a memory I never want to lose ✨</p>
+
+<div class="gallery">
+
+<div class="photo-frame">
+<img src="photo1.jpg">
+<div class="note">Your smile makes everything better ❤️</div>
+</div>
+
+<div class="photo-frame">
+<img src="photo2.jpg">
+<div class="note">I could stare at you forever 😭✨</div>
+</div>
+
+<div class="photo-frame">
+<img src="photo3.jpg">
+<div class="note">You are naturally beautiful 💗</div>
+</div>
+
+<div class="photo-frame">
+<img src="photo4.jpg">
+<div class="note">You bring peace ❤️</div>
+</div>
+
+<div class="photo-frame">
+<img src="photo5.jpg">
+<div class="note">Everything about you is special ✨</div>
+</div>
+
 </div>
 </section>
 
 <!-- WISH -->
 <section>
-<h1>🎂 Make Wish</h1>
+<h1>Make A Wish 🎂</h1>
+
 <div class="cake">🎂</div>
-<p>Close eyes & wish something beautiful ❤️</p>
-<button class="btn" onclick="wish()">Blow Candles ✨</button>
+
+<p>Blow candles and wish something beautiful ❤️</p>
+
+<button class="btn" onclick="blowCandles()">Blow Candles ✨</button>
+
+<div id="wish" style="display:none;color:#ffb3ec;margin-top:20px;font-size:22px;">
+✨ Your wish has been sent to the universe ❤️
+</div>
+</section>
+
+<!-- VOICE -->
+<section>
+<h1>A Message 🎙️</h1>
+<button class="btn" onclick="playVoice()">Play Voice</button>
 </section>
 
 <script>
 
-/* ⭐ stars */
+/* stars */
 const stars=document.getElementById("stars");
-for(let i=0;i<150;i++){
+for(let i=0;i<200;i++){
 let s=document.createElement("div");
 s.className="star";
 s.style.left=Math.random()*100+"%";
@@ -162,143 +305,93 @@ s.style.top=Math.random()*100+"%";
 stars.appendChild(s);
 }
 
-/* 🔊 AUDIO CONTROL (NO OVERLAP FIX) */
-function stopAll(){
-document.getElementById("bg").pause();
-document.getElementById("bd").pause();
-document.getElementById("bg").currentTime=0;
-document.getElementById("bd").currentTime=0;
-}
-
-/* unlock */
-function unlock(){
-document.getElementById("lock").style.display="none";
-document.getElementById("bg").play();
-}
-
-/* scroll reveal */
-const sec=document.querySelectorAll("section");
+/* section reveal */
+const sections=document.querySelectorAll("section");
 window.addEventListener("scroll",()=>{
-sec.forEach(s=>{
-if(s.getBoundingClientRect().top<500) s.classList.add("show");
+sections.forEach(s=>{
+if(s.getBoundingClientRect().top<500)
+s.classList.add("show");
 });
 });
 
-/* start */
-function start(){
-document.getElementById("bg").play();
-sec[1].scrollIntoView({behavior:"smooth"});
-typeText();
+/* music fix */
+function stopAll(){
+document.getElementById("bgMusic").pause();
+document.getElementById("birthdayMusic").pause();
+document.getElementById("bgMusic").currentTime=0;
+document.getElementById("birthdayMusic").currentTime=0;
 }
 
-/* 💌 MULTI LINE TYPE */
+function startWebsite(){
+document.getElementById("bgMusic").play();
+window.scrollTo({top:window.innerHeight,behavior:"smooth"});
+}
+
+/* typing FIX (line by line) */
 const msgs=[
-"I never knew someone could feel like home… until I met you ❤️",
-"Your smile fixes everything I don’t talk about ✨",
-"You are my calm in every chaos 🌙",
-"And I just want you to be happy… always ❤️"
+"I never knew someone like you could exist ❤️",
+"You became my peace ✨",
+"You are my favorite feeling 🌙",
+"And I just want you to be happy always ❤️"
 ];
 
-let idx=0,ch=0;
-function typeText(){
-let el=document.getElementById("letter");
-el.innerHTML="";
+let i=0;
 
-let txt=msgs[idx];
+function typeLoop(){
+let el=document.getElementById("letter");
+if(!el) return;
+
+el.innerHTML="";
+let txt=msgs[i];
+let j=0;
 
 let t=setInterval(()=>{
-el.innerHTML+=txt[ch];
-ch++;
-if(ch>=txt.length){
+el.innerHTML+=txt[j];
+j++;
+
+if(j>=txt.length){
 clearInterval(t);
 setTimeout(()=>{
-idx=(idx+1)%msgs.length;
-ch=0;
-typeText();
-},1500);
+i=(i+1)%msgs.length;
+typeLoop();
+},1800);
 }
 },40);
 }
 
-/* 🖼 slider */
-let images=["photo1.jpg","photo2.jpg","photo3.jpg","photo4.jpg"];
-let i=0;
-setInterval(()=>{
-document.getElementById("img").src=images[i];
-i=(i+1)%images.length;
-},2500);
-
-/* 🎆 FX */
-const c=document.getElementById("fx");
-const x=c.getContext("2d");
-c.width=window.innerWidth;
-c.height=window.innerHeight;
-
-let p=[];
-
-/* fireworks */
-function burst(){
-for(let i=0;i<80;i++){
-p.push({
-x:c.width/2,
-y:c.height/2,
-vx:(Math.random()-0.5)*12,
-vy:(Math.random()-0.5)*12,
-a:1
-});
-}
-}
-
-/* animate */
-function animate(){
-x.clearRect(0,0,c.width,c.height);
-p.forEach((e,i)=>{
-e.x+=e.vx;
-e.y+=e.vy;
-e.a-=0.015;
-
-x.fillStyle=`rgba(255,20,147,${e.a})`;
-x.fillRect(e.x,e.y,3,3);
-
-if(e.a<=0) p.splice(i,1);
-});
-requestAnimationFrame(animate);
-}
-animate();
-
-/* 🎂 WISH */
-function wish(){
+/* wish */
+function blowCandles(){
 stopAll();
-document.getElementById("bd").play();
+document.getElementById("birthdayMusic").play();
 
-burst();
-heartRain();
-window.open("https://wa.me/919399348807?text=I made a wish for you ❤️✨");
-}
+document.getElementById("wish").style.display="block";
 
-/* ❤️ heart rain */
-function heartRain(){
-for(let i=0;i<60;i++){
+for(let k=0;k<50;k++){
 let h=document.createElement("div");
 h.innerHTML="❤️";
 h.style.position="fixed";
 h.style.left=Math.random()*100+"vw";
 h.style.top="100vh";
 h.style.fontSize="20px";
-h.style.animation="float 4s linear";
+h.style.animation="floatUp 4s linear";
 document.body.appendChild(h);
-
 setTimeout(()=>h.remove(),4000);
 }
+
+setTimeout(()=>{
+window.open("https://wa.me/919399348807?text=I made a wish for Vidhii ❤️✨");
+},2500);
 }
+
+/* voice */
+function playVoice(){
+document.getElementById("voiceNote").play();
+}
+
+/* start typing after load */
+setTimeout(typeLoop,2000);
 
 </script>
-
-<style>
-@keyframes float{
-to{transform:translateY(-120vh);opacity:0;}
-}
-</style>
 
 </body>
 </html>
