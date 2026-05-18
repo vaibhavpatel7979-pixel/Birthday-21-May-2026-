@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Birthday Movie V3 ❤️</title>
+<title>Birthday Movie V4 ❤️</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&display=swap" rel="stylesheet">
 
@@ -17,7 +17,7 @@ color:white;
 overflow-x:hidden;
 }
 
-/* CINEMATIC BACKGROUND */
+/* BACKGROUND */
 body::before{
 content:'';
 position:fixed;
@@ -91,13 +91,13 @@ font-size:18px;
 cursor:pointer;
 }
 
-/* SCROLL */
+/* SCROLL LINE */
 #scrollHint{
 display:none;
 margin-top:15px;
 color:#ffb3ec;
 font-size:15px;
-animation:blink 1.5s infinite;
+animation:blink 1.4s infinite;
 }
 
 @keyframes blink{
@@ -209,9 +209,11 @@ animation:burst 1.5s ease-out forwards;
 <!-- ENTRY -->
 <div id="entry">
 <h1 id="introText"></h1>
+
 <button class="btn" onclick="enter()">Enter ✨</button>
 
-<div id="scrollHint">⬇ Scroll down to explore your surprise ✨</div>
+<!-- SCROLL LINE FIXED -->
+<div id="scrollHint">⬇ Scroll to see your surprise ✨</div>
 </div>
 
 <!-- AUDIO -->
@@ -221,19 +223,24 @@ animation:burst 1.5s ease-out forwards;
 
 <!-- HERO -->
 <section>
-<h1>Happy Birthday Vidhii ❤️</h1>
+<h1>This is for you 🫶🏻💟</h1>
+
 <p>
-From a random moment… to something unforgettable ✨<br><br>
-Today is not just a birthday… it’s a feeling ❤️
+From a random moment… to something I never expected to mean this much ✨<br><br>
+Today is not just your birthday… it feels like a celebration of your existence itself ❤️<br><br>
+Some people come and go… but some people quietly become part of your heart forever 💗
 </p>
 </section>
 
 <!-- STORY -->
 <section>
 <h1>Our Story ✨</h1>
+
 <p>
 6 June 2025 — First time we crossed paths ✨<br><br>
-28 Sept 2025 — Everything changed 💗
+A simple moment… that slowly became unforgettable ❤️<br><br>
+28 September 2025 — Everything changed inside me 💫<br><br>
+Not loudly… but deeply.
 </p>
 </section>
 
@@ -248,19 +255,26 @@ Today is not just a birthday… it’s a feeling ❤️
 <img src="photo5.jpg">
 
 <div class="song-box">
-💗 Every picture of you feels like a memory I never want to lose<br>
-✨ You are already my definition of beauty<br>
-🌙 Your presence feels like peace
+💗 Every picture of you feels like a memory I want to pause forever<br>
+✨ You are not just beautiful… you are my definition of beautiful<br>
+🌙 Even silence becomes soft when I think about you
 </div>
 </section>
 
-<!-- INSECURITY -->
+<!-- INSECURITY (FIXED + EMOTIONAL HEALING) -->
 <section>
 <h1>To Me You're Beautiful ❤️</h1>
+
 <p>
-Sometimes you might feel unsure about yourself… but I see you differently ❤️<br><br>
-Not based on anything you wear or remove… but based on how you make everything feel calm ✨<br><br>
-You are already enough in every version of you 💗
+I know sometimes you feel insecure about yourself… especially on days when you remove your specs and start overthinking how you look 💗<br><br>
+
+But I need you to understand something very softly… I never see you the way you sometimes see yourself ❤️<br><br>
+
+To me, your face is not a comparison… it is comfort. Your presence is not a question… it is peace ✨<br><br>
+
+Even when you feel “not enough”, I see someone who is already complete in the most natural way 💫<br><br>
+
+You don’t need to hide anything, fix anything, or become anything else… because in my eyes, you are already beautifully real 💗
 </p>
 </section>
 
@@ -272,9 +286,9 @@ You are already enough in every version of you 💗
 <img src="photo7.jpg">
 
 <div class="song-box">
-❤️ With or without specs… you remain the same beautiful person<br>
-💫 Nothing changes how I feel about you<br>
-🌸 You stay special always
+❤️ With specs or without specs… you remain the same beautiful person to me<br>
+💫 Nothing about you becomes less in my eyes<br>
+🌸 You are always enough… always special
 </div>
 </section>
 
@@ -284,12 +298,12 @@ You are already enough in every version of you 💗
 
 <div class="song-box">
 <b>Night Changes</b><br>
-Some feelings stay even when everything changes around them ❤️
+Some feelings don’t fade with time… they just stay quietly in the heart ❤️
 </div>
 
 <div class="song-box">
 <b>Until I Found You</b><br>
-Feels like destiny quietly wrote you into my story ✨
+It feels like destiny gently wrote your name into my story ✨
 </div>
 
 <div class="song-box">
@@ -299,7 +313,7 @@ Even silence reminds me of you 🌙
 
 <div class="song-box">
 <b>I’ll Never Leave You</b><br>
-Some promises are felt more than spoken ❤️
+Some promises are not spoken… they are felt forever ❤️
 </div>
 
 </section>
@@ -320,7 +334,9 @@ Some promises are felt more than spoken ❤️
 <!-- VOICE -->
 <section>
 <h1>A Message 🎙️</h1>
+
 <button class="cake-btn" onclick="playVoice()">Play Voice Note</button>
+
 </section>
 
 <!-- FINAL -->
@@ -330,9 +346,9 @@ Some promises are felt more than spoken ❤️
 <p><b>Vaibhav Patel</b></p>
 
 <div class="song-box">
-✨ You became a feeling I never want to lose<br>
-💗 Even silence feels better with you<br>
-🌙 My heart chose you… always ❤️
+✨ Some people become feelings instead of memories<br>
+💗 And you are that feeling for me<br>
+🌙 I don’t need anything else… just your existence in my world
 </div>
 
 </section>
@@ -356,13 +372,10 @@ typeWriter();
 function enter(){
 document.getElementById("entry").style.display="none";
 document.getElementById("scrollHint").style.display="block";
-
-/* music instant */
-let bg=document.getElementById("bgMusic");
-bg.play().catch(()=>{});
+document.getElementById("bgMusic").play().catch(()=>{});
 }
 
-/* SECTION SCROLL ANIMATION */
+/* SCROLL ANIMATION */
 window.addEventListener("scroll",()=>{
 document.querySelectorAll("section").forEach(sec=>{
 if(sec.getBoundingClientRect().top<600){
@@ -376,13 +389,10 @@ function wish(){
 
 document.getElementById("wishBox").style.display="block";
 
-let music=document.getElementById("birthdayMusic");
-music.play().catch(()=>{});
+let m=document.getElementById("birthdayMusic");
+m.play().catch(()=>{});
 
-document.body.classList.add("zoom");
-setTimeout(()=>document.body.classList.remove("zoom"),1200);
-
-/* FIREWORKS */
+/* FIREWORK */
 for(let i=0;i<35;i++){
 let f=document.createElement("div");
 f.className="big-firework";
@@ -412,15 +422,6 @@ window.location.href="https://wa.me/919399348807?text=Make%20a%20wish%20Vidhuuu%
 /* VOICE */
 function playVoice(){
 document.getElementById("voiceNote").play().catch(()=>{});
-}
-
-/* PARTICLES */
-for(let i=0;i<25;i++){
-let p=document.createElement("div");
-p.className="particle";
-p.style.left=Math.random()*100+"vw";
-p.style.animationDuration=(3+Math.random()*5)+"s";
-document.body.appendChild(p);
 }
 
 </script>
