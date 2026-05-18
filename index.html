@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Birthday Movie V7 ❤️</title>
+<title>Birthday Movie V8 ❤️</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&display=swap" rel="stylesheet">
 
@@ -12,12 +12,12 @@
 
 body{
 font-family:Poppins,sans-serif;
+background:black;
 color:white;
 overflow-x:hidden;
-background:black;
 }
 
-/* 🌌 CINEMATIC BACKGROUND UPGRADE */
+/* 🌌 CINEMATIC BACKGROUND */
 body::before{
 content:'';
 position:fixed;
@@ -28,19 +28,19 @@ radial-gradient(circle at 80% 30%,#7c3aed55,transparent 40%),
 radial-gradient(circle at 50% 80%,#00ffff22,transparent 50%),
 linear-gradient(to bottom,#000,#0a0015,#000);
 z-index:-3;
-animation:bgmove 10s infinite alternate;
+animation:bg 10s infinite alternate;
 }
 
-@keyframes bgmove{
+@keyframes bg{
 0%{filter:brightness(1);}
-100%{filter:brightness(1.3);}
+100%{filter:brightness(1.25);}
 }
 
-/* floating glow dots */
+/* floating dots */
 .dot{
 position:fixed;
-width:6px;
-height:6px;
+width:5px;
+height:5px;
 background:white;
 border-radius:50%;
 opacity:0.4;
@@ -61,8 +61,8 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-background:rgba(0,0,0,0.7);
-backdrop-filter:blur(10px);
+background:rgba(0,0,0,0.85);
+backdrop-filter:blur(8px);
 z-index:9999;
 text-align:center;
 }
@@ -85,13 +85,17 @@ font-size:18px;
 cursor:pointer;
 }
 
-/* SCROLL LINE */
+/* 🔥 SCROLL TEXT FIXED */
 #scrollHint{
 opacity:0;
 margin-top:15px;
 color:#ffb3ec;
-font-size:15px;
-transition:1s;
+font-size:16px;
+animation:blink 1.2s infinite;
+}
+
+@keyframes blink{
+50%{opacity:0.3;}
 }
 
 /* SECTIONS */
@@ -127,7 +131,7 @@ max-width:900px;
 line-height:1.9;
 }
 
-/* SONG BOX */
+/* SONG */
 .song-box{
 background:rgba(255,255,255,.06);
 padding:18px;
@@ -179,15 +183,15 @@ to{transform:translateY(110vh) rotate(720deg);opacity:0;}
 }
 
 /* FIREWORK */
-.big-firework{
+.firework{
 position:fixed;
-font-size:28px;
-z-index:9999;
+font-size:26px;
 animation:burst 1.5s ease-out forwards;
+z-index:9999;
 }
 
 @keyframes burst{
-0%{transform:scale(0);opacity:1;}
+0%{transform:scale(0);}
 100%{transform:scale(4);opacity:0;}
 }
 </style>
@@ -197,9 +201,12 @@ animation:burst 1.5s ease-out forwards;
 
 <!-- ENTRY -->
 <div id="entry">
-<h1 id="introText">This is for you 🫶🏻💟</h1>
+<h1>This is for you 🫶🏻💟</h1>
+
 <button class="btn" onclick="enter()">Enter ✨</button>
-<div id="scrollHint">⬇ Scroll to see your surprise ✨</div>
+
+<!-- IMPORTANT: SCROLL INSTRUCTION -->
+<div id="scrollHint">⬇ Instruction: Scroll to see your surprise ✨</div>
 </div>
 
 <!-- AUDIO -->
@@ -212,21 +219,24 @@ animation:burst 1.5s ease-out forwards;
 <h1>Happy Birthday Vidhii ❤️</h1>
 <p>
 From a random moment… to something unforgettable ✨<br><br>
-You are not just a person… you are a feeling ❤️
+You are not just a person… you are a feeling I never want to lose ❤️
 </p>
 </section>
 
 <!-- STORY -->
 <section>
 <h1>Our Story ✨</h1>
-<p>6 June 2025 — First meeting ✨<br><br>28 Sept 2025 — Everything changed 💗</p>
+<p>
+6 June 2025 — First time we met ✨<br><br>
+28 Sept 2025 — Everything changed 💗
+</p>
 </section>
 
 <!-- BEAUTY -->
 <section>
 <h1>MY BEAUTIFUL 💟</h1>
 
-<img src="photo1.jpg"><p>Your smile is peace ❤️</p>
+<img src="photo1.jpg"><p>Your smile is my peace ❤️</p>
 <img src="photo2.jpg"><p>Your eyes feel like magic ✨</p>
 <img src="photo3.jpg"><p>You are pure beauty 🌙</p>
 <img src="photo4.jpg"><p>You feel like home 💫</p>
@@ -238,10 +248,13 @@ You are not just a person… you are a feeling ❤️
 <section>
 <h1>To Me You're Beautiful ❤️</h1>
 <p>
-I know you feel insecure sometimes 💗<br><br>
-But to me you are always enough ❤️<br><br>
-Nothing changes my feelings… not specs, not anything ✨<br><br>
-You are beautiful in your natural self 💫
+I know sometimes you feel insecure about yourself 💗<br><br>
+
+But I don’t see flaws… I see YOU ✨<br><br>
+
+With or without specs, nothing changes for me ❤️<br><br>
+
+You are already enough the way you are 💫
 </p>
 </section>
 
@@ -253,8 +266,9 @@ You are beautiful in your natural self 💫
 <img src="photo7.jpg">
 
 <div class="song-box">
-You are always the same beautiful soul ❤️<br>
-Nothing changes how I see you 💫
+💗 You are always the same beautiful soul<br>
+✨ Nothing changes how I feel about you<br>
+❤️ You will always be enough for me
 </div>
 </section>
 
@@ -262,10 +276,25 @@ Nothing changes how I see you 💫
 <section>
 <h1>Songs 🎵</h1>
 
-<div class="song-box">Night Changes — I think of you when I hear this ❤️</div>
-<div class="song-box">Until I Found You — it feels like you ✨</div>
-<div class="song-box">Apocalypse — even silence feels like you 🌙</div>
-<div class="song-box">I’ll Never Leave You — it feels like you always ❤️</div>
+<div class="song-box">
+<b>Night Changes</b><br>
+I think of you when I hear this… it feels like you ❤️
+</div>
+
+<div class="song-box">
+<b>Until I Found You</b><br>
+I think of you when I hear this… it feels like destiny ✨
+</div>
+
+<div class="song-box">
+<b>Apocalypse</b><br>
+I think of you when I hear this… even silence feels like you 🌙
+</div>
+
+<div class="song-box">
+<b>I’ll Never Leave You</b><br>
+I think of you when I hear this… because it feels like you ❤️
+</div>
 
 </section>
 
@@ -282,6 +311,14 @@ Nothing changes how I see you 💫
 </div>
 </section>
 
+<!-- VOICE NOTE -->
+<section>
+<h1>A Message 🎙️</h1>
+
+<button class="cake-btn" onclick="playVoice()">Play Voice Note</button>
+
+</section>
+
 <!-- FINAL -->
 <section>
 <h1>Made With Love ❤️</h1>
@@ -290,28 +327,27 @@ Nothing changes how I see you 💫
 
 <div class="song-box">
 Hope you like it 🫶🏻💗✨<br>
-Made with feelings ❤️
+Thank you for being part of this feeling ❤️
 </div>
 
 </section>
 
 <script>
 
-/* AUDIO CONTROLLER */
-let currentAudio=null;
+/* AUDIO CONTROLLER (FIX OVERLAP) */
+let current=null;
 
-function playOnly(audio){
-if(currentAudio){
-currentAudio.pause();
-currentAudio.currentTime=0;
+function playOnly(a){
+if(current){
+current.pause();
+current.currentTime=0;
 }
-currentAudio=audio;
-audio.volume=1;
-audio.play().catch(()=>{});
+current=a;
+a.play().catch(()=>{});
 }
 
 /* FLOATING DOTS */
-for(let i=0;i<60;i++){
+for(let i=0;i<50;i++){
 let d=document.createElement("div");
 d.className="dot";
 d.style.left=Math.random()*100+"vw";
@@ -322,11 +358,9 @@ document.body.appendChild(d);
 /* ENTER */
 function enter(){
 document.getElementById("entry").style.display="none";
-
-/* show scroll line */
 document.getElementById("scrollHint").style.opacity="1";
 
-/* music start FIXED */
+/* bg music */
 playOnly(document.getElementById("bgMusic"));
 }
 
@@ -339,24 +373,30 @@ sec.classList.add("show");
 });
 });
 
-/* WISH */
+/* WISH + WHATSAPP FIX */
 function wish(){
 
 document.getElementById("wishBox").style.display="block";
 
-/* switch music */
 playOnly(document.getElementById("birthdayMusic"));
 
-/* fireworks */
-for(let i=0;i<35;i++){
+for(let i=0;i<30;i++){
 let f=document.createElement("div");
-f.className="big-firework";
-f.innerHTML=["🎆","✨","🎇","💥"][Math.floor(Math.random()*4)];
+f.className="firework";
+f.innerHTML="✨";
 f.style.left=Math.random()*100+"vw";
 f.style.top=Math.random()*70+"vh";
 document.body.appendChild(f);
 setTimeout(()=>f.remove(),1500);
 }
+
+/* FIXED WHATSAPP */
+setTimeout(()=>{
+window.open(
+"https://wa.me/919399348807?text=Make%20a%20wish%20Vidhuuu%20🫶🏻✨",
+"_blank"
+);
+},1500);
 
 }
 
