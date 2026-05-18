@@ -18,6 +18,7 @@ color:white;
 overflow-x:hidden;
 }
 
+/* BACKGROUND */
 body::before{
 content:'';
 position:fixed;
@@ -57,7 +58,7 @@ cursor:pointer;
 font-size:18px;
 }
 
-/* SECTIONS */
+/* SECTIONS (FIXED - ALWAYS VISIBLE AFTER ENTRY) */
 section{
 min-height:100vh;
 display:flex;
@@ -68,6 +69,7 @@ text-align:center;
 padding:80px 20px;
 }
 
+/* TITLES */
 h1{
 font-size:65px;
 background:linear-gradient(to right,#ffb3ec,#fff,#d8b4fe);
@@ -85,12 +87,10 @@ line-height:1.8;
 /* SONG BOX */
 .song-box{
 background:rgba(255,255,255,.06);
-padding:20px;
+padding:18px;
 border-radius:20px;
 margin:10px;
 max-width:800px;
-backdrop-filter:blur(10px);
-border:1px solid rgba(255,255,255,.1);
 }
 
 /* GALLERY */
@@ -121,39 +121,31 @@ margin-top:8px;
 color:#ffb3ec;
 }
 
-/* CAKE SECTION */
-.cake-box{
-text-align:center;
-padding:60px 20px;
-}
-
+/* CAKE */
 .cake{
-font-size:170px;
+font-size:160px;
 animation:pulse 2s infinite;
-text-shadow:0 0 30px rgba(255,20,147,.5);
 }
 
 @keyframes pulse{
 50%{transform:scale(1.1);}
 }
 
-.cake-btn{
-margin-top:25px;
-padding:16px 45px;
+.btn2{
+margin-top:20px;
+padding:15px 40px;
 border:none;
-border-radius:50px;
+border-radius:40px;
 background:linear-gradient(135deg,#ff1493,#9333ea);
 color:white;
-font-size:18px;
 cursor:pointer;
 }
 
-/* WISH BOX SEPARATE */
+/* WISH */
 #wishBox{
 display:none;
-margin-top:20px;
+margin-top:15px;
 color:#ffb3ec;
-font-size:18px;
 }
 
 </style>
@@ -173,29 +165,27 @@ font-size:18px;
 <audio id="birthdayMusic" src="birthday.mp3"></audio>
 <audio id="voiceNote" src="voice.mp3"></audio>
 
-<!-- HERO -->
+<!-- CONTENT (NOW ALWAYS VISIBLE AFTER ENTRY FIX) -->
+
 <section>
 <h1>Happy Birthday Vidhii ❤️</h1>
 <p>From a random moment… to forever ✨</p>
 </section>
 
-<!-- SONGS (RESTORED FULL RELATABLE STYLE) -->
 <section>
 <h1>Songs 🎵</h1>
 
-<div class="song-box">Night Changes — Everything changes but feelings don’t ❤️</div>
-<div class="song-box">Until I Found You — Feels like destiny 🎶</div>
-<div class="song-box">Apocalypse — Even silence feels like you 🌙</div>
+<div class="song-box">Night Changes — feelings never change ❤️</div>
+<div class="song-box">Until I Found You — destiny vibe 🎶</div>
+<div class="song-box">Apocalypse — silent love 🌙</div>
 
 </section>
 
-<!-- STORY -->
 <section>
 <h1>Our Story ✨</h1>
 <p>6 June 2025 — We met<br>28 Sept 2025 — Everything changed</p>
 </section>
 
-<!-- MY BEAUTIFUL -->
 <section>
 <h1>MY BEAUTIFUL ❤️</h1>
 
@@ -208,7 +198,6 @@ font-size:18px;
 </div>
 </section>
 
-<!-- INSECURITY -->
 <section>
 <h1>To Me You're Beautiful ❤️</h1>
 
@@ -216,52 +205,42 @@ font-size:18px;
 I know sometimes you don't see yourself the way I see you...
 
 <br><br>
-but honestly you are one of the cutest girls to me ❤️
+but you are beautiful to me ❤️
 
 <br><br>
-Everything about you is naturally beautiful ✨
+Everything about you is natural and perfect ✨
 
 <br><br>
-Your smile, eyes, expressions… all perfect 💗
+Your smile, eyes, expressions… 💗
 
 <br><br>
-And your nose? it's cute 😭❤️
+And your nose? cute 😭❤️
 
 <br><br>
 Please never change yourself.
 
 <br><br>
-Because when I look at you, I just see the girl I love ❤️
+Because I just see you as the girl I love ❤️
 </p>
-
-<div class="gallery">
-<div class="photo-frame"><img src="photo6.jpg"><div class="note">This smile ❤️</div></div>
-<div class="photo-frame"><img src="photo7.jpg"><div class="note">Perfect ✨</div></div>
-</div>
 </section>
 
-<!-- 🎂 CAKE SECTION (IMPROVED MAIN BIRTHDAY MOMENT) -->
-<section class="cake-box">
-
+<section>
 <h1>🎂 Birthday Moment</h1>
 
 <div class="cake">🎂</div>
 
-<p>Close your eyes… make a wish… this moment is yours ❤️</p>
+<p>Make a wish… this moment is yours ❤️</p>
 
-<button class="cake-btn" onclick="showWish()">Make a Wish ✨</button>
+<button class="btn2" onclick="wish()">Make a Wish ✨</button>
 
 <div id="wishBox">✨ Make a wish Vidhuuu 🫶🏻✨</div>
-
 </section>
 
-<!-- VOICE -->
 <section>
 <h1>A Message 🎙️</h1>
-<button class="btn" onclick="playVoice()">Play Voice</button>
+<button class="btn2" onclick="playVoice()">Play Voice</button>
 </section>
 
-<!-- FINAL -->
 <section>
 <h1>Made With Love ❤️</h1>
 <p><b>Vaibhav Patel</b><br><br>Once again Happy Birthday Dear ❤️</p>
@@ -271,24 +250,22 @@ Because when I look at you, I just see the girl I love ❤️
 
 let musicStarted=false;
 
-/* ENTER MUSIC */
 function enter(){
 document.getElementById("entry").style.display="none";
+
 if(!musicStarted){
 document.getElementById("bgMusic").play().catch(()=>{});
 musicStarted=true;
 }
 }
 
-/* CAKE WISH */
-function showWish(){
+function wish(){
 document.getElementById("wishBox").style.display="block";
 
 const b=document.getElementById("birthdayMusic");
 b.currentTime=0;
 b.play();
 
-/* WHATSAPP FIXED TEXT */
 setTimeout(()=>{
 window.open(
 "https://wa.me/919399348807?text=Make%20a%20wish%20Vidhuuu%20🫶🏻✨",
@@ -297,7 +274,6 @@ window.open(
 },1200);
 }
 
-/* VOICE FIX */
 function playVoice(){
 const v=document.getElementById("voiceNote");
 v.currentTime=0;
