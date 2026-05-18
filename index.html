@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Happy Birthday Vidhii ❤️</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
@@ -61,12 +62,25 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-padding:40px 20px;
+padding:60px 20px;
 position:relative;
 }
 
+.scroll-text{
+position:absolute;
+bottom:40px;
+font-size:18px;
+color:#ddd;
+animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(10px);}
+}
+
 .hero h1{
-font-size:90px;
+font-size:85px;
 font-weight:800;
 line-height:1.1;
 background:linear-gradient(to right,#ffb3ec,#fff,#d8b4fe);
@@ -77,10 +91,10 @@ animation:glow 2s infinite alternate;
 
 .hero p{
 margin-top:30px;
-font-size:28px;
+font-size:26px;
 color:#ddd;
-max-width:900px;
 line-height:1.8;
+max-width:900px;
 }
 
 .tap-btn{
@@ -101,173 +115,119 @@ transition:.4s;
 transform:scale(1.08);
 }
 
-.match-box{
-background:rgba(255,255,255,.08);
-border:1px solid rgba(255,255,255,.1);
-backdrop-filter:blur(15px);
-padding:40px;
-border-radius:35px;
-max-width:900px;
-width:100%;
-box-shadow:0 0 50px rgba(255,255,255,.05);
-}
-
-.match-title{
-font-size:70px;
-font-weight:800;
-background:linear-gradient(to right,#ff8ad8,#fff,#c084fc);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-margin-bottom:25px;
-}
-
-.match-sub{
-font-size:28px;
-color:#ddd;
-line-height:1.8;
-}
-
-.players{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:35px;
-width:100%;
-max-width:1100px;
-margin-top:70px;
-}
-
-.player-card{
-background:rgba(255,255,255,.08);
-border:1px solid rgba(255,255,255,.1);
-border-radius:35px;
-padding:40px 20px;
-backdrop-filter:blur(15px);
-transition:.4s;
-}
-
-.player-card:hover{
-transform:translateY(-10px) scale(1.03);
-}
-
-.player-card h2{
-font-size:42px;
-margin-bottom:15px;
-color:#ff9de6;
-}
-
-.player-card p{
-font-size:22px;
-color:#ddd;
-line-height:1.8;
-}
-
-.timeline{
-max-width:1000px;
-width:100%;
-margin-top:50px;
-}
-
-.event{
-background:rgba(255,255,255,.08);
-border-left:5px solid #ff4fd8;
-padding:35px;
-border-radius:25px;
-margin:30px 0;
-text-align:left;
-backdrop-filter:blur(15px);
-}
-
-.event h3{
-font-size:32px;
-color:#ffb3ec;
-margin-bottom:10px;
-}
-
-.event p{
-font-size:22px;
-color:#ddd;
-line-height:1.8;
-}
-
-.gallery-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
-width:100%;
-max-width:1200px;
-margin-top:60px;
-}
-
-.memory-card{
-background:rgba(255,255,255,.08);
-border-radius:30px;
-overflow:hidden;
-backdrop-filter:blur(15px);
-border:1px solid rgba(255,255,255,.1);
-transition:.4s;
-}
-
-.memory-card:hover{
-transform:translateY(-10px);
-}
-
-.memory-image{
-height:320px;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:90px;
-background:linear-gradient(to bottom right,#ff1493,#9333ea);
-}
-
-.memory-card p{
-padding:25px;
-font-size:20px;
-line-height:1.8;
-color:#ddd;
-}
-
-.heart-box{
-width:240px;
-height:240px;
-border-radius:50%;
-background:radial-gradient(circle,#ff1493,#7e22ce);
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:110px;
-box-shadow:0 0 80px rgba(255,20,147,.5);
-animation:pulse 2s infinite;
-margin-top:40px;
-}
-
-.final-text{
+.title{
 font-size:65px;
 font-weight:800;
-line-height:1.4;
+margin-bottom:30px;
 background:linear-gradient(to right,#ffb3ec,#fff,#d8b4fe);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 animation:glow 2s infinite alternate;
 }
 
-.final-para{
-margin-top:40px;
-font-size:28px;
+.subtitle{
+font-size:26px;
+line-height:1.9;
 color:#ddd;
 max-width:900px;
-line-height:2;
 }
 
-.music-note{
-position:fixed;
-bottom:20px;
-right:20px;
-background:rgba(255,255,255,.1);
-padding:15px 20px;
-border-radius:50px;
-backdrop-filter:blur(10px);
-font-size:18px;
+.quote-box{
+background:rgba(255,255,255,.08);
+border:1px solid rgba(255,255,255,.1);
+backdrop-filter:blur(15px);
+padding:35px;
+border-radius:30px;
+margin:25px 0;
+max-width:900px;
+width:100%;
+box-shadow:0 0 40px rgba(255,255,255,.05);
+transition:.4s;
+}
+
+.quote-box:hover{
+transform:translateY(-10px);
+}
+
+.quote-box h2{
+font-size:32px;
+color:#ffb3ec;
+margin-bottom:15px;
+}
+
+.quote-box p{
+font-size:22px;
+line-height:1.8;
+color:#ddd;
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+width:100%;
+max-width:1200px;
+margin-top:50px;
+}
+
+.photo-frame{
+background:rgba(255,255,255,.08);
+padding:15px;
+border-radius:35px;
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,.1);
+box-shadow:0 0 40px rgba(255,20,147,.15);
+transition:.5s;
+}
+
+.photo-frame:hover{
+transform:scale(1.04) translateY(-10px);
+}
+
+.photo-frame img{
+width:100%;
+height:420px;
+object-fit:cover;
+border-radius:25px;
+}
+
+.cake{
+font-size:150px;
+animation:pulse 2s infinite;
+}
+
+.wish-message{
+margin-top:30px;
+font-size:28px;
+color:#ffb3ec;
+display:none;
+animation:fadeIn 1s ease;
+}
+
+.voice-box{
+margin-top:40px;
+background:rgba(255,255,255,.08);
+padding:35px;
+border-radius:35px;
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,.1);
+}
+
+.play-btn{
+width:120px;
+height:120px;
+border:none;
+border-radius:50%;
+font-size:50px;
+background:linear-gradient(to right,#ff1493,#9333ea);
+color:white;
+cursor:pointer;
+box-shadow:0 0 50px rgba(255,20,147,.5);
+transition:.4s;
+}
+
+.play-btn:hover{
+transform:scale(1.1);
 }
 
 @keyframes glow{
@@ -286,30 +246,42 @@ text-shadow:
 0%,100%{
 transform:scale(1);
 }
+
 50%{
 transform:scale(1.05);
+}
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
 }
 }
 
 @media(max-width:768px){
 
 .hero h1,
-.final-text,
-.match-title{
+.title{
 font-size:52px;
 }
 
 .hero p,
-.final-para,
-.match-sub,
-.event p,
-.player-card p{
+.subtitle,
+.quote-box p{
 font-size:20px;
 }
 
-.event h3,
-.player-card h2{
+.quote-box h2{
 font-size:28px;
+}
+
+.photo-frame img{
+height:350px;
 }
 
 }
@@ -319,54 +291,19 @@ font-size:28px;
 
 <body>
 
-<style>
-html{
-scroll-snap-type:y mandatory;
-overflow-y:scroll;
-}
-
-section{
-scroll-snap-align:start;
-}
-
-.slideshow-container{
-position:relative;
-width:100%;
-max-width:900px;
-margin-top:50px;
-overflow:hidden;
-border-radius:35px;
-box-shadow:0 0 50px rgba(255,20,147,.2);
-}
-
-.slide{
-display:none;
-width:100%;
-height:500px;
-object-fit:cover;
-}
-
-.active-slide{
-display:block;
-animation:fade 1s ease;
-}
-
-@keyframes fade{
-from{opacity:.3;transform:scale(1.03)}
-to{opacity:1;transform:scale(1)}
-}
-
-</style>
-
-<audio autoplay loop id="music">
+<audio id="bgMusic" loop>
 <source src="song.mp3" type="audio/mpeg">
 </audio>
 
-<div class="stars" id="stars"></div>
+<audio id="birthdayMusic">
+<source src="birthday.mp3" type="audio/mpeg">
+</audio>
 
-<div class="music-note" onclick="toggleMusic()" style="cursor:pointer;">
-🎵 Romantic Mode
-</div>
+<audio id="voiceNote">
+<source src="voice.mp3" type="audio/mpeg">
+</audio>
+
+<div class="stars" id="stars"></div>
 
 <section class="hero">
 
@@ -376,61 +313,90 @@ Vidhii ❤️
 </h1>
 
 <p>
-From one random Free Fire match...
-<br>
+From one random moment...
 to becoming my favorite person forever ✨
 </p>
 
-<button class="tap-btn" onclick="startExperience()">
+<button class="tap-btn" onclick="startWebsite()">
 Tap To Begin ✨
 </button>
 
-</section>
-
-<section>
-
-<div class="match-box">
-
-<h2 class="match-title">
-MATCH FOUND 🎮
-</h2>
-
-<p class="match-sub">
-Searching for teammate...
-<br><br>
-Connection Established ❤️
-<br><br>
-6 June 2025 changed everything ✨
-</p>
-
+<div class="scroll-text">
+↓ Scroll Slowly For A Surprise ❤️
 </div>
 
 </section>
 
 <section>
 
-<h1 class="match-title">
-DUO CREATED ❤️
+<h1 class="title">
+For You ❤️
 </h1>
 
-<div class="players">
-
-<div class="player-card">
-<h2>PLAYER 1</h2>
+<div class="quote-box">
+<h2>💗 Happy Birthday Sweetheart</h2>
 <p>
-VAIBHAV ❤️
-<br><br>
-Loves Vidhii infinitely ✨
+I hope this year brings you everything your heart truly desires ✨
 </p>
 </div>
 
-<div class="player-card">
-<h2>PLAYER 2</h2>
+<div class="quote-box">
+<h2>💟 I Loveeeee Youuuuu Soooo Muucchhh Vidhuuuu</h2>
 <p>
-VIDHII ❤️
-<br><br>
-The best thing ever happened to Vaibhav ✨
+You are genuinely the most beautiful part of my life ❤️
 </p>
+</div>
+
+<div class="quote-box">
+<h2>🫶🏻 Always Be Happy</h2>
+<p>
+May you become the happiest and strongest version of yourself this year 🧿
+</p>
+</div>
+
+<div class="quote-box">
+<h2>🤍 I'll Always Be There</h2>
+<p>
+No matter what happens,
+I'll always stand beside you ❤️
+</p>
+</div>
+
+<div class="quote-box">
+<h2>💍 Forever</h2>
+<p>
+I'll always be yours forever ✨
+</p>
+</div>
+
+</section>
+
+<section>
+
+<h1 class="title">
+Beautiful Memories 📸
+</h1>
+
+<div class="gallery">
+
+<div class="photo-frame">
+<img src="photo1.jpg">
+</div>
+
+<div class="photo-frame">
+<img src="photo2.jpg">
+</div>
+
+<div class="photo-frame">
+<img src="photo3.jpg">
+</div>
+
+<div class="photo-frame">
+<img src="photo4.jpg">
+</div>
+
+<div class="photo-frame">
+<img src="photo5.jpg">
 </div>
 
 </div>
@@ -439,160 +405,47 @@ The best thing ever happened to Vaibhav ✨
 
 <section>
 
-<h1 class="match-title">
-MISSIONS UNLOCKED 💌
+<h1 class="title">
+Make A Wish 🎂
 </h1>
 
-<div class="timeline">
-
-<div class="event">
-<h3>🎮 Mission 1 — First Match</h3>
-<p>
-We met in Free Fire on 6 June 2025...
-and little did I know that one random game would change my life forever ❤️
-</p>
-</div>
-
-<div class="event">
-<h3>💬 Mission 2 — Endless Talks</h3>
-<p>
-Slowly our chats became special,
-our nights became longer,
-and you became my comfort person ✨
-</p>
-</div>
-
-<div class="event">
-<h3>❤️ Mission 3 — Relationship</h3>
-<p>
-28 September 2025 • 10:21 PM
-<br><br>
-The moment we officially became each other’s favorite person ❤️
-</p>
-</div>
-
-<div class="event">
-<h3>🌙 Mission 4 — Long Distance Love</h3>
-<p>
-Even from far away,
-you still became the closest person to my heart ✨
-</p>
-</div>
-
-</div>
-
-</section>
-
-<section>
-
-<h1 class="match-title">
-UNLOCKED MEMORIES 📸
-</h1>
-
-<p class="final-para">
-Every photo feels like home ❤️
-</p>
-
-<div class="slideshow-container">
-
-<img src="photo1.jpg" class="slide active-slide">
-
-<img src="photo2.jpg" class="slide">
-
-<img src="photo3.jpg" class="slide">
-
-<img src="photo4.jpg" class="slide">
-
-<img src="photo5.jpg" class="slide">
-
-</div>
-
-<p class="final-para">
-Replace these with Vidhii’s real photos ✨
-</p>
-
-</section>
-
-<section>
-
-<h1 class="match-title">
-PRESS & HOLD ❤️
-</h1>
-
-<div class="heart-box" id="heartBox">
-❤️
-</div>
-
-<p class="final-para" id="heartMessage">
-Touch and hold the heart ✨
-</p>
-
-</section>
-
-<section>
-
-<h1 class="match-title">
-MAKE A WISH 🎂
-</h1>
-
-<div class="heart-box" style="font-size:90px;">
+<div class="cake" id="cake">
 🎂
 </div>
 
-<p class="final-para">
-Blow the candles and make a wish ❤️
+<p class="subtitle">
+Blow the candles and make a beautiful wish ❤️
 </p>
 
-<button class="tap-btn" onclick="sendWish()">
-Make A Wish ✨
+<button class="tap-btn" onclick="blowCandles()">
+Blow Candles ✨
 </button>
 
+<div class="wish-message" id="wishMessage">
+Wish received ❤️✨
+</div>
+
 </section>
 
 <section>
 
-<h1 class="match-title">
-FOR YOU ❤️
+<h1 class="title">
+One Last Thing... ❤️
 </h1>
 
-<div class="timeline">
-
-<div class="event">
-<h3>💗 Happy Birthday Sweetheart</h3>
-<p>
-You are the most beautiful part of my life ✨
+<p class="subtitle">
+I wanted you to hear this from me ✨
 </p>
-</div>
 
-<div class="event">
-<h3>💟 I Loveeeee Youuuuu Soooo Muucchhh Vidhuuuu</h3>
-<p>
-Every moment with you feels magical ❤️
-</p>
-</div>
+<div class="voice-box">
 
-<div class="event">
-<h3>🫶🏻 I'll Always Be There With You</h3>
-<p>
-In every situation,
-every emotion,
-and every phase of life ✨
-</p>
-</div>
+<button class="play-btn" onclick="playVoice()">
+▶
+</button>
 
-<div class="event">
-<h3>🤍 I'll Never Leave You ISTG</h3>
-<p>
-No distance can reduce my love for you ❤️
+<p class="subtitle" style="margin-top:25px;">
+Play Voice Note 🎙️
 </p>
-</div>
-
-<div class="event">
-<h3>💍 I'll Be Yours Forever</h3>
-<p>
-Forever started the moment I met you 🎮❤️
-</p>
-</div>
 
 </div>
 
@@ -600,17 +453,15 @@ Forever started the moment I met you 🎮❤️
 
 <section>
 
-<h1 class="final-text">
-From Free Fire...
-<br>
-To Forever ❤️
+<h1 class="title">
+From My Heart ❤️
 </h1>
 
-<p class="final-para">
+<p class="subtitle">
 Thank you for every smile,
-late night talk,
-love,
-and every beautiful moment you gave me ✨
+every late night talk,
+every memory,
+and every moment you gave me ✨
 <br><br>
 Happy Birthday My Love ❤️
 </p>
@@ -619,76 +470,58 @@ Happy Birthday My Love ❤️
 
 <script>
 
-// AUTO SLIDESHOW
-
-let currentSlide = 0;
-const slides = document.querySelectorAll('.slide');
-
-function showSlides(){
-slides.forEach(slide=>slide.classList.remove('active-slide'));
-
-currentSlide++;
-
-if(currentSlide > slides.length){
-currentSlide = 1;
-}
-
-slides[currentSlide-1].classList.add('active-slide');
-
-setTimeout(showSlides,3000);
-}
-
-showSlides();
-
 const stars = document.getElementById('stars');
 
 for(let i=0;i<200;i++){
+
 const star = document.createElement('div');
+
 star.classList.add('star');
+
 star.style.left = Math.random()*100 + '%';
+
 star.style.top = Math.random()*100 + '%';
+
 star.style.animationDuration = (Math.random()*3+2)+'s';
+
 stars.appendChild(star);
+
 }
 
-function playMusic(){
-document.getElementById('music').play();
-}
+function startWebsite(){
 
-function startExperience(){
+document.getElementById('bgMusic').play();
+
 window.scrollTo({
 top:window.innerHeight,
 behavior:'smooth'
 });
-playMusic();
+
 }
 
-function toggleMusic(){
-const music = document.getElementById('music');
+function blowCandles(){
 
-if(music.paused){
-music.play();
-}else{
-music.pause();
+document.getElementById('cake').innerHTML='🕯️❌';
+
+document.getElementById('wishMessage').style.display='block';
+
+document.getElementById('birthdayMusic').play();
+
+setTimeout(()=>{
+
+window.open(
+'https://wa.me/919399348807?text=She%20made%20a%20wish%20❤️✨'
+);
+
+},2000);
+
 }
+
+function playVoice(){
+
+document.getElementById('voiceNote').play();
+
 }
-
-function sendWish(){
-window.open('https://wa.me/919399348807?text=Happy%20Birthday%20Vidhii%20❤️');
-}
-
-const heart = document.getElementById('heartBox');
-const heartMessage = document.getElementById('heartMessage');
-
-heart.addEventListener('touchstart',()=>{
-heart.style.transform='scale(1.2)';
-heart.style.boxShadow='0 0 120px rgba(255,20,147,.9)';
-heartMessage.innerHTML='Every heartbeat chooses you ❤️';
-});
-
-heart.addEventListener('touchend',()=>{
-heart.style.transform='scale(1)';
-});
 
 </script>
 
