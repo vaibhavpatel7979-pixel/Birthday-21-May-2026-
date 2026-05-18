@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Birthday Movie V8.1 ❤️</title>
+<title>Birthday Movie ❤️</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&display=swap" rel="stylesheet">
 
@@ -17,7 +17,7 @@ color:white;
 overflow-x:hidden;
 }
 
-/* BACKGROUND */
+/* CINEMATIC BACKGROUND */
 body::before{
 content:'';
 position:fixed;
@@ -61,16 +61,16 @@ font-size:18px;
 cursor:pointer;
 }
 
-/* 👇 IMPORTANT: scroll line only for AFTER entry */
+/* SCROLL LINE (FIXED: AUTO HIDE) */
 #scrollHint{
 position:fixed;
-top:85%;
+bottom:40px;
 left:50%;
 transform:translateX(-50%);
 opacity:0;
 color:#ffb3ec;
 font-size:16px;
-transition:1s;
+transition:0.8s;
 animation:blink 1.2s infinite;
 }
 
@@ -131,47 +131,143 @@ margin-top:15px;
 
 <body>
 
-<!-- ENTRY -->
+<!-- ENTRY (UNCHANGED CONTENT) -->
 <div id="entry">
 <h1>This is for you 🫶🏻💟</h1>
 <button class="btn" onclick="enter()">Enter ✨</button>
 </div>
 
-<!-- 👇 scroll hint OUTSIDE entry -->
+<!-- SCROLL LINE -->
 <div id="scrollHint">⬇ Scroll to see your surprise ✨</div>
 
 <!-- AUDIO -->
 <audio id="bgMusic" loop src="song.mp3"></audio>
+<audio id="birthdayMusic" src="birthday.mp3"></audio>
+<audio id="voiceNote" src="voice.mp3"></audio>
 
 <!-- HERO -->
 <section>
-<h1>Happy Birthday ❤️</h1>
-<p>This is your cinematic surprise ✨</p>
+<h1>Happy Birthday Vidhii ❤️</h1>
+<p>
+From a random moment… to something unforgettable ✨<br><br>
+You are not just a person… you are a feeling ❤️
+</p>
+</section>
+
+<!-- STORY -->
+<section>
+<h1>Our Story ✨</h1>
+<p>
+6 June 2025 — First meeting ✨<br><br>
+28 Sept 2025 — Everything changed 💗
+</p>
+</section>
+
+<!-- BEAUTY -->
+<section>
+<h1>MY BEAUTIFUL 💟</h1>
+
+<p>
+Your smile, your eyes, your presence… everything feels like peace ❤️
+</p>
+</section>
+
+<!-- INSECURITY (KEPT FULL AND SOFT) -->
+<section>
+<h1>To Me You're Beautiful ❤️</h1>
+
+<p>
+I know sometimes you feel a little insecure 💗<br><br>
+But from my side, I only see someone truly beautiful ✨<br><br>
+With or without anything… you are still you, and that is more than enough ❤️
+</p>
+</section>
+
+<!-- ALWAYS YOU -->
+<section>
+<h1>Always You ❤️</h1>
+
+<p>
+No matter what changes around… my way of seeing you will never change ✨
+</p>
+</section>
+
+<!-- SONGS -->
+<section>
+<h1>Songs 🎵</h1>
+
+<p>
+Night Changes — I think of you when I hear this ❤️<br><br>
+Until I Found You — it feels like destiny ✨<br><br>
+Apocalypse — silence reminds me of you 🌙<br><br>
+I’ll Never Leave You — it feels like you ❤️
+</p>
 </section>
 
 <!-- CAKE -->
 <section>
 <h1>🎂 Cake Moment</h1>
+
 <div class="cake">🎂</div>
-<button class="cake-btn">Make Wish ✨</button>
+
+<button class="cake-btn" onclick="wish()">Make Wish ✨</button>
+
+<div id="wishBox" style="display:none;color:#ffb3ec;margin-top:10px;">
+✨ Wish received 💗
+</div>
+</section>
+
+<!-- VOICE -->
+<section>
+<h1>A Message 🎙️</h1>
+
+<button class="cake-btn" onclick="playVoice()">Play Voice Note</button>
+
+</section>
+
+<!-- FINAL -->
+<section>
+<h1>Made With Love ❤️</h1>
+
+<p>
+Hope you like it 🫶🏻💗✨<br>
+— Vaibhav Patel
+</p>
+
 </section>
 
 <script>
 
-/* ENTER FIX */
+/* AUDIO FIX (NO OVERLAP) */
+let current=null;
+
+function playOnly(a){
+if(current){
+current.pause();
+current.currentTime=0;
+}
+current=a;
+a.play().catch(()=>{});
+}
+
+/* ENTER */
 function enter(){
 document.getElementById("entry").style.display="none";
 
-/* show scroll AFTER enter */
-setTimeout(()=>{
-document.getElementById("scrollHint").style.opacity="1";
-},800);
+/* SHOW SCROLL LINE AFTER ENTRY */
+let hint=document.getElementById("scrollHint");
+hint.style.opacity="1";
 
-/* music start */
-document.getElementById("bgMusic").play().catch(()=>{});
+/* AUTO DISAPPEAR AFTER 3 SEC */
+setTimeout(()=>{
+hint.style.opacity="0";
+},3000);
+
+/* START MUSIC */
+playOnly(document.getElementById("bgMusic"));
 }
 
-/* SCROLL ANIMATION */
+/* SCROLL EFFECT */
 window.addEventListener("scroll",()=>{
 document.querySelectorAll("section").forEach(sec=>{
 if(sec.getBoundingClientRect().top<600){
@@ -179,6 +275,21 @@ sec.classList.add("show");
 }
 });
 });
+
+/* WISH */
+function wish(){
+document.getElementById("wishBox").style.display="block";
+playOnly(document.getElementById("birthdayMusic"));
+
+setTimeout(()=>{
+window.open("https://wa.me/919399348807?text=Make%20a%20wish%20Vidhuuu%20🫶🏻✨","_blank");
+},1200);
+}
+
+/* VOICE */
+function playVoice(){
+playOnly(document.getElementById("voiceNote"));
+}
 
 </script>
 
