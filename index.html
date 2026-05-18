@@ -8,7 +8,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&display=swap" rel="stylesheet">
 
 <style>
-
 *{margin:0;padding:0;box-sizing:border-box;}
 
 body{
@@ -18,7 +17,6 @@ color:white;
 overflow-x:hidden;
 }
 
-/* BACKGROUND */
 body::before{
 content:'';
 position:fixed;
@@ -29,7 +27,6 @@ radial-gradient(circle at bottom,#12001f,#000);
 z-index:-3;
 }
 
-/* STAR */
 .star{
 position:fixed;
 width:2px;
@@ -44,7 +41,6 @@ from{opacity:.2;}
 to{opacity:1;}
 }
 
-/* ENTRY */
 #entry{
 position:fixed;
 inset:0;
@@ -76,7 +72,6 @@ font-size:18px;
 box-shadow:0 0 40px rgba(255,20,147,.4);
 }
 
-/* SECTIONS */
 section{
 min-height:100vh;
 display:flex;
@@ -101,7 +96,6 @@ max-width:950px;
 line-height:1.9;
 }
 
-/* SONG BOX */
 .song-box{
 background:rgba(255,255,255,.06);
 padding:20px;
@@ -112,7 +106,6 @@ backdrop-filter:blur(12px);
 border:1px solid rgba(255,255,255,.1);
 }
 
-/* GALLERY */
 .gallery{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -141,15 +134,8 @@ color:#ffb3ec;
 font-size:14px;
 }
 
-/* CAKE */
-.cake{
-font-size:180px;
-animation:pulse 2s infinite;
-}
-
-@keyframes pulse{
-50%{transform:scale(1.12);}
-}
+.cake{font-size:180px;animation:pulse 2s infinite;}
+@keyframes pulse{50%{transform:scale(1.12);}}
 
 .cake-btn{
 margin-top:20px;
@@ -161,7 +147,6 @@ color:white;
 cursor:pointer;
 }
 
-/* CONFETTI */
 .confetti{
 position:fixed;
 width:10px;
@@ -172,13 +157,9 @@ z-index:9999;
 }
 
 @keyframes fall{
-to{
-transform:translateY(110vh) rotate(720deg);
-opacity:0;
-}
+to{transform:translateY(110vh) rotate(720deg);opacity:0;}
 }
 
-/* FIREWORK */
 .firework{
 position:fixed;
 font-size:18px;
@@ -191,9 +172,7 @@ z-index:9999;
 100%{transform:scale(3);opacity:0;}
 }
 
-.shake{
-animation:shake .5s;
-}
+.shake{animation:shake .5s;}
 
 @keyframes shake{
 0%,100%{transform:translate(0);}
@@ -209,7 +188,6 @@ margin-top:15px;
 color:#ffb3ec;
 font-size:18px;
 }
-
 </style>
 </head>
 
@@ -237,50 +215,76 @@ font-size:18px;
 <h1>Songs 🎵</h1>
 
 <div class="song-box">Night Changes — feelings never change ❤️</div>
-<div class="song-box">Until I Found You — destiny felt real ✨</div>
-<div class="song-box">Apocalypse — silence still feels you 🌙</div>
-<div class="song-box">I’ll Never Leave You — always yours ❤️</div>
+<div class="song-box">Until I Found You — destiny ✨</div>
+<div class="song-box">Apocalypse — silence 🌙</div>
+<div class="song-box">I’ll Never Leave You ❤️</div>
 
 </section>
 
-<!-- STORY EXTENDED -->
+<!-- STORY -->
 <section>
 <h1>Our Story ✨</h1>
 
 <p>
-It didn’t start like something special… but it became special on its own ❤️<br><br>
-
-6 June 2025 — the day we first crossed paths…<br>
-just a normal moment that slowly became unforgettable ✨<br><br>
-
-From strangers → conversations → comfort → feelings we never planned…<br><br>
-
-28 September 2025 — everything inside me quietly changed.<br>
-That day wasn’t just a date anymore… it became a memory I feel deeply 💗
+6 June 2025 — First time we crossed paths ✨<br><br>
+A normal moment slowly became unforgettable ❤️<br><br>
+28 September 2025 — Everything changed inside me 💗
 </p>
 
 </section>
 
-<!-- INSECURITY SECTION (UPDATED + SOFT) -->
+<!-- 💟 MY BEAUTIFUL (RESTORED FULL SECTION) -->
+<section>
+<h1>MY BEAUTIFUL 💟</h1>
+
+<div class="gallery">
+<div class="photo-frame">
+<img src="photo1.jpg">
+<div class="note">Smile ❤️</div>
+</div>
+
+<div class="photo-frame">
+<img src="photo2.jpg">
+<div class="note">Eyes ✨</div>
+</div>
+
+<div class="photo-frame">
+<img src="photo3.jpg">
+<div class="note">Cute 💗</div>
+</div>
+
+<div class="photo-frame">
+<img src="photo4.jpg">
+<div class="note">Peace 🌸</div>
+</div>
+
+<div class="photo-frame">
+<img src="photo5.jpg">
+<div class="note">Forever ❤️</div>
+</div>
+</div>
+
+<div class="song-box">
+✨ “Your smile is my favorite view.”<br><br>
+💗 “You don’t need perfection, you already feel perfect to me.”<br><br>
+🌙 “Every photo of you feels like a memory I want to keep forever.”<br><br>
+❤️ “You are my definition of beautiful.”
+</div>
+
+</section>
+
+<!-- INSECURITY -->
 <section>
 <h1>To Me You're Beautiful ❤️</h1>
 
 <p>
-I know sometimes you feel insecure… especially without your specs 💗<br><br>
+I know sometimes you feel insecure without specs 💗<br><br>
 
-Maybe people said things that made you doubt yourself…<br>
-but I want you to unlearn every one of those words ❤️<br><br>
+But I don’t see flaws… I see you ✨<br><br>
 
-Because I don’t see what others say… I see you.<br><br>
+With or without specs, nothing changes for me ❤️<br><br>
 
-With specs or without specs… nothing changes your beauty for me ✨<br>
-Your face is not “less” or “more”… it’s just you — and that’s enough 💗<br><br>
-
-And your nose, your features, your everything… they don’t need fixing.<br>
-They are not flaws to me… they are part of someone I genuinely care about ❤️<br><br>
-
-You are not imperfect.<br>
-You are just overthinking yourself in a world that already sees you beautifully ✨
+You are not less or more… you are just you — and that is enough 💗
 </p>
 
 </section>
@@ -290,17 +294,15 @@ You are just overthinking yourself in a world that already sees you beautifully 
 <h1>Always You ❤️</h1>
 
 <div class="gallery">
-
 <div class="photo-frame">
 <img src="photo6.jpg">
-<div class="note">Without Specs 💗 — Still Perfect</div>
+<div class="note">Without Specs 💗</div>
 </div>
 
 <div class="photo-frame">
 <img src="photo7.jpg">
-<div class="note">Real You ✨ — No Change Needed</div>
+<div class="note">Still Beautiful ✨</div>
 </div>
-
 </div>
 
 </section>
@@ -331,11 +333,10 @@ You are just overthinking yourself in a world that already sees you beautifully 
 <p><b>Vaibhav Patel</b></p>
 
 <div class="song-box">
-✨ “Some people change your life without trying… you are that person.”<br><br>
-❤️ “You will always stay in my feelings.”<br><br>
+✨ “Some people change your life without trying…”<br><br>
+💗 “You will always stay in my feelings.”<br><br>
 🌙 “I just need you in my world.”<br><br>
-💗 “If love had a name, it would sound like you.”<br><br>
-✨ “And my forever wish will always be you.”
+❤️ “My forever wish will always be you.”
 </div>
 
 <p style="margin-top:20px;color:#ffb3ec;">
@@ -355,15 +356,9 @@ s.style.top=Math.random()*100+"vh";
 document.body.appendChild(s);
 }
 
-/* ENTER */
-let musicStarted=false;
-
 function enter(){
 document.getElementById("entry").style.display="none";
-if(!musicStarted){
 document.getElementById("bgMusic").play().catch(()=>{});
-musicStarted=true;
-}
 }
 
 function stopAll(){
@@ -372,13 +367,11 @@ document.getElementById("birthdayMusic").pause();
 document.getElementById("voiceNote").pause();
 }
 
-/* EFFECTS */
 function confetti(){
 for(let i=0;i<120;i++){
 let c=document.createElement("div");
 c.className="confetti";
 c.style.left=Math.random()*100+"vw";
-c.style.background=["#ff1493","#9333ea","#ffd700","#00ffff"][Math.floor(Math.random()*4)];
 document.body.appendChild(c);
 setTimeout(()=>c.remove(),3500);
 }
@@ -388,9 +381,8 @@ function firework(){
 for(let i=0;i<25;i++){
 let f=document.createElement("div");
 f.className="firework";
-f.innerHTML=["🎆","✨","🎇","💥"][Math.floor(Math.random()*4)];
+f.innerHTML="✨";
 f.style.left=Math.random()*100+"vw";
-f.style.top=Math.random()*60+"vh";
 document.body.appendChild(f);
 setTimeout(()=>f.remove(),1500);
 }
@@ -405,9 +397,7 @@ function wish(){
 stopAll();
 document.getElementById("wishBox").style.display="block";
 
-let b=document.getElementById("birthdayMusic");
-b.currentTime=0;
-b.play();
+document.getElementById("birthdayMusic").play();
 
 confetti();
 firework();
@@ -420,9 +410,7 @@ window.open("https://wa.me/919399348807?text=Make%20a%20wish%20Vidhuuu%20🫶�
 
 function playVoice(){
 stopAll();
-let v=document.getElementById("voiceNote");
-v.currentTime=0;
-v.play().catch(()=>{});
+document.getElementById("voiceNote").play().catch(()=>{});
 }
 
 </script>
