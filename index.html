@@ -18,7 +18,7 @@ color:white;
 overflow-x:hidden;
 }
 
-/* BACKGROUND */
+/* CINEMATIC BACKGROUND */
 body::before{
 content:'';
 position:fixed;
@@ -29,7 +29,7 @@ radial-gradient(circle at bottom,#12001f,#000);
 z-index:-3;
 }
 
-/* STAR */
+/* STAR FIELD */
 .star{
 position:fixed;
 width:2px;
@@ -43,6 +43,22 @@ z-index:-2;
 @keyframes twinkle{
 from{opacity:.2;}
 to{opacity:1;}
+}
+
+/* FLOATING HEARTS */
+.heart{
+position:fixed;
+color:#ff4da6;
+font-size:16px;
+animation:floatUp 6s linear infinite;
+opacity:.6;
+z-index:-1;
+}
+
+@keyframes floatUp{
+0%{transform:translateY(100vh) scale(.5);opacity:0;}
+50%{opacity:1;}
+100%{transform:translateY(-10vh) scale(1.2);opacity:0;}
 }
 
 /* ENTRY */
@@ -63,6 +79,12 @@ font-size:45px;
 background:linear-gradient(to right,#ffb3ec,#fff,#d8b4fe);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{text-shadow:0 0 10px #ff4da6;}
+to{text-shadow:0 0 30px #9333ea;}
 }
 
 .btn{
@@ -72,9 +94,9 @@ border:none;
 border-radius:50px;
 background:linear-gradient(135deg,#ff1493,#9333ea);
 color:white;
-font-size:18px;
 cursor:pointer;
-box-shadow:0 0 30px rgba(255,20,147,.4);
+font-size:18px;
+box-shadow:0 0 40px rgba(255,20,147,.4);
 }
 
 /* SCROLL HINT */
@@ -82,11 +104,8 @@ box-shadow:0 0 30px rgba(255,20,147,.4);
 margin-top:15px;
 font-size:14px;
 color:#ffb3ec;
-animation:blink 1.5s infinite;
-}
-
-@keyframes blink{
-50%{opacity:.4;}
+opacity:0;
+transition:1s;
 }
 
 /* SECTIONS */
@@ -98,8 +117,10 @@ justify-content:center;
 align-items:center;
 text-align:center;
 padding:80px 20px;
+
+/* cinematic entry */
 opacity:0;
-transform:translateY(50px);
+transform:translateY(60px);
 transition:1s ease;
 }
 
@@ -109,7 +130,7 @@ transform:translateY(0);
 }
 
 h1{
-font-size:60px;
+font-size:62px;
 background:linear-gradient(to right,#ffb3ec,#fff,#d8b4fe);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
@@ -118,17 +139,17 @@ background:linear-gradient(to right,#ffb3ec,#fff,#d8b4fe);
 p{
 font-size:20px;
 color:#ddd;
-max-width:900px;
+max-width:950px;
 line-height:1.9;
 }
 
-/* SONG BOX */
+/* SONG BOX (NO CUT CONTENT SUPPORT) */
 .song-box{
 background:rgba(255,255,255,.06);
-padding:18px;
-margin:10px;
-border-radius:16px;
-backdrop-filter:blur(10px);
+padding:20px;
+margin:12px;
+border-radius:18px;
+backdrop-filter:blur(12px);
 border:1px solid rgba(255,255,255,.1);
 }
 
@@ -136,27 +157,32 @@ border:1px solid rgba(255,255,255,.1);
 .gallery{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:18px;
+gap:20px;
 width:100%;
 max-width:1200px;
-margin-top:25px;
+margin-top:30px;
 }
 
 .photo-frame{
 background:rgba(255,255,255,.05);
 padding:12px;
-border-radius:16px;
+border-radius:18px;
+transition:.5s;
+}
+
+.photo-frame:hover{
+transform:scale(1.05);
 }
 
 .photo-frame img{
 width:100%;
 height:340px;
 object-fit:cover;
-border-radius:12px;
+border-radius:14px;
 }
 
 .note{
-margin-top:6px;
+margin-top:8px;
 color:#ffb3ec;
 font-size:14px;
 }
@@ -217,7 +243,7 @@ animation:boom 1.5s ease-out forwards;
 75%{transform:translate(-5px,-5px);}
 }
 
-/* WISH */
+/* WISH BOX */
 #wishBox{
 display:none;
 margin-top:15px;
@@ -233,9 +259,12 @@ color:#ffb3ec;
 <div id="entry">
 <h1>Happy Birthday Vidhii ❤️</h1>
 
-<p class="scroll-hint">⬇ Scroll down to explore your surprise ✨</p>
-
 <button class="btn" onclick="enter()">Enter ✨</button>
+
+<p id="scrollHint" class="scroll-hint">
+⬇ Scroll down to explore your surprise ✨
+</p>
+
 </div>
 
 <audio id="bgMusic" loop src="song.mp3"></audio>
@@ -248,7 +277,7 @@ color:#ffb3ec;
 <p>From a random moment… to something unforgettable ✨</p>
 </section>
 
-<!-- SONGS -->
+<!-- SONGS (NO CUT) -->
 <section>
 <h1>Songs 🎵</h1>
 
@@ -259,36 +288,32 @@ color:#ffb3ec;
 
 </section>
 
-<!-- STORY (RESTORED FULL FEEL) -->
+<!-- STORY -->
 <section>
 <h1>Our Story ✨</h1>
-
 <p>
 6 June 2025 — First time we crossed paths ✨<br><br>
 From strangers → comfort → feelings ❤️<br><br>
 28 September 2025 — everything changed 💗
 </p>
-
 </section>
 
-<!-- MY BEAUTIFUL (NO CUT) -->
+<!-- MY BEAUTIFUL -->
 <section>
 <h1>MY BEAUTIFUL 💟</h1>
 
 <div class="gallery">
-
 <div class="photo-frame"><img src="photo1.jpg"><div class="note">Smile ❤️</div></div>
 <div class="photo-frame"><img src="photo2.jpg"><div class="note">Eyes ✨</div></div>
 <div class="photo-frame"><img src="photo3.jpg"><div class="note">Cute 💗</div></div>
 <div class="photo-frame"><img src="photo4.jpg"><div class="note">Peace 🌸</div></div>
 <div class="photo-frame"><img src="photo5.jpg"><div class="note">Forever ❤️</div></div>
-
 </div>
 
 <div class="song-box">
 ✨ “You are my definition of beautiful”<br>
-💗 “Every picture feels like home”<br>
-❤️ “You don’t need to change anything”
+💗 “Every moment of you feels special”<br>
+❤️ “No need to change anything”
 </div>
 
 </section>
@@ -296,14 +321,10 @@ From strangers → comfort → feelings ❤️<br><br>
 <!-- INSECURITY -->
 <section>
 <h1>To Me You're Beautiful ❤️</h1>
-
 <p>
-I know sometimes you feel insecure without specs 💗<br><br>
-But I don’t see flaws… I see YOU ✨<br><br>
-With or without specs — nothing changes ❤️<br><br>
-You are already enough 💗
+Specs or no specs… you are still you 💗<br><br>
+And that is enough ✨
 </p>
-
 </section>
 
 <!-- PHOTO 6 & 7 -->
@@ -330,12 +351,6 @@ You are already enough 💗
 <div id="wishBox">✨ Wish received 💗</div>
 </section>
 
-<!-- VOICE -->
-<section>
-<h1>A Message 🎙️</h1>
-<button class="cake-btn" onclick="playVoice()">Play Voice</button>
-</section>
-
 <!-- FINAL -->
 <section>
 <h1>Made With Love ❤️</h1>
@@ -344,7 +359,7 @@ You are already enough 💗
 
 <script>
 
-/* STAR */
+/* STAR FIELD */
 for(let i=0;i<120;i++){
 let s=document.createElement("div");
 s.className="star";
@@ -353,10 +368,25 @@ s.style.top=Math.random()*100+"vh";
 document.body.appendChild(s);
 }
 
-/* ENTRY MUSIC FIX */
+/* FLOATING HEARTS */
+for(let i=0;i<18;i++){
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML="❤";
+h.style.left=Math.random()*100+"vw";
+h.style.animationDuration=(Math.random()*3+4)+"s";
+document.body.appendChild(h);
+}
+
+/* ENTRY FIX */
 function enter(){
 document.getElementById("entry").style.display="none";
 document.getElementById("bgMusic").play().catch(()=>{});
+
+/* SHOW SCROLL HINT AFTER ENTER */
+setTimeout(()=>{
+document.getElementById("scrollHint").style.opacity="1";
+},300);
 }
 
 /* SCROLL ANIMATION */
@@ -369,11 +399,9 @@ s.classList.add("show");
 });
 });
 
-/* FIXED WHATSAPP + EFFECTS */
+/* EFFECTS */
 function wish(){
-
 document.getElementById("wishBox").style.display="block";
-
 document.getElementById("birthdayMusic").play().catch(()=>{});
 
 for(let i=0;i<80;i++){
@@ -384,14 +412,11 @@ document.body.appendChild(c);
 setTimeout(()=>c.remove(),3000);
 }
 
-/* WhatsApp FIX */
 setTimeout(()=>{
-window.location.href=
-"https://wa.me/919399348807?text=Make%20a%20wish%20Vidhuuu%20🫶🏻✨";
+window.location.href="https://wa.me/919399348807?text=Make%20a%20wish%20Vidhuuu%20🫶🏻✨";
 },1200);
 }
 
-/* VOICE FIX */
 function playVoice(){
 document.getElementById("voiceNote").play().catch(()=>{});
 }
