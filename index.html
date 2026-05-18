@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Birthday Movie V8 ❤️</title>
+<title>Birthday Movie V8.1 ❤️</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&display=swap" rel="stylesheet">
 
@@ -17,7 +17,7 @@ color:white;
 overflow-x:hidden;
 }
 
-/* 🌌 CINEMATIC BACKGROUND */
+/* BACKGROUND */
 body::before{
 content:'';
 position:fixed;
@@ -28,29 +28,6 @@ radial-gradient(circle at 80% 30%,#7c3aed55,transparent 40%),
 radial-gradient(circle at 50% 80%,#00ffff22,transparent 50%),
 linear-gradient(to bottom,#000,#0a0015,#000);
 z-index:-3;
-animation:bg 10s infinite alternate;
-}
-
-@keyframes bg{
-0%{filter:brightness(1);}
-100%{filter:brightness(1.25);}
-}
-
-/* floating dots */
-.dot{
-position:fixed;
-width:5px;
-height:5px;
-background:white;
-border-radius:50%;
-opacity:0.4;
-animation:float 8s linear infinite;
-z-index:-2;
-}
-
-@keyframes float{
-0%{transform:translateY(100vh);}
-100%{transform:translateY(-10vh);}
 }
 
 /* ENTRY */
@@ -61,8 +38,7 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-background:rgba(0,0,0,0.85);
-backdrop-filter:blur(8px);
+background:black;
 z-index:9999;
 text-align:center;
 }
@@ -85,12 +61,16 @@ font-size:18px;
 cursor:pointer;
 }
 
-/* 🔥 SCROLL TEXT FIXED */
+/* 👇 IMPORTANT: scroll line only for AFTER entry */
 #scrollHint{
+position:fixed;
+top:85%;
+left:50%;
+transform:translateX(-50%);
 opacity:0;
-margin-top:15px;
 color:#ffb3ec;
 font-size:16px;
+transition:1s;
 animation:blink 1.2s infinite;
 }
 
@@ -131,34 +111,12 @@ max-width:900px;
 line-height:1.9;
 }
 
-/* SONG */
-.song-box{
-background:rgba(255,255,255,.06);
-padding:18px;
-margin:12px;
-border-radius:14px;
-max-width:850px;
-backdrop-filter:blur(10px);
-}
-
-/* IMAGE */
-img{
-width:100%;
-max-width:300px;
-border-radius:12px;
-margin:10px;
-}
-
 /* CAKE */
 .cake{
 font-size:180px;
-animation:pulse 2s infinite;
 }
 
-@keyframes pulse{
-50%{transform:scale(1.1);}
-}
-
+/* BUTTON */
 .cake-btn{
 padding:14px 40px;
 border:none;
@@ -168,32 +126,6 @@ color:white;
 cursor:pointer;
 margin-top:15px;
 }
-
-/* CONFETTI */
-.confetti{
-position:fixed;
-width:8px;
-height:8px;
-top:-10px;
-animation:fall 3s linear forwards;
-}
-
-@keyframes fall{
-to{transform:translateY(110vh) rotate(720deg);opacity:0;}
-}
-
-/* FIREWORK */
-.firework{
-position:fixed;
-font-size:26px;
-animation:burst 1.5s ease-out forwards;
-z-index:9999;
-}
-
-@keyframes burst{
-0%{transform:scale(0);}
-100%{transform:scale(4);opacity:0;}
-}
 </style>
 </head>
 
@@ -202,166 +134,41 @@ z-index:9999;
 <!-- ENTRY -->
 <div id="entry">
 <h1>This is for you 🫶🏻💟</h1>
-
 <button class="btn" onclick="enter()">Enter ✨</button>
-
-<!-- IMPORTANT: SCROLL INSTRUCTION -->
-<div id="scrollHint">⬇ Instruction: Scroll to see your surprise ✨</div>
 </div>
+
+<!-- 👇 scroll hint OUTSIDE entry -->
+<div id="scrollHint">⬇ Scroll to see your surprise ✨</div>
 
 <!-- AUDIO -->
 <audio id="bgMusic" loop src="song.mp3"></audio>
-<audio id="birthdayMusic" src="birthday.mp3"></audio>
-<audio id="voiceNote" src="voice.mp3"></audio>
 
 <!-- HERO -->
 <section>
-<h1>Happy Birthday Vidhii ❤️</h1>
-<p>
-From a random moment… to something unforgettable ✨<br><br>
-You are not just a person… you are a feeling I never want to lose ❤️
-</p>
-</section>
-
-<!-- STORY -->
-<section>
-<h1>Our Story ✨</h1>
-<p>
-6 June 2025 — First time we met ✨<br><br>
-28 Sept 2025 — Everything changed 💗
-</p>
-</section>
-
-<!-- BEAUTY -->
-<section>
-<h1>MY BEAUTIFUL 💟</h1>
-
-<img src="photo1.jpg"><p>Your smile is my peace ❤️</p>
-<img src="photo2.jpg"><p>Your eyes feel like magic ✨</p>
-<img src="photo3.jpg"><p>You are pure beauty 🌙</p>
-<img src="photo4.jpg"><p>You feel like home 💫</p>
-<img src="photo5.jpg"><p>You are my definition of beautiful ❤️</p>
-
-</section>
-
-<!-- INSECURITY -->
-<section>
-<h1>To Me You're Beautiful ❤️</h1>
-<p>
-I know sometimes you feel insecure about yourself 💗<br><br>
-
-But I don’t see flaws… I see YOU ✨<br><br>
-
-With or without specs, nothing changes for me ❤️<br><br>
-
-You are already enough the way you are 💫
-</p>
-</section>
-
-<!-- ALWAYS YOU -->
-<section>
-<h1>Always You ❤️</h1>
-
-<img src="photo6.jpg">
-<img src="photo7.jpg">
-
-<div class="song-box">
-💗 You are always the same beautiful soul<br>
-✨ Nothing changes how I feel about you<br>
-❤️ You will always be enough for me
-</div>
-</section>
-
-<!-- SONGS -->
-<section>
-<h1>Songs 🎵</h1>
-
-<div class="song-box">
-<b>Night Changes</b><br>
-I think of you when I hear this… it feels like you ❤️
-</div>
-
-<div class="song-box">
-<b>Until I Found You</b><br>
-I think of you when I hear this… it feels like destiny ✨
-</div>
-
-<div class="song-box">
-<b>Apocalypse</b><br>
-I think of you when I hear this… even silence feels like you 🌙
-</div>
-
-<div class="song-box">
-<b>I’ll Never Leave You</b><br>
-I think of you when I hear this… because it feels like you ❤️
-</div>
-
+<h1>Happy Birthday ❤️</h1>
+<p>This is your cinematic surprise ✨</p>
 </section>
 
 <!-- CAKE -->
 <section>
 <h1>🎂 Cake Moment</h1>
-
 <div class="cake">🎂</div>
-
-<button class="cake-btn" onclick="wish()">Make Wish ✨</button>
-
-<div id="wishBox" style="display:none;color:#ffb3ec;margin-top:10px;">
-✨ Wish received 💗
-</div>
-</section>
-
-<!-- VOICE NOTE -->
-<section>
-<h1>A Message 🎙️</h1>
-
-<button class="cake-btn" onclick="playVoice()">Play Voice Note</button>
-
-</section>
-
-<!-- FINAL -->
-<section>
-<h1>Made With Love ❤️</h1>
-
-<p><b>Vaibhav Patel</b></p>
-
-<div class="song-box">
-Hope you like it 🫶🏻💗✨<br>
-Thank you for being part of this feeling ❤️
-</div>
-
+<button class="cake-btn">Make Wish ✨</button>
 </section>
 
 <script>
 
-/* AUDIO CONTROLLER (FIX OVERLAP) */
-let current=null;
-
-function playOnly(a){
-if(current){
-current.pause();
-current.currentTime=0;
-}
-current=a;
-a.play().catch(()=>{});
-}
-
-/* FLOATING DOTS */
-for(let i=0;i<50;i++){
-let d=document.createElement("div");
-d.className="dot";
-d.style.left=Math.random()*100+"vw";
-d.style.animationDuration=(5+Math.random()*5)+"s";
-document.body.appendChild(d);
-}
-
-/* ENTER */
+/* ENTER FIX */
 function enter(){
 document.getElementById("entry").style.display="none";
-document.getElementById("scrollHint").style.opacity="1";
 
-/* bg music */
-playOnly(document.getElementById("bgMusic"));
+/* show scroll AFTER enter */
+setTimeout(()=>{
+document.getElementById("scrollHint").style.opacity="1";
+},800);
+
+/* music start */
+document.getElementById("bgMusic").play().catch(()=>{});
 }
 
 /* SCROLL ANIMATION */
@@ -372,38 +179,6 @@ sec.classList.add("show");
 }
 });
 });
-
-/* WISH + WHATSAPP FIX */
-function wish(){
-
-document.getElementById("wishBox").style.display="block";
-
-playOnly(document.getElementById("birthdayMusic"));
-
-for(let i=0;i<30;i++){
-let f=document.createElement("div");
-f.className="firework";
-f.innerHTML="✨";
-f.style.left=Math.random()*100+"vw";
-f.style.top=Math.random()*70+"vh";
-document.body.appendChild(f);
-setTimeout(()=>f.remove(),1500);
-}
-
-/* FIXED WHATSAPP */
-setTimeout(()=>{
-window.open(
-"https://wa.me/919399348807?text=Make%20a%20wish%20Vidhuuu%20🫶🏻✨",
-"_blank"
-);
-},1500);
-
-}
-
-/* VOICE */
-function playVoice(){
-playOnly(document.getElementById("voiceNote"));
-}
 
 </script>
 
