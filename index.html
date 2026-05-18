@@ -17,7 +17,7 @@ color:white;
 overflow-x:hidden;
 }
 
-/* CINEMATIC BACKGROUND */
+/* BACKGROUND */
 body::before{
 content:'';
 position:fixed;
@@ -43,7 +43,7 @@ z-index:9999;
 text-align:center;
 }
 
-#introText{
+#entry h1{
 font-size:40px;
 background:linear-gradient(to right,#ffb3ec,#fff,#d8b4fe);
 -webkit-background-clip:text;
@@ -61,16 +61,15 @@ font-size:18px;
 cursor:pointer;
 }
 
-/* SCROLL LINE (FIXED: AUTO HIDE) */
+/* SCROLL */
 #scrollHint{
 position:fixed;
-bottom:40px;
+bottom:30px;
 left:50%;
 transform:translateX(-50%);
 opacity:0;
 color:#ffb3ec;
-font-size:16px;
-transition:0.8s;
+font-size:15px;
 animation:blink 1.2s infinite;
 }
 
@@ -86,7 +85,7 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-padding:70px 20px;
+padding:60px 20px;
 opacity:0;
 transform:translateY(40px);
 transition:1s;
@@ -98,7 +97,7 @@ transform:translateY(0);
 }
 
 h1{
-font-size:58px;
+font-size:56px;
 background:linear-gradient(to right,#ffb3ec,#fff,#d8b4fe);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
@@ -106,15 +105,24 @@ background:linear-gradient(to right,#ffb3ec,#fff,#d8b4fe);
 
 p{
 font-size:20px;
-color:#ddd;
 max-width:900px;
 line-height:1.9;
+color:#ddd;
+}
+
+/* IMAGE FIXED STYLE */
+.gallery img{
+width:100%;
+max-width:320px;
+margin:10px;
+border-radius:15px;
+border:2px solid rgba(255,255,255,0.1);
+box-shadow:0 0 20px rgba(255,20,147,0.2);
+object-fit:cover;
 }
 
 /* CAKE */
-.cake{
-font-size:180px;
-}
+.cake{font-size:180px;}
 
 /* BUTTON */
 .cake-btn{
@@ -131,13 +139,12 @@ margin-top:15px;
 
 <body>
 
-<!-- ENTRY (UNCHANGED CONTENT) -->
+<!-- ENTRY -->
 <div id="entry">
 <h1>This is for you 🫶🏻💟</h1>
 <button class="btn" onclick="enter()">Enter ✨</button>
 </div>
 
-<!-- SCROLL LINE -->
 <div id="scrollHint">⬇ Scroll to see your surprise ✨</div>
 
 <!-- AUDIO -->
@@ -147,39 +154,38 @@ margin-top:15px;
 
 <!-- HERO -->
 <section>
-<h1>Happy Birthday Vidhii ❤️</h1>
-<p>
-From a random moment… to something unforgettable ✨<br><br>
-You are not just a person… you are a feeling ❤️
-</p>
+<h1>Happy Birthday ❤️</h1>
+<p>From a random moment… to something unforgettable ✨</p>
 </section>
 
 <!-- STORY -->
 <section>
 <h1>Our Story ✨</h1>
-<p>
-6 June 2025 — First meeting ✨<br><br>
-28 Sept 2025 — Everything changed 💗
-</p>
+<p>6 June 2025 — First meeting ✨<br>28 Sept 2025 — Everything changed 💗</p>
 </section>
 
-<!-- BEAUTY -->
+<!-- MY BEAUTIFUL (FIXED IMAGES) -->
 <section>
 <h1>MY BEAUTIFUL 💟</h1>
 
-<p>
-Your smile, your eyes, your presence… everything feels like peace ❤️
-</p>
+<div class="gallery">
+<img src="./photo1.jpg" onerror="this.style.display='none'">
+<img src="./photo2.jpg" onerror="this.style.display='none'">
+<img src="./photo3.jpg" onerror="this.style.display='none'">
+<img src="./photo4.jpg" onerror="this.style.display='none'">
+<img src="./photo5.jpg" onerror="this.style.display='none'">
+</div>
+
+<p>You are my definition of beautiful ❤️</p>
 </section>
 
-<!-- INSECURITY (KEPT FULL AND SOFT) -->
+<!-- INSECURITY -->
 <section>
 <h1>To Me You're Beautiful ❤️</h1>
-
 <p>
-I know sometimes you feel a little insecure 💗<br><br>
-But from my side, I only see someone truly beautiful ✨<br><br>
-With or without anything… you are still you, and that is more than enough ❤️
+I know sometimes you feel insecure 💗<br><br>
+But I only see someone truly beautiful ✨<br><br>
+With or without specs… you are always enough ❤️
 </p>
 </section>
 
@@ -187,21 +193,12 @@ With or without anything… you are still you, and that is more than enough ❤�
 <section>
 <h1>Always You ❤️</h1>
 
-<p>
-No matter what changes around… my way of seeing you will never change ✨
-</p>
-</section>
+<div class="gallery">
+<img src="./photo6.jpg" onerror="this.style.display='none'">
+<img src="./photo7.jpg" onerror="this.style.display='none'">
+</div>
 
-<!-- SONGS -->
-<section>
-<h1>Songs 🎵</h1>
-
-<p>
-Night Changes — I think of you when I hear this ❤️<br><br>
-Until I Found You — it feels like destiny ✨<br><br>
-Apocalypse — silence reminds me of you 🌙<br><br>
-I’ll Never Leave You — it feels like you ❤️
-</p>
+<p>You will always be you… and that is perfect ❤️</p>
 </section>
 
 <!-- CAKE -->
@@ -217,57 +214,22 @@ I’ll Never Leave You — it feels like you ❤️
 </div>
 </section>
 
-<!-- VOICE -->
-<section>
-<h1>A Message 🎙️</h1>
-
-<button class="cake-btn" onclick="playVoice()">Play Voice Note</button>
-
-</section>
-
 <!-- FINAL -->
 <section>
 <h1>Made With Love ❤️</h1>
-
-<p>
-Hope you like it 🫶🏻💗✨<br>
-— Vaibhav Patel
-</p>
-
+<p>Hope you like it 🫶🏻💗✨</p>
 </section>
 
 <script>
 
-/* AUDIO FIX (NO OVERLAP) */
-let current=null;
-
-function playOnly(a){
-if(current){
-current.pause();
-current.currentTime=0;
-}
-current=a;
-a.play().catch(()=>{});
-}
-
 /* ENTER */
 function enter(){
 document.getElementById("entry").style.display="none";
-
-/* SHOW SCROLL LINE AFTER ENTRY */
-let hint=document.getElementById("scrollHint");
-hint.style.opacity="1";
-
-/* AUTO DISAPPEAR AFTER 3 SEC */
-setTimeout(()=>{
-hint.style.opacity="0";
-},3000);
-
-/* START MUSIC */
-playOnly(document.getElementById("bgMusic"));
+document.getElementById("scrollHint").style.opacity="1";
+document.getElementById("bgMusic").play().catch(()=>{});
 }
 
-/* SCROLL EFFECT */
+/* SCROLL */
 window.addEventListener("scroll",()=>{
 document.querySelectorAll("section").forEach(sec=>{
 if(sec.getBoundingClientRect().top<600){
@@ -279,16 +241,11 @@ sec.classList.add("show");
 /* WISH */
 function wish(){
 document.getElementById("wishBox").style.display="block";
-playOnly(document.getElementById("birthdayMusic"));
+document.getElementById("birthdayMusic").play().catch(()=>{});
 
 setTimeout(()=>{
-window.open("https://wa.me/919399348807?text=Make%20a%20wish%20Vidhuuu%20🫶🏻✨","_blank");
+window.open("https://wa.me/919399348807?text=Make%20a%20wish%20🫶🏻✨","_blank");
 },1200);
-}
-
-/* VOICE */
-function playVoice(){
-playOnly(document.getElementById("voiceNote"));
 }
 
 </script>
