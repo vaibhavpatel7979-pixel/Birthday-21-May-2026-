@@ -17,7 +17,7 @@ color:white;
 overflow-x:hidden;
 }
 
-/* 🌌 background glow */
+/* 🌌 background */
 body::before{
 content:'';
 position:fixed;
@@ -34,15 +34,15 @@ background:
 radial-gradient(circle at 20% 30%, rgba(255,20,147,.08), transparent 40%),
 radial-gradient(circle at 80% 70%, rgba(147,51,234,.08), transparent 40%);
 z-index:-2;
-animation:glowMove 10s infinite alternate;
+animation:glow 10s infinite alternate;
 }
 
-@keyframes glowMove{
+@keyframes glow{
 from{transform:scale(1);}
 to{transform:scale(1.1);}
 }
 
-/* 🌟 stars */
+/* stars */
 .stars{position:fixed;width:100%;height:100%;z-index:-1;}
 .star{
 position:absolute;
@@ -53,7 +53,7 @@ animation:twinkle 3s infinite alternate;
 }
 @keyframes twinkle{from{opacity:.2}to{opacity:1}}
 
-/* 🎬 scroll cinematic */
+/* sections */
 section{
 min-height:100vh;
 display:flex;
@@ -64,29 +64,21 @@ text-align:center;
 padding:80px 20px;
 
 opacity:0;
-transform:translateY(70px) scale(.97);
-filter:blur(8px);
-transition:1.4s ease;
+transform:translateY(50px);
+transition:1.2s ease;
 }
 
 section.show{
 opacity:1;
-transform:translateY(0) scale(1);
-filter:blur(0);
+transform:translateY(0);
 }
 
-/* ✨ headings */
+/* headings */
 h1{
-font-size:72px;
+font-size:70px;
 background:linear-gradient(to right,#ffb3ec,#fff,#d8b4fe);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
-animation:titleGlow 3s infinite alternate;
-}
-
-@keyframes titleGlow{
-from{text-shadow:0 0 10px rgba(255,255,255,.1);}
-to{text-shadow:0 0 30px rgba(255,20,147,.5);}
 }
 
 p{
@@ -97,7 +89,7 @@ line-height:1.8;
 margin-top:15px;
 }
 
-/* 🔘 buttons */
+/* buttons */
 .btn{
 margin-top:30px;
 padding:15px 40px;
@@ -107,11 +99,9 @@ background:linear-gradient(to right,#ff1493,#9333ea);
 color:white;
 font-size:18px;
 cursor:pointer;
-transition:.3s;
 }
-.btn:hover{transform:scale(1.05);}
 
-/* 💖 boxes */
+/* quotes */
 .quote-box{
 background:rgba(255,255,255,.06);
 padding:25px;
@@ -120,21 +110,19 @@ margin:15px;
 max-width:850px;
 backdrop-filter:blur(15px);
 border:1px solid rgba(255,255,255,.12);
-transition:.5s;
 }
-.quote-box:hover{transform:translateY(-8px);}
 
-/* 🎂 cake */
+/* cake */
 .cake{
-font-size:160px;
+font-size:150px;
 animation:pulse 2s infinite;
 }
 @keyframes pulse{50%{transform:scale(1.08);}}
 
-/* 🖼 gallery */
+/* gallery */
 .gallery{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:25px;
 width:100%;
 max-width:1200px;
@@ -147,8 +135,6 @@ padding:15px;
 border-radius:25px;
 backdrop-filter:blur(18px);
 border:1px solid rgba(255,255,255,.15);
-transition:.6s;
-overflow:hidden;
 }
 
 .photo-frame img{
@@ -158,25 +144,33 @@ object-fit:cover;
 border-radius:20px;
 }
 
-.photo-frame:hover{
-transform:translateY(-10px) scale(1.03);
-box-shadow:0 0 60px rgba(255,20,147,.4);
-}
-
 .note{
 margin-top:10px;
 font-size:15px;
 color:#ffb3ec;
 }
 
-/* ⬇️ SCROLL HINT */
-.scroll-hint{
-position:absolute;
-bottom:40px;
-font-size:18px;
+/* entry screen */
+#entry{
+position:fixed;
+inset:0;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background:radial-gradient(circle,#2a0040,#000);
+z-index:9999;
+}
+
+#entry h1{
+font-size:40px;
+text-align:center;
+}
+
+.scroll-text{
+margin-top:20px;
 color:#ddd;
 animation:bounce 2s infinite;
-opacity:.9;
 }
 
 @keyframes bounce{
@@ -184,15 +178,17 @@ opacity:.9;
 50%{transform:translateY(10px);}
 }
 
-/* ❤️ floating */
-@keyframes floatUp{
-to{transform:translateY(-120vh);opacity:0;}
-}
-
 </style>
 </head>
 
 <body>
+
+<!-- ENTRY SCREEN -->
+<div id="entry">
+<h1>MAKE A WISH VIDHUUU 🫶🏻</h1>
+<div class="scroll-text">⬇ Scroll Slowly To Start The Story ❤️</div>
+<button class="btn" onclick="enterSite()">Enter ✨</button>
+</div>
 
 <div class="stars" id="stars"></div>
 
@@ -204,33 +200,54 @@ to{transform:translateY(-120vh);opacity:0;}
 <!-- HERO -->
 <section>
 <h1>Happy Birthday<br>Vidhii ❤️</h1>
-
-<p>From a random moment… to my forever feeling ✨</p>
-
-<button class="btn" onclick="start()">Tap To Begin ✨</button>
-
-<div class="scroll-hint">⬇ Scroll Slowly For A Surprise ❤️</div>
+<p>From a random moment… to something I never expected ✨</p>
 </section>
 
 <!-- FOR YOU -->
 <section>
 <h1>For You ❤️</h1>
 
-<div class="quote-box">💗 You are my peace in chaos</div>
-<div class="quote-box">💟 You are my happiness</div>
-<div class="quote-box">🫶 I will always be there</div>
+<div class="quote-box">
+💗 Happy Birthday Sweetheart<br>
+<span style="font-size:14px;">A song from my heart for you ❤️</span>
+</div>
+
+<div class="quote-box">
+💟 I Love You So Much<br>
+<span style="font-size:14px;">Because you became my peace ✨</span>
+</div>
+
+<div class="quote-box">
+🫶 Always Be Happy<br>
+<span style="font-size:14px;">This song reminds me of you 🌙</span>
+</div>
 </section>
 
 <!-- SONGS -->
 <section>
 <h1>Songs That Feel Like Us 🎵</h1>
-<div class="quote-box">Night Changes • Until I Found You • Apocalypse • Perfect ❤️</div>
+
+<div class="quote-box">
+Night Changes<br>
+<span style="font-size:14px;">Everything changes… but not my feelings ❤️</span>
+</div>
+
+<div class="quote-box">
+Until I Found You<br>
+<span style="font-size:14px;">I never expected to find someone like you 🎶</span>
+</div>
+
+<div class="quote-box">
+Apocalypse<br>
+<span style="font-size:14px;">Even silence feels like you 🌙</span>
+</div>
 </section>
 
 <!-- STORY -->
 <section>
 <h1>Our Story ✨</h1>
-<div class="quote-box">🎮 6 June 2025 — We met</div>
+
+<div class="quote-box">🎮 6 June 2025 — Destiny started</div>
 <div class="quote-box">💗 28 Sept 2025 — Everything changed</div>
 </section>
 
@@ -260,13 +277,61 @@ to{transform:translateY(-120vh);opacity:0;}
 </div>
 </section>
 
-<!-- INSECURITY -->
+<!-- INSECURITY (FULL RESTORED PARA) -->
 <section>
 <h1>To Me You're Beautiful ❤️</h1>
 
 <div class="quote-box">
-I know sometimes you don’t see yourself the way I see you…<br><br>
-but to me, you are perfect in your own way ❤️
+I know sometimes you don't see yourself the way I see you...
+
+<br><br>
+
+but honestly?
+
+<br><br>
+
+you are genuinely one of the cutest and most beautiful girls to me ❤️
+
+<br><br>
+
+Not because of makeup,
+not because of specs,
+not because of what people say...
+
+<br><br>
+
+but because there’s something about you that feels special naturally ✨
+
+<br><br>
+
+Your smile makes me happy,
+your eyes feel comforting,
+your little expressions are adorable,
+and even the things you overthink about yourself...
+
+are beautiful to me 💗
+
+<br><br>
+
+And your nose?
+
+<br><br>
+
+I really mean this —
+it's cute 😭❤️
+
+<br><br>
+
+Please never let people's opinions change the way you see yourself.
+
+<br><br>
+
+Because when I look at you,
+I don't see flaws...
+
+<br><br>
+
+I just see the girl I love ❤️
 </div>
 
 <div class="gallery">
@@ -278,12 +343,12 @@ but to me, you are perfect in your own way ❤️
 
 <div class="photo-frame">
 <img src="photo7.jpg">
-<div class="note">You are enough ✨</div>
+<div class="note">You look perfect ✨</div>
 </div>
 
 <div class="photo-frame">
 <img src="photo8.jpg">
-<div class="note">To me, you're the prettiest ❤️</div>
+<div class="note">To me you're the prettiest ❤️</div>
 </div>
 
 </div>
@@ -312,12 +377,12 @@ but to me, you are perfect in your own way ❤️
 
 <!-- FINAL -->
 <section>
-<h1>Made By Our Love ❤️</h1>
+<h1>Made With Love ❤️</h1>
 
 <div class="quote-box">
-VAIBHAV PATEL<br><br>
+Vaibhav Patel<br><br>
 Hope you like it 💗<br><br>
-Just a little effort ✨
+Just for you ✨
 </div>
 </section>
 
@@ -342,28 +407,17 @@ s.classList.add("show");
 });
 });
 
-/* music control */
-function stopAll(){
-bgMusic.pause();
-birthdayMusic.pause();
-bgMusic.currentTime=0;
-birthdayMusic.currentTime=0;
-}
-
-/* start */
-function start(){
-bgMusic.play();
-window.scrollTo({top:window.innerHeight,behavior:"smooth"});
+/* entry */
+function enterSite(){
+document.getElementById("entry").style.display="none";
+bgMusic.play();   // ONLY HERE (no auto play bug now)
 }
 
 /* wish */
 function wish(){
-stopAll();
 birthdayMusic.play();
 
 document.getElementById("wishMsg").style.display="block";
-document.getElementById("wishText").innerText =
-"Make a wish Vidhuuu… ✨❤️";
 
 for(let i=0;i<60;i++){
 let h=document.createElement("div");
@@ -376,10 +430,6 @@ h.style.animation="floatUp 4s linear";
 document.body.appendChild(h);
 setTimeout(()=>h.remove(),4000);
 }
-
-setTimeout(()=>{
-window.open("https://wa.me/919399348807?text=I made a wish for Vidhii ❤️✨");
-},2500);
 }
 
 /* voice */
@@ -388,6 +438,12 @@ voiceNote.play();
 }
 
 </script>
+
+<style>
+@keyframes floatUp{
+to{transform:translateY(-120vh);opacity:0;}
+}
+</style>
 
 </body>
 </html>
