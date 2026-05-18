@@ -18,49 +18,12 @@ color:white;
 overflow-x:hidden;
 }
 
-/* 🌌 BACKGROUND */
 body::before{
 content:'';
 position:fixed;
 inset:0;
 background:radial-gradient(circle at top,#3b0764,#000);
-z-index:-3;
-}
-
-/* ✨ STARS */
-.stars{
-position:fixed;
-inset:0;
 z-index:-2;
-}
-
-.star{
-position:absolute;
-width:2px;
-height:2px;
-background:white;
-border-radius:50%;
-opacity:.6;
-animation:twinkle 3s infinite alternate;
-}
-
-@keyframes twinkle{
-from{opacity:.2;transform:scale(.8);}
-to{opacity:1;transform:scale(1.2);}
-}
-
-/* ❤️ FLOATING HEARTS */
-.heart{
-position:fixed;
-bottom:-20px;
-font-size:20px;
-animation:floatUp 6s linear forwards;
-opacity:.8;
-}
-
-@keyframes floatUp{
-0%{transform:translateY(0) scale(.8);opacity:1;}
-100%{transform:translateY(-110vh) scale(1.4);opacity:0;}
 }
 
 /* ENTRY */
@@ -81,13 +44,6 @@ font-size:42px;
 background:linear-gradient(to right,#ffb3ec,#fff,#d8b4fe);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
-text-shadow:0 0 25px rgba(255,20,147,.4);
-}
-
-#typeText{
-margin-top:10px;
-color:#ccc;
-min-height:20px;
 }
 
 .btn{
@@ -99,11 +55,7 @@ background:linear-gradient(135deg,#ff1493,#9333ea);
 color:white;
 cursor:pointer;
 font-size:18px;
-box-shadow:0 10px 40px rgba(255,20,147,.35);
-transition:.3s;
 }
-
-.btn:hover{transform:scale(1.08);}
 
 /* SECTIONS */
 section{
@@ -114,17 +66,8 @@ justify-content:center;
 align-items:center;
 text-align:center;
 padding:80px 20px;
-opacity:0;
-transform:translateY(40px);
-transition:1s;
 }
 
-section.show{
-opacity:1;
-transform:translateY(0);
-}
-
-/* TITLES */
 h1{
 font-size:65px;
 background:linear-gradient(to right,#ffb3ec,#fff,#d8b4fe);
@@ -139,11 +82,22 @@ max-width:900px;
 line-height:1.8;
 }
 
+/* SONG BOX */
+.song-box{
+background:rgba(255,255,255,.06);
+padding:20px;
+border-radius:20px;
+margin:10px;
+max-width:800px;
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,.1);
+}
+
 /* GALLERY */
 .gallery{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:25px;
+gap:20px;
 width:100%;
 max-width:1200px;
 margin-top:30px;
@@ -151,10 +105,8 @@ margin-top:30px;
 
 .photo-frame{
 background:rgba(255,255,255,.06);
-padding:14px;
+padding:12px;
 border-radius:20px;
-backdrop-filter:blur(12px);
-border:1px solid rgba(255,255,255,.12);
 }
 
 .photo-frame img{
@@ -167,18 +119,41 @@ border-radius:15px;
 .note{
 margin-top:8px;
 color:#ffb3ec;
-font-size:14px;
 }
 
-/* GLASS BOX */
-.quote-box{
-background:rgba(255,255,255,.06);
-border:1px solid rgba(255,255,255,.1);
-padding:25px;
-border-radius:25px;
-margin:15px;
-max-width:900px;
-backdrop-filter:blur(12px);
+/* CAKE SECTION */
+.cake-box{
+text-align:center;
+padding:60px 20px;
+}
+
+.cake{
+font-size:170px;
+animation:pulse 2s infinite;
+text-shadow:0 0 30px rgba(255,20,147,.5);
+}
+
+@keyframes pulse{
+50%{transform:scale(1.1);}
+}
+
+.cake-btn{
+margin-top:25px;
+padding:16px 45px;
+border:none;
+border-radius:50px;
+background:linear-gradient(135deg,#ff1493,#9333ea);
+color:white;
+font-size:18px;
+cursor:pointer;
+}
+
+/* WISH BOX SEPARATE */
+#wishBox{
+display:none;
+margin-top:20px;
+color:#ffb3ec;
+font-size:18px;
 }
 
 </style>
@@ -186,12 +161,10 @@ backdrop-filter:blur(12px);
 
 <body>
 
-<div class="stars" id="stars"></div>
-
 <!-- ENTRY -->
 <div id="entry">
 <h1>Welcome ❤️</h1>
-<div id="typeText"></div>
+<p>A small world made just for you ✨</p>
 <button class="btn" onclick="enter()">Enter ✨</button>
 </div>
 
@@ -206,10 +179,14 @@ backdrop-filter:blur(12px);
 <p>From a random moment… to forever ✨</p>
 </section>
 
-<!-- SONGS -->
+<!-- SONGS (RESTORED FULL RELATABLE STYLE) -->
 <section>
 <h1>Songs 🎵</h1>
-<p>Night Changes • Until I Found You • Apocalypse</p>
+
+<div class="song-box">Night Changes — Everything changes but feelings don’t ❤️</div>
+<div class="song-box">Until I Found You — Feels like destiny 🎶</div>
+<div class="song-box">Apocalypse — Even silence feels like you 🌙</div>
+
 </section>
 
 <!-- STORY -->
@@ -235,11 +212,11 @@ backdrop-filter:blur(12px);
 <section>
 <h1>To Me You're Beautiful ❤️</h1>
 
-<div class="quote-box">
+<p>
 I know sometimes you don't see yourself the way I see you...
 
 <br><br>
-but honestly you are genuinely one of the cutest girls to me ❤️
+but honestly you are one of the cutest girls to me ❤️
 
 <br><br>
 Everything about you is naturally beautiful ✨
@@ -255,7 +232,7 @@ Please never change yourself.
 
 <br><br>
 Because when I look at you, I just see the girl I love ❤️
-</div>
+</p>
 
 <div class="gallery">
 <div class="photo-frame"><img src="photo6.jpg"><div class="note">This smile ❤️</div></div>
@@ -263,16 +240,19 @@ Because when I look at you, I just see the girl I love ❤️
 </div>
 </section>
 
-<!-- WISH -->
-<section>
-<h1>MAKE A WISH 🎂</h1>
-<p>Blow candles and make your wish ❤️</p>
+<!-- 🎂 CAKE SECTION (IMPROVED MAIN BIRTHDAY MOMENT) -->
+<section class="cake-box">
 
-<button class="btn" onclick="wish()">Blow Candles ✨</button>
+<h1>🎂 Birthday Moment</h1>
 
-<div id="wishMsg" style="display:none;color:#ffb3ec;margin-top:15px;">
-✨ Wish sent to stars ❤️
-</div>
+<div class="cake">🎂</div>
+
+<p>Close your eyes… make a wish… this moment is yours ❤️</p>
+
+<button class="cake-btn" onclick="showWish()">Make a Wish ✨</button>
+
+<div id="wishBox">✨ Make a wish Vidhuuu 🫶🏻✨</div>
+
 </section>
 
 <!-- VOICE -->
@@ -289,40 +269,9 @@ Because when I look at you, I just see the girl I love ❤️
 
 <script>
 
-/* ⭐ STARS */
-const stars=document.getElementById("stars");
-for(let i=0;i<120;i++){
-let s=document.createElement("div");
-s.className="star";
-s.style.left=Math.random()*100+"%";
-s.style.top=Math.random()*100+"%";
-stars.appendChild(s);
-}
-
-/* ❤️ HEARTS */
-setInterval(()=>{
-const h=document.createElement("div");
-h.className="heart";
-h.innerHTML="❤️";
-h.style.left=Math.random()*100+"vw";
-document.body.appendChild(h);
-setTimeout(()=>h.remove(),6000);
-},600);
-
-/* TYPE EFFECT */
-let text="A small world made just for you...";
-let i=0;
-function type(){
-if(i<text.length){
-document.getElementById("typeText").innerHTML+=text.charAt(i);
-i++;
-setTimeout(type,60);
-}
-}
-type();
-
-/* ENTER */
 let musicStarted=false;
+
+/* ENTER MUSIC */
 function enter(){
 document.getElementById("entry").style.display="none";
 if(!musicStarted){
@@ -331,16 +280,20 @@ musicStarted=true;
 }
 }
 
-/* WISH */
-function wish(){
+/* CAKE WISH */
+function showWish(){
+document.getElementById("wishBox").style.display="block";
+
 const b=document.getElementById("birthdayMusic");
 b.currentTime=0;
 b.play();
 
-document.getElementById("wishMsg").style.display="block";
-
+/* WHATSAPP FIXED TEXT */
 setTimeout(()=>{
-window.open("https://wa.me/919399348807?text=Make%20a%20wish%20for%20Vidhii%20❤️","_blank");
+window.open(
+"https://wa.me/919399348807?text=Make%20a%20wish%20Vidhuuu%20🫶🏻✨",
+"_blank"
+);
 },1200);
 }
 
