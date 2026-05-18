@@ -36,13 +36,19 @@ padding:80px 20px;
 }
 
 h1{
-font-size:65px;
+font-size:60px;
 background:linear-gradient(to right,#ffb3ec,#fff,#d8b4fe);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
 
-p{color:#ddd;max-width:900px;line-height:1.8;}
+p{
+font-size:20px;
+color:#ddd;
+max-width:900px;
+line-height:1.8;
+margin-top:15px;
+}
 
 .btn{
 margin-top:20px;
@@ -52,45 +58,82 @@ border-radius:40px;
 background:linear-gradient(to right,#ff1493,#9333ea);
 color:white;
 cursor:pointer;
+font-size:18px;
 }
 
 /* gallery */
 .gallery{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:20px;
+width:100%;
 max-width:1200px;
 margin-top:30px;
-width:100%;
 }
 
 .photo-frame{
 background:rgba(255,255,255,.06);
-padding:15px;
+padding:12px;
 border-radius:20px;
 }
 
 .photo-frame img{
 width:100%;
-height:360px;
+height:340px;
 object-fit:cover;
 border-radius:15px;
 }
 
-.note{color:#ffb3ec;margin-top:10px;}
-
-/* quote */
-.quote-box{
-background:rgba(255,255,255,.06);
-padding:20px;
-border-radius:20px;
-margin:10px;
+.note{
+margin-top:8px;
+color:#ffb3ec;
+font-size:14px;
 }
 
+/* entry */
+#entry{
+position:fixed;
+inset:0;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background:radial-gradient(circle,#2a0040,#000);
+z-index:9999;
+text-align:center;
+}
+
+#entry h1{
+font-size:38px;
+}
+
+#entry p{
+color:#bbb;
+margin-top:10px;
+}
+
+.scroll{
+margin-top:15px;
+color:#ddd;
+animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(10px);}
+}
 </style>
 </head>
 
 <body>
+
+<!-- ENTRY -->
+<div id="entry">
+<h1>Welcome ❤️</h1>
+<p>Click Enter to start your surprise</p>
+<div class="scroll">⬇ Scroll Slowly</div>
+<button class="btn" onclick="enter()">Enter ✨</button>
+</div>
 
 <!-- AUDIO -->
 <audio id="bgMusic" loop src="song.mp3"></audio>
@@ -100,45 +143,39 @@ margin:10px;
 <!-- HERO -->
 <section>
 <h1>Happy Birthday Vidhii ❤️</h1>
-<p>From a random moment… to forever ✨</p>
+<p>A random moment became forever ✨</p>
 </section>
 
 <!-- SONGS -->
 <section>
 <h1>Songs 🎵</h1>
-
-<div class="quote-box">Night Changes ❤️</div>
-<div class="quote-box">Until I Found You 🎶</div>
-<div class="quote-box">Apocalypse 🌙</div>
+<p>Night Changes • Until I Found You • Apocalypse</p>
 </section>
 
 <!-- STORY -->
 <section>
 <h1>Our Story ✨</h1>
-<div class="quote-box">6 June 2025 — We met</div>
-<div class="quote-box">28 Sept 2025 — Everything changed</div>
+<p>6 June 2025 — We met<br>28 Sept 2025 — Everything changed</p>
 </section>
 
-<!-- MY BEAUTIFUL (FULL 5 PHOTOS RESTORED) -->
+<!-- MY BEAUTIFUL (5 PHOTOS FIXED) -->
 <section>
 <h1>MY BEAUTIFUL ❤️</h1>
 
 <div class="gallery">
-
 <div class="photo-frame"><img src="photo1.jpg"><div class="note">Smile ❤️</div></div>
 <div class="photo-frame"><img src="photo2.jpg"><div class="note">Eyes 😭</div></div>
 <div class="photo-frame"><img src="photo3.jpg"><div class="note">Cute 💗</div></div>
 <div class="photo-frame"><img src="photo4.jpg"><div class="note">Peace ✨</div></div>
 <div class="photo-frame"><img src="photo5.jpg"><div class="note">Forever ❤️</div></div>
-
 </div>
 </section>
 
-<!-- INSECURITY (FULL PARA + ONLY 2 PHOTOS AS YOU ASKED) -->
+<!-- INSECURITY (FULL + 2 PHOTOS ONLY) -->
 <section>
 <h1>To Me You're Beautiful ❤️</h1>
 
-<div class="quote-box">
+<p>
 I know sometimes you don't see yourself the way I see you...
 
 <br><br>
@@ -148,7 +185,7 @@ but honestly?
 you are genuinely one of the cutest and most beautiful girls to me ❤️
 
 <br><br>
-Not because of makeup, specs, or anything people say...
+Not because of makeup or anything...
 
 <br><br>
 but because there’s something about you naturally ✨
@@ -166,13 +203,11 @@ Please never change yourself.
 <br><br>
 Because when I look at you,
 I just see the girl I love ❤️
-</div>
+</p>
 
 <div class="gallery">
-
 <div class="photo-frame"><img src="photo6.jpg"><div class="note">This smile ❤️</div></div>
 <div class="photo-frame"><img src="photo7.jpg"><div class="note">Perfect ✨</div></div>
-
 </div>
 </section>
 
@@ -180,41 +215,61 @@ I just see the girl I love ❤️
 <section>
 <h1>MAKE A WISH 🎂</h1>
 
-<div class="btn" onclick="wish()">Blow Candles ✨</div>
+<p>Blow candles and make your wish ❤️</p>
 
-<p id="wishText">Make a wish Vidhuuu ❤️</p>
+<button class="btn" onclick="wish()">Blow Candles ✨</button>
 
+<p id="wishMsg" style="display:none;color:#ffb3ec;margin-top:15px;">
+✨ Wish sent to stars ❤️
+</p>
+</section>
+
+<!-- VOICE -->
+<section>
+<h1>A Message 🎙️</h1>
+<button class="btn" onclick="playVoice()">Play Voice</button>
 </section>
 
 <!-- FINAL -->
 <section>
 <h1>Made With Love ❤️</h1>
-<div class="quote-box">
-Vaibhav Patel<br><br>
-Once again Happy Birthday Dear ❤️
-</div>
+<p>Once again Happy Birthday Dear ❤️</p>
 </section>
 
 <script>
 
-/* ENTER MUSIC FIX */
 let musicStarted=false;
-document.addEventListener("click",()=>{
+
+/* ENTRY MUSIC FIX */
+function enter(){
+document.getElementById("entry").style.display="none";
+
 if(!musicStarted){
-document.getElementById("bgMusic").play();
+document.getElementById("bgMusic").play().catch(()=>{});
 musicStarted=true;
 }
-});
+}
 
-/* WHATSAPP FIX (IMPORTANT) */
+/* WISH FIX (NO GLITCH) */
 function wish(){
+const b=document.getElementById("birthdayMusic");
+b.pause();
+b.currentTime=0;
+b.play();
 
-document.getElementById("birthdayMusic").currentTime=0;
-document.getElementById("birthdayMusic").play();
+document.getElementById("wishMsg").style.display="block";
 
 setTimeout(()=>{
 window.open("https://wa.me/919399348807?text=Make%20a%20wish%20for%20Vidhii%20❤️","_blank");
 },1200);
+}
+
+/* VOICE FIX (NO GLITCH) */
+function playVoice(){
+const v=document.getElementById("voiceNote");
+v.pause();
+v.currentTime=0;
+v.play().catch(()=>{});
 }
 
 </script>
