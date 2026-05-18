@@ -18,7 +18,7 @@ color:white;
 overflow-x:hidden;
 }
 
-/* CINEMATIC BACKGROUND */
+/* BACKGROUND */
 body::before{
 content:'';
 position:fixed;
@@ -35,7 +35,6 @@ position:fixed;
 width:2px;
 height:2px;
 background:white;
-opacity:.7;
 animation:twinkle 3s infinite alternate;
 z-index:-2;
 }
@@ -127,7 +126,6 @@ margin-top:30px;
 background:rgba(255,255,255,.06);
 padding:12px;
 border-radius:18px;
-backdrop-filter:blur(10px);
 }
 
 .photo-frame img{
@@ -153,7 +151,6 @@ animation:pulse 2s infinite;
 50%{transform:scale(1.12);}
 }
 
-/* BUTTON */
 .cake-btn{
 margin-top:20px;
 padding:16px 45px;
@@ -194,7 +191,6 @@ z-index:9999;
 100%{transform:scale(3);opacity:0;}
 }
 
-/* SHAKE */
 .shake{
 animation:shake .5s;
 }
@@ -226,7 +222,6 @@ font-size:18px;
 <button class="btn" onclick="enter()">Enter ✨</button>
 </div>
 
-<!-- AUDIO -->
 <audio id="bgMusic" loop src="song.mp3"></audio>
 <audio id="birthdayMusic" src="birthday.mp3"></audio>
 <audio id="voiceNote" src="voice.mp3"></audio>
@@ -241,44 +236,72 @@ font-size:18px;
 <section>
 <h1>Songs 🎵</h1>
 
-<div class="song-box">Night Changes — Everything changes but not my feelings ❤️</div>
-<div class="song-box">Until I Found You — I never believed in destiny until you ✨</div>
-<div class="song-box">Apocalypse — Even silence feels like you 🌙</div>
-<div class="song-box">I’ll Never Leave You — Always yours ❤️</div>
+<div class="song-box">Night Changes — feelings never change ❤️</div>
+<div class="song-box">Until I Found You — destiny felt real ✨</div>
+<div class="song-box">Apocalypse — silence still feels you 🌙</div>
+<div class="song-box">I’ll Never Leave You — always yours ❤️</div>
 
 </section>
 
-<!-- STORY -->
+<!-- STORY EXTENDED -->
 <section>
 <h1>Our Story ✨</h1>
-<p>6 June 2025 — We met<br>28 Sept 2025 — Everything changed forever</p>
-</section>
 
-<!-- GALLERY -->
-<section>
-<h1>MY BEAUTIFUL ❤️</h1>
+<p>
+It didn’t start like something special… but it became special on its own ❤️<br><br>
 
-<div class="gallery">
-<div class="photo-frame"><img src="photo1.jpg"><div class="note">Smile ❤️</div></div>
-<div class="photo-frame"><img src="photo2.jpg"><div class="note">Eyes 😭</div></div>
-<div class="photo-frame"><img src="photo3.jpg"><div class="note">Cute 💗</div></div>
-<div class="photo-frame"><img src="photo4.jpg"><div class="note">Peace ✨</div></div>
-<div class="photo-frame"><img src="photo5.jpg"><div class="note">Forever ❤️</div></div>
-<div class="photo-frame"><img src="photo6.jpg"><div class="note">Memory ❤️</div></div>
-<div class="photo-frame"><img src="photo7.jpg"><div class="note">Always ✨</div></div>
-</div>
+6 June 2025 — the day we first crossed paths…<br>
+just a normal moment that slowly became unforgettable ✨<br><br>
+
+From strangers → conversations → comfort → feelings we never planned…<br><br>
+
+28 September 2025 — everything inside me quietly changed.<br>
+That day wasn’t just a date anymore… it became a memory I feel deeply 💗
+</p>
 
 </section>
 
-<!-- INSECURITY -->
+<!-- INSECURITY SECTION (UPDATED + SOFT) -->
 <section>
 <h1>To Me You're Beautiful ❤️</h1>
 
 <p>
-You are not just beautiful… you are my definition of beautiful ❤️<br><br>
-Your smile, your eyes, your presence… everything feels like home 💗<br><br>
-You don’t need to change anything… you are already perfect ✨
+I know sometimes you feel insecure… especially without your specs 💗<br><br>
+
+Maybe people said things that made you doubt yourself…<br>
+but I want you to unlearn every one of those words ❤️<br><br>
+
+Because I don’t see what others say… I see you.<br><br>
+
+With specs or without specs… nothing changes your beauty for me ✨<br>
+Your face is not “less” or “more”… it’s just you — and that’s enough 💗<br><br>
+
+And your nose, your features, your everything… they don’t need fixing.<br>
+They are not flaws to me… they are part of someone I genuinely care about ❤️<br><br>
+
+You are not imperfect.<br>
+You are just overthinking yourself in a world that already sees you beautifully ✨
 </p>
+
+</section>
+
+<!-- PHOTO 6 & 7 AFTER INSECURITY -->
+<section>
+<h1>Always You ❤️</h1>
+
+<div class="gallery">
+
+<div class="photo-frame">
+<img src="photo6.jpg">
+<div class="note">Without Specs 💗 — Still Perfect</div>
+</div>
+
+<div class="photo-frame">
+<img src="photo7.jpg">
+<div class="note">Real You ✨ — No Change Needed</div>
+</div>
+
+</div>
 
 </section>
 
@@ -309,10 +332,10 @@ You don’t need to change anything… you are already perfect ✨
 
 <div class="song-box">
 ✨ “Some people change your life without trying… you are that person.”<br><br>
-❤️ “You will always stay in my feelings, not just memories.”<br><br>
+❤️ “You will always stay in my feelings.”<br><br>
 🌙 “I just need you in my world.”<br><br>
 💗 “If love had a name, it would sound like you.”<br><br>
-✨ “My forever wish will always be you.”
+✨ “And my forever wish will always be you.”
 </div>
 
 <p style="margin-top:20px;color:#ffb3ec;">
@@ -329,11 +352,10 @@ let s=document.createElement("div");
 s.className="star";
 s.style.left=Math.random()*100+"vw";
 s.style.top=Math.random()*100+"vh";
-s.style.animationDuration=(Math.random()*3+2)+"s";
 document.body.appendChild(s);
 }
 
-/* MUSIC */
+/* ENTER */
 let musicStarted=false;
 
 function enter(){
@@ -356,7 +378,7 @@ for(let i=0;i<120;i++){
 let c=document.createElement("div");
 c.className="confetti";
 c.style.left=Math.random()*100+"vw";
-c.style.background=["#ff1493","#9333ea","#ffd700","#00ffff","#ff4d4d"][Math.floor(Math.random()*5)];
+c.style.background=["#ff1493","#9333ea","#ffd700","#00ffff"][Math.floor(Math.random()*4)];
 document.body.appendChild(c);
 setTimeout(()=>c.remove(),3500);
 }
