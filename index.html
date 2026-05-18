@@ -17,7 +17,7 @@ color:white;
 overflow-x:hidden;
 }
 
-/* 🌌 background */
+/* 🌌 background glow */
 body::before{
 content:'';
 position:fixed;
@@ -46,19 +46,14 @@ to{transform:scale(1.1);}
 .stars{position:fixed;width:100%;height:100%;z-index:-1;}
 .star{
 position:absolute;
-width:2px;
-height:2px;
+width:2px;height:2px;
 background:white;
 border-radius:50%;
 animation:twinkle 3s infinite alternate;
 }
+@keyframes twinkle{from{opacity:.2}to{opacity:1}}
 
-@keyframes twinkle{
-from{opacity:.2}
-to{opacity:1}
-}
-
-/* sections */
+/* 🎬 scroll cinematic */
 section{
 min-height:100vh;
 display:flex;
@@ -69,9 +64,9 @@ text-align:center;
 padding:80px 20px;
 
 opacity:0;
-transform:translateY(50px) scale(.98);
-filter:blur(6px);
-transition:1.2s ease;
+transform:translateY(70px) scale(.97);
+filter:blur(8px);
+transition:1.4s ease;
 }
 
 section.show{
@@ -80,9 +75,9 @@ transform:translateY(0) scale(1);
 filter:blur(0);
 }
 
-/* headings */
+/* ✨ headings */
 h1{
-font-size:70px;
+font-size:72px;
 background:linear-gradient(to right,#ffb3ec,#fff,#d8b4fe);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
@@ -91,7 +86,7 @@ animation:titleGlow 3s infinite alternate;
 
 @keyframes titleGlow{
 from{text-shadow:0 0 10px rgba(255,255,255,.1);}
-to{text-shadow:0 0 25px rgba(255,20,147,.4);}
+to{text-shadow:0 0 30px rgba(255,20,147,.5);}
 }
 
 p{
@@ -102,7 +97,7 @@ line-height:1.8;
 margin-top:15px;
 }
 
-/* buttons */
+/* 🔘 buttons */
 .btn{
 margin-top:30px;
 padding:15px 40px;
@@ -112,9 +107,11 @@ background:linear-gradient(to right,#ff1493,#9333ea);
 color:white;
 font-size:18px;
 cursor:pointer;
+transition:.3s;
 }
+.btn:hover{transform:scale(1.05);}
 
-/* 💖 quote box */
+/* 💖 boxes */
 .quote-box{
 background:rgba(255,255,255,.06);
 padding:25px;
@@ -125,30 +122,14 @@ backdrop-filter:blur(15px);
 border:1px solid rgba(255,255,255,.12);
 transition:.5s;
 }
-
-.quote-box:hover{
-transform:translateY(-8px);
-}
+.quote-box:hover{transform:translateY(-8px);}
 
 /* 🎂 cake */
 .cake{
-font-size:150px;
+font-size:160px;
 animation:pulse 2s infinite;
 }
-
-@keyframes pulse{
-50%{transform:scale(1.08);}
-}
-
-/* 💌 typing */
-#letter{
-margin-top:25px;
-font-size:22px;
-max-width:800px;
-line-height:1.8;
-color:#ffb3ec;
-white-space:pre-line;
-}
+@keyframes pulse{50%{transform:scale(1.08);}}
 
 /* 🖼 gallery */
 .gallery{
@@ -168,7 +149,6 @@ backdrop-filter:blur(18px);
 border:1px solid rgba(255,255,255,.15);
 transition:.6s;
 overflow:hidden;
-position:relative;
 }
 
 .photo-frame img{
@@ -189,7 +169,22 @@ font-size:15px;
 color:#ffb3ec;
 }
 
-/* heart animation */
+/* ⬇️ SCROLL HINT */
+.scroll-hint{
+position:absolute;
+bottom:40px;
+font-size:18px;
+color:#ddd;
+animation:bounce 2s infinite;
+opacity:.9;
+}
+
+@keyframes bounce{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(10px);}
+}
+
+/* ❤️ floating */
 @keyframes floatUp{
 to{transform:translateY(-120vh);opacity:0;}
 }
@@ -209,8 +204,12 @@ to{transform:translateY(-120vh);opacity:0;}
 <!-- HERO -->
 <section>
 <h1>Happy Birthday<br>Vidhii ❤️</h1>
-<p>From a random moment… to my forever person ✨</p>
-<button class="btn" onclick="startWebsite()">Tap To Begin ✨</button>
+
+<p>From a random moment… to my forever feeling ✨</p>
+
+<button class="btn" onclick="start()">Tap To Begin ✨</button>
+
+<div class="scroll-hint">⬇ Scroll Slowly For A Surprise ❤️</div>
 </section>
 
 <!-- FOR YOU -->
@@ -218,28 +217,27 @@ to{transform:translateY(-120vh);opacity:0;}
 <h1>For You ❤️</h1>
 
 <div class="quote-box">💗 You are my peace in chaos</div>
-<div class="quote-box">💟 You are the most special person</div>
-<div class="quote-box">🫶 I will always be there for you</div>
+<div class="quote-box">💟 You are my happiness</div>
+<div class="quote-box">🫶 I will always be there</div>
 </section>
 
 <!-- SONGS -->
 <section>
 <h1>Songs That Feel Like Us 🎵</h1>
-<div class="quote-box">
-Night Changes • Until I Found You • Apocalypse • Perfect ❤️
-</div>
+<div class="quote-box">Night Changes • Until I Found You • Apocalypse • Perfect ❤️</div>
 </section>
 
 <!-- STORY -->
 <section>
 <h1>Our Story ✨</h1>
 <div class="quote-box">🎮 6 June 2025 — We met</div>
-<div class="quote-box">💗 28 Sept 2025 — My heart changed</div>
+<div class="quote-box">💗 28 Sept 2025 — Everything changed</div>
 </section>
 
 <!-- MY BEAUTIFUL -->
 <section>
 <h1>MY BEAUTIFUL ❤️</h1>
+
 <p>Every picture of yours feels like a memory I never want to lose ✨</p>
 
 <div class="gallery">
@@ -259,14 +257,33 @@ Night Changes • Until I Found You • Apocalypse • Perfect ❤️
 <div class="note">You are naturally beautiful 💗</div>
 </div>
 
+</div>
+</section>
+
+<!-- INSECURITY -->
+<section>
+<h1>To Me You're Beautiful ❤️</h1>
+
+<div class="quote-box">
+I know sometimes you don’t see yourself the way I see you…<br><br>
+but to me, you are perfect in your own way ❤️
+</div>
+
+<div class="gallery">
+
 <div class="photo-frame">
-<img src="photo4.jpg">
-<div class="note">You bring peace ❤️</div>
+<img src="photo6.jpg">
+<div class="note">This smile deserves happiness ❤️</div>
 </div>
 
 <div class="photo-frame">
-<img src="photo5.jpg">
-<div class="note">Everything about you is special ✨</div>
+<img src="photo7.jpg">
+<div class="note">You are enough ✨</div>
+</div>
+
+<div class="photo-frame">
+<img src="photo8.jpg">
+<div class="note">To me, you're the prettiest ❤️</div>
 </div>
 
 </div>
@@ -274,15 +291,15 @@ Night Changes • Until I Found You • Apocalypse • Perfect ❤️
 
 <!-- WISH -->
 <section>
-<h1>Make A Wish 🎂</h1>
+<h1>MAKE A WISH 🎂</h1>
 
 <div class="cake">🎂</div>
 
-<p>Blow candles and wish something beautiful ❤️</p>
+<p id="wishText">Make a wish Vidhuuu… ❤️✨</p>
 
-<button class="btn" onclick="blowCandles()">Blow Candles ✨</button>
+<button class="btn" onclick="wish()">Blow Candles ✨</button>
 
-<div id="wish" style="display:none;color:#ffb3ec;margin-top:20px;font-size:22px;">
+<div id="wishMsg" style="display:none;color:#ffb3ec;margin-top:20px;">
 ✨ Your wish has been sent to the universe ❤️
 </div>
 </section>
@@ -293,11 +310,22 @@ Night Changes • Until I Found You • Apocalypse • Perfect ❤️
 <button class="btn" onclick="playVoice()">Play Voice</button>
 </section>
 
+<!-- FINAL -->
+<section>
+<h1>Made By Our Love ❤️</h1>
+
+<div class="quote-box">
+VAIBHAV PATEL<br><br>
+Hope you like it 💗<br><br>
+Just a little effort ✨
+</div>
+</section>
+
 <script>
 
 /* stars */
 const stars=document.getElementById("stars");
-for(let i=0;i<200;i++){
+for(let i=0;i<220;i++){
 let s=document.createElement("div");
 s.className="star";
 s.style.left=Math.random()*100+"%";
@@ -305,7 +333,7 @@ s.style.top=Math.random()*100+"%";
 stars.appendChild(s);
 }
 
-/* section reveal */
+/* reveal */
 const sections=document.querySelectorAll("section");
 window.addEventListener("scroll",()=>{
 sections.forEach(s=>{
@@ -314,59 +342,30 @@ s.classList.add("show");
 });
 });
 
-/* music fix */
+/* music control */
 function stopAll(){
-document.getElementById("bgMusic").pause();
-document.getElementById("birthdayMusic").pause();
-document.getElementById("bgMusic").currentTime=0;
-document.getElementById("birthdayMusic").currentTime=0;
+bgMusic.pause();
+birthdayMusic.pause();
+bgMusic.currentTime=0;
+birthdayMusic.currentTime=0;
 }
 
-function startWebsite(){
-document.getElementById("bgMusic").play();
+/* start */
+function start(){
+bgMusic.play();
 window.scrollTo({top:window.innerHeight,behavior:"smooth"});
 }
 
-/* typing FIX (line by line) */
-const msgs=[
-"I never knew someone like you could exist ❤️",
-"You became my peace ✨",
-"You are my favorite feeling 🌙",
-"And I just want you to be happy always ❤️"
-];
-
-let i=0;
-
-function typeLoop(){
-let el=document.getElementById("letter");
-if(!el) return;
-
-el.innerHTML="";
-let txt=msgs[i];
-let j=0;
-
-let t=setInterval(()=>{
-el.innerHTML+=txt[j];
-j++;
-
-if(j>=txt.length){
-clearInterval(t);
-setTimeout(()=>{
-i=(i+1)%msgs.length;
-typeLoop();
-},1800);
-}
-},40);
-}
-
 /* wish */
-function blowCandles(){
+function wish(){
 stopAll();
-document.getElementById("birthdayMusic").play();
+birthdayMusic.play();
 
-document.getElementById("wish").style.display="block";
+document.getElementById("wishMsg").style.display="block";
+document.getElementById("wishText").innerText =
+"Make a wish Vidhuuu… ✨❤️";
 
-for(let k=0;k<50;k++){
+for(let i=0;i<60;i++){
 let h=document.createElement("div");
 h.innerHTML="❤️";
 h.style.position="fixed";
@@ -385,11 +384,8 @@ window.open("https://wa.me/919399348807?text=I made a wish for Vidhii ❤️✨"
 
 /* voice */
 function playVoice(){
-document.getElementById("voiceNote").play();
+voiceNote.play();
 }
-
-/* start typing after load */
-setTimeout(typeLoop,2000);
 
 </script>
 
