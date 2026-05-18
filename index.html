@@ -9,7 +9,6 @@
 
 <style>
 
-/* BASE */
 *{margin:0;padding:0;box-sizing:border-box;}
 
 body{
@@ -19,71 +18,31 @@ color:white;
 overflow-x:hidden;
 }
 
-/* CINEMATIC LAYERS */
+/* BACKGROUND */
 body::before{
 content:'';
 position:fixed;
 inset:0;
 background:
-radial-gradient(circle at top,#2a0040,#000 60%),
-radial-gradient(circle at bottom,#0a0015,#000);
-z-index:-5;
+radial-gradient(circle at top,#3b0764,#000),
+radial-gradient(circle at bottom,#12001f,#000);
+z-index:-3;
 }
 
-/* FILM GRAIN */
-body::after{
-content:'';
+/* STAR */
+.star{
 position:fixed;
-inset:0;
-background:url('https://grainy-gradients.vercel.app/noise.svg');
-opacity:.08;
-z-index:-4;
-pointer-events:none;
-}
-
-/* SPOTLIGHT FOLLOW CURSOR */
-.spotlight{
-position:fixed;
-width:400px;
-height:400px;
-background:radial-gradient(circle,rgba(255,255,255,.08),transparent 60%);
-border-radius:50%;
-pointer-events:none;
-mix-blend-mode:screen;
-transform:translate(-50%,-50%);
-z-index:0;
-}
-
-/* FLOATING PARTICLES */
-.particle{
-position:fixed;
-width:3px;
-height:3px;
+width:2px;
+height:2px;
 background:white;
-opacity:.6;
-animation:float 8s linear infinite;
+opacity:.7;
+animation:twinkle 3s infinite alternate;
 z-index:-2;
 }
 
-@keyframes float{
-0%{transform:translateY(100vh);opacity:0;}
-50%{opacity:1;}
-100%{transform:translateY(-10vh);opacity:0;}
-}
-
-/* HEARTS */
-.heart{
-position:fixed;
-color:#ff4da6;
-font-size:16px;
-animation:rise 7s linear infinite;
-opacity:.5;
-z-index:-1;
-}
-
-@keyframes rise{
-0%{transform:translateY(100vh) scale(.5);}
-100%{transform:translateY(-10vh) scale(1.2);}
+@keyframes twinkle{
+from{opacity:.2;}
+to{opacity:1;}
 }
 
 /* ENTRY */
@@ -94,22 +53,16 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-background:radial-gradient(circle,#1a0025,#000);
+background:radial-gradient(circle,#2a0040,#000);
 z-index:9999;
-transition:1s;
+text-align:center;
 }
 
 #entry h1{
-font-size:50px;
-background:linear-gradient(to right,#ff4da6,#fff,#9333ea);
+font-size:45px;
+background:linear-gradient(to right,#ffb3ec,#fff,#d8b4fe);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
-animation:glow 2s infinite alternate;
-}
-
-@keyframes glow{
-from{text-shadow:0 0 10px #ff4da6;}
-to{text-shadow:0 0 40px #9333ea;}
 }
 
 .btn{
@@ -121,10 +74,22 @@ background:linear-gradient(135deg,#ff1493,#9333ea);
 color:white;
 font-size:18px;
 cursor:pointer;
-box-shadow:0 0 50px rgba(255,20,147,.5);
+box-shadow:0 0 30px rgba(255,20,147,.4);
 }
 
-/* SCENES */
+/* SCROLL HINT */
+.scroll-hint{
+margin-top:15px;
+font-size:14px;
+color:#ffb3ec;
+animation:blink 1.5s infinite;
+}
+
+@keyframes blink{
+50%{opacity:.4;}
+}
+
+/* SECTIONS */
 section{
 min-height:100vh;
 display:flex;
@@ -133,31 +98,21 @@ justify-content:center;
 align-items:center;
 text-align:center;
 padding:80px 20px;
-
 opacity:0;
-transform:translateY(80px) scale(.95);
-transition:1.2s ease;
-filter:blur(5px);
+transform:translateY(50px);
+transition:1s ease;
 }
 
 section.show{
 opacity:1;
-transform:translateY(0) scale(1);
-filter:blur(0);
+transform:translateY(0);
 }
 
-/* HEADINGS */
 h1{
-font-size:64px;
+font-size:60px;
 background:linear-gradient(to right,#ffb3ec,#fff,#d8b4fe);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
-animation:titleGlow 3s infinite alternate;
-}
-
-@keyframes titleGlow{
-from{text-shadow:0 0 10px #ff4da6;}
-to{text-shadow:0 0 25px #9333ea;}
 }
 
 p{
@@ -167,62 +122,53 @@ max-width:900px;
 line-height:1.9;
 }
 
-/* BOXES */
+/* SONG BOX */
 .song-box{
-background:rgba(255,255,255,.05);
-padding:20px;
+background:rgba(255,255,255,.06);
+padding:18px;
 margin:10px;
-border-radius:20px;
-backdrop-filter:blur(15px);
+border-radius:16px;
+backdrop-filter:blur(10px);
 border:1px solid rgba(255,255,255,.1);
-transition:.5s;
-}
-
-.song-box:hover{
-transform:scale(1.05);
 }
 
 /* GALLERY */
 .gallery{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:20px;
+gap:18px;
 width:100%;
 max-width:1200px;
-margin-top:30px;
+margin-top:25px;
 }
 
 .photo-frame{
 background:rgba(255,255,255,.05);
 padding:12px;
-border-radius:18px;
-transition:.6s;
-}
-
-.photo-frame:hover{
-transform:scale(1.06) rotate(-1deg);
+border-radius:16px;
 }
 
 .photo-frame img{
 width:100%;
 height:340px;
 object-fit:cover;
-border-radius:14px;
+border-radius:12px;
 }
 
 .note{
-margin-top:8px;
+margin-top:6px;
 color:#ffb3ec;
+font-size:14px;
 }
 
 /* CAKE */
 .cake{
-font-size:200px;
-animation:breath 2s infinite;
+font-size:180px;
+animation:pulse 2s infinite;
 }
 
-@keyframes breath{
-50%{transform:scale(1.15);}
+@keyframes pulse{
+50%{transform:scale(1.1);}
 }
 
 .cake-btn{
@@ -242,8 +188,8 @@ pointer-events:none;
 }
 
 .confetti{
-width:10px;
-height:10px;
+width:8px;
+height:8px;
 top:-10px;
 animation:fall 3s linear forwards;
 }
@@ -253,7 +199,7 @@ to{transform:translateY(110vh) rotate(720deg);opacity:0;}
 }
 
 .firework{
-font-size:18px;
+font-size:16px;
 animation:boom 1.5s ease-out forwards;
 }
 
@@ -266,9 +212,9 @@ animation:boom 1.5s ease-out forwards;
 
 @keyframes shake{
 0%,100%{transform:translate(0);}
-25%{transform:translate(-6px,6px);}
-50%{transform:translate(6px,-6px);}
-75%{transform:translate(-6px,-6px);}
+25%{transform:translate(-5px,5px);}
+50%{transform:translate(5px,-5px);}
+75%{transform:translate(-5px,-5px);}
 }
 
 /* WISH */
@@ -283,9 +229,12 @@ color:#ffb3ec;
 
 <body>
 
+<!-- ENTRY -->
 <div id="entry">
-<h1>Welcome ❤️</h1>
-<p>A world made only for Vidhuuu ✨</p>
+<h1>Happy Birthday Vidhii ❤️</h1>
+
+<p class="scroll-hint">⬇ Scroll down to explore your surprise ✨</p>
+
 <button class="btn" onclick="enter()">Enter ✨</button>
 </div>
 
@@ -293,52 +242,71 @@ color:#ffb3ec;
 <audio id="birthdayMusic" src="birthday.mp3"></audio>
 <audio id="voiceNote" src="voice.mp3"></audio>
 
-<div class="spotlight"></div>
-
-<!-- ALL SECTIONS (NO CUTS KEPT) -->
-
+<!-- HERO -->
 <section>
-<h1>Happy Birthday Vidhii ❤️</h1>
-<p>From a random moment… to destiny ✨</p>
+<h1>Happy Birthday ❤️</h1>
+<p>From a random moment… to something unforgettable ✨</p>
 </section>
 
+<!-- SONGS -->
 <section>
 <h1>Songs 🎵</h1>
+
 <div class="song-box">Night Changes ❤️</div>
 <div class="song-box">Until I Found You ✨</div>
 <div class="song-box">Apocalypse 🌙</div>
 <div class="song-box">I’ll Never Leave You ❤️</div>
+
 </section>
 
+<!-- STORY (RESTORED FULL FEEL) -->
 <section>
 <h1>Our Story ✨</h1>
-<p>6 June 2025 → First moment ❤️<br>28 Sept 2025 → Everything changed 💗</p>
+
+<p>
+6 June 2025 — First time we crossed paths ✨<br><br>
+From strangers → comfort → feelings ❤️<br><br>
+28 September 2025 — everything changed 💗
+</p>
+
 </section>
 
+<!-- MY BEAUTIFUL (NO CUT) -->
 <section>
 <h1>MY BEAUTIFUL 💟</h1>
 
 <div class="gallery">
+
 <div class="photo-frame"><img src="photo1.jpg"><div class="note">Smile ❤️</div></div>
 <div class="photo-frame"><img src="photo2.jpg"><div class="note">Eyes ✨</div></div>
 <div class="photo-frame"><img src="photo3.jpg"><div class="note">Cute 💗</div></div>
 <div class="photo-frame"><img src="photo4.jpg"><div class="note">Peace 🌸</div></div>
 <div class="photo-frame"><img src="photo5.jpg"><div class="note">Forever ❤️</div></div>
+
 </div>
 
 <div class="song-box">
-“You are my definition of beautiful ✨”
+✨ “You are my definition of beautiful”<br>
+💗 “Every picture feels like home”<br>
+❤️ “You don’t need to change anything”
 </div>
+
 </section>
 
+<!-- INSECURITY -->
 <section>
 <h1>To Me You're Beautiful ❤️</h1>
+
 <p>
-Specs or no specs… I see YOU 💗<br>
-No flaws. No doubt. Just you ✨
+I know sometimes you feel insecure without specs 💗<br><br>
+But I don’t see flaws… I see YOU ✨<br><br>
+With or without specs — nothing changes ❤️<br><br>
+You are already enough 💗
 </p>
+
 </section>
 
+<!-- PHOTO 6 & 7 -->
 <section>
 <h1>Always You ❤️</h1>
 
@@ -346,15 +314,29 @@ No flaws. No doubt. Just you ✨
 <div class="photo-frame"><img src="photo6.jpg"><div class="note">Without Specs 💗</div></div>
 <div class="photo-frame"><img src="photo7.jpg"><div class="note">Still Perfect ✨</div></div>
 </div>
+
 </section>
 
+<!-- CAKE -->
 <section>
 <h1>🎂 Birthday Moment</h1>
+
 <div class="cake">🎂</div>
+
+<p>Close your eyes… make your wish ✨</p>
+
 <button class="cake-btn" onclick="wish()">Make a Wish ✨</button>
-<div id="wishBox">✨ Wish accepted 💗</div>
+
+<div id="wishBox">✨ Wish received 💗</div>
 </section>
 
+<!-- VOICE -->
+<section>
+<h1>A Message 🎙️</h1>
+<button class="cake-btn" onclick="playVoice()">Play Voice</button>
+</section>
+
+<!-- FINAL -->
 <section>
 <h1>Made With Love ❤️</h1>
 <p><b>Vaibhav Patel</b></p>
@@ -362,39 +344,56 @@ No flaws. No doubt. Just you ✨
 
 <script>
 
-/* SCENE REVEAL */
-const sec=document.querySelectorAll("section");
-window.addEventListener("scroll",()=>{
-sec.forEach(s=>{
-if(s.getBoundingClientRect().top<600)s.classList.add("show");
-});
-});
-
-/* ENTRY */
-function enter(){
-document.getElementById("entry").style.display="none";
-document.getElementById("bgMusic").play();
+/* STAR */
+for(let i=0;i<120;i++){
+let s=document.createElement("div");
+s.className="star";
+s.style.left=Math.random()*100+"vw";
+s.style.top=Math.random()*100+"vh";
+document.body.appendChild(s);
 }
 
-/* SPOTLIGHT */
-document.addEventListener("mousemove",(e)=>{
-document.querySelector(".spotlight").style.left=e.clientX+"px";
-document.querySelector(".spotlight").style.top=e.clientY+"px";
+/* ENTRY MUSIC FIX */
+function enter(){
+document.getElementById("entry").style.display="none";
+document.getElementById("bgMusic").play().catch(()=>{});
+}
+
+/* SCROLL ANIMATION */
+const sections=document.querySelectorAll("section");
+window.addEventListener("scroll",()=>{
+sections.forEach(s=>{
+if(s.getBoundingClientRect().top<600){
+s.classList.add("show");
+}
+});
 });
 
-/* EFFECTS */
+/* FIXED WHATSAPP + EFFECTS */
 function wish(){
+
 document.getElementById("wishBox").style.display="block";
-document.getElementById("birthdayMusic").play();
-for(let i=0;i<100;i++){
+
+document.getElementById("birthdayMusic").play().catch(()=>{});
+
+for(let i=0;i<80;i++){
 let c=document.createElement("div");
 c.className="confetti";
 c.style.left=Math.random()*100+"vw";
 document.body.appendChild(c);
 setTimeout(()=>c.remove(),3000);
 }
-document.body.classList.add("shake");
-setTimeout(()=>document.body.classList.remove("shake"),500);
+
+/* WhatsApp FIX */
+setTimeout(()=>{
+window.location.href=
+"https://wa.me/919399348807?text=Make%20a%20wish%20Vidhuuu%20🫶🏻✨";
+},1200);
+}
+
+/* VOICE FIX */
+function playVoice(){
+document.getElementById("voiceNote").play().catch(()=>{});
 }
 
 </script>
