@@ -330,6 +330,30 @@ setTimeout(()=>{
 
 <p style="margin-top:20px;color:#ffb3ec;">
 —I’ll always be here… even when nothing is said ❤️
+/* 🔥 CINEMATIC ZOOM EFFECT */
+.zoom-effect{
+animation:zoomIn 1.2s ease-in-out;
+transform-origin:center;
+}
+
+@keyframes zoomIn{
+0%{transform:scale(1);}
+50%{transform:scale(1.15);}
+100%{transform:scale(1);}
+}
+
+/* BIG FIREWORK BURST */
+.big-firework{
+position:fixed;
+font-size:28px;
+z-index:9999;
+animation:burst 1.5s ease-out forwards;
+}
+
+@keyframes burst{
+0%{transform:scale(0);opacity:1;}
+100%{transform:scale(4);opacity:0;}
+}
 </p>
 
 </section>
