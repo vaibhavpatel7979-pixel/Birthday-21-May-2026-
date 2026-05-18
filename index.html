@@ -53,9 +53,9 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
+text-align:center;
 background:radial-gradient(circle,#2a0040,#000);
 z-index:9999;
-text-align:center;
 }
 
 #entry h1{
@@ -74,29 +74,16 @@ background:linear-gradient(135deg,#ff1493,#9333ea);
 color:white;
 font-size:18px;
 cursor:pointer;
+box-shadow:0 0 30px rgba(255,20,147,.4);
 }
 
-/* SCROLL PAGE */
-#scrollPage{
-display:none;
-position:fixed;
-inset:0;
-background:black;
-z-index:9998;
-justify-content:center;
-align-items:center;
-text-align:center;
-flex-direction:column;
-}
-
-#scrollPage h2{
+/* SCROLL HINT */
+#scrollHint{
+margin-top:15px;
+font-size:14px;
 color:#ffb3ec;
-font-size:28px;
-animation:blink 1.5s infinite;
-}
-
-@keyframes blink{
-50%{opacity:.4;}
+opacity:0;
+transition:0.8s;
 }
 
 /* SECTIONS */
@@ -108,6 +95,7 @@ justify-content:center;
 align-items:center;
 text-align:center;
 padding:80px 20px;
+
 opacity:0;
 transform:translateY(40px);
 transition:1s ease;
@@ -159,9 +147,9 @@ border-radius:12px;
 }
 
 .note{
+margin-top:6px;
 color:#ffb3ec;
 font-size:14px;
-margin-top:6px;
 }
 
 /* CAKE */
@@ -228,43 +216,31 @@ animation:boom 1.5s ease-out forwards;
 <!-- ENTRY -->
 <div id="entry">
 <h1>Happy Birthday Vidhii ❤️</h1>
+
 <button class="btn" onclick="enter()">Enter ✨</button>
+
+<p id="scrollHint">⬇ Scroll down to explore your surprise ✨</p>
 </div>
 
-<!-- SCROLL PAGE (SEPARATE SCREEN) -->
-<div id="scrollPage">
-<h2>⬇ Scroll Down To Enter Your World ✨</h2>
-</div>
-
-<audio id="bgMusic" loop></audio>
-<audio id="birthdayMusic"></audio>
-<audio id="voiceNote"></audio>
+<!-- AUDIO -->
+<audio id="bgMusic" loop src="song.mp3"></audio>
+<audio id="birthdayMusic" src="birthday.mp3"></audio>
+<audio id="voiceNote" src="voice.mp3"></audio>
 
 <!-- HERO -->
 <section>
 <h1>Happy Birthday ❤️</h1>
-<p>From a random moment… to forever ✨</p>
+<p>From a random moment… to something unforgettable ✨</p>
 </section>
 
-<!-- SONGS WITH FULL TEXT (RESTORED) -->
+<!-- SONGS -->
 <section>
 <h1>Songs 🎵</h1>
 
-<div class="song-box">
-Night Changes — Everything changes in life… but my feelings for you will never change ❤️
-</div>
-
-<div class="song-box">
-Until I Found You — I never believed in destiny… until you came ✨
-</div>
-
-<div class="song-box">
-Apocalypse — Even silence reminds me of you 🌙
-</div>
-
-<div class="song-box">
-I’ll Never Leave You — No matter what happens… I’ll stay ❤️
-</div>
+<div class="song-box">Night Changes — feelings never change ❤️</div>
+<div class="song-box">Until I Found You — destiny ✨</div>
+<div class="song-box">Apocalypse — silence 🌙</div>
+<div class="song-box">I’ll Never Leave You — always ❤️</div>
 
 </section>
 
@@ -272,8 +248,8 @@ I’ll Never Leave You — No matter what happens… I’ll stay ❤️
 <section>
 <h1>Our Story ✨</h1>
 <p>
-6 June 2025 — First interaction ✨<br><br>
-Strangers → friends → something deeper ❤️<br><br>
+6 June 2025 — First connection ✨<br><br>
+Strangers → comfort → feelings ❤️<br><br>
 28 Sept 2025 — everything changed 💗
 </p>
 </section>
@@ -283,11 +259,17 @@ Strangers → friends → something deeper ❤️<br><br>
 <h1>MY BEAUTIFUL 💟</h1>
 
 <div class="gallery">
-<div><img src="photo1.jpg"><div class="note">Smile ❤️</div></div>
-<div><img src="photo2.jpg"><div class="note">Eyes ✨</div></div>
-<div><img src="photo3.jpg"><div class="note">Cute 💗</div></div>
-<div><img src="photo4.jpg"><div class="note">Peace 🌸</div></div>
-<div><img src="photo5.jpg"><div class="note">Forever ❤️</div></div>
+<div class="photo-frame"><img src="photo1.jpg"><div class="note">Smile ❤️</div></div>
+<div class="photo-frame"><img src="photo2.jpg"><div class="note">Eyes ✨</div></div>
+<div class="photo-frame"><img src="photo3.jpg"><div class="note">Cute 💗</div></div>
+<div class="photo-frame"><img src="photo4.jpg"><div class="note">Peace 🌸</div></div>
+<div class="photo-frame"><img src="photo5.jpg"><div class="note">Forever ❤️</div></div>
+</div>
+
+<div class="song-box">
+✨ You are my definition of beautiful<br>
+💗 Everything about you feels home<br>
+❤️ No need to change anything
 </div>
 
 </section>
@@ -296,22 +278,23 @@ Strangers → friends → something deeper ❤️<br><br>
 <section>
 <h1>To Me You're Beautiful ❤️</h1>
 <p>
-With specs or without… you are still perfect 💗
+With specs or without… you are still perfect 💗<br><br>
+I don’t see flaws, I see YOU ✨
 </p>
 </section>
 
-<!-- PHOTO 6 7 -->
+<!-- PHOTO 6 & 7 -->
 <section>
 <h1>Always You ❤️</h1>
 
 <div class="gallery">
-<div><img src="photo6.jpg"><div class="note">Without Specs 💗</div></div>
-<div><img src="photo7.jpg"><div class="note">Still Perfect ✨</div></div>
+<div class="photo-frame"><img src="photo6.jpg"><div class="note">Without Specs 💗</div></div>
+<div class="photo-frame"><img src="photo7.jpg"><div class="note">Still Perfect ✨</div></div>
 </div>
 
 </section>
 
-<!-- CAKE + FIREWORK FIX -->
+<!-- CAKE -->
 <section>
 <h1>🎂 Birthday Moment</h1>
 
@@ -320,6 +303,11 @@ With specs or without… you are still perfect 💗
 <p>Make a wish ✨</p>
 
 <button class="cake-btn" onclick="wish()">Make Wish ✨</button>
+
+<div id="wishBox" style="color:#ffb3ec;margin-top:10px;display:none;">
+✨ Wish received 💗
+</div>
+
 </section>
 
 <!-- FINAL -->
@@ -330,33 +318,27 @@ With specs or without… you are still perfect 💗
 
 <script>
 
-/* MUSIC CONTROL FIX (NO OVERLAP) */
-let currentAudio=null;
-
-function playAudio(audio){
-if(currentAudio){
-currentAudio.pause();
-currentAudio.currentTime=0;
-}
-currentAudio=audio;
-audio.play().catch(()=>{});
+/* STAR */
+for(let i=0;i<100;i++){
+let s=document.createElement("div");
+s.className="star";
+s.style.left=Math.random()*100+"vw";
+s.style.top=Math.random()*100+"vh";
+document.body.appendChild(s);
 }
 
-/* ENTRY FLOW */
+/* ENTRY */
 function enter(){
 document.getElementById("entry").style.display="none";
+document.getElementById("bgMusic").play().catch(()=>{});
 
-/* show scroll page FIRST */
-document.getElementById("scrollPage").style.display="flex";
-
-/* after 2 sec move to content */
+/* scroll hint hide after enter */
 setTimeout(()=>{
-document.getElementById("scrollPage").style.display="none";
-playAudio(document.getElementById("bgMusic"));
+document.getElementById("scrollHint").style.opacity="0";
 },2000);
 }
 
-/* SCROLL ANIMATION */
+/* SCROLL */
 const sections=document.querySelectorAll("section");
 window.addEventListener("scroll",()=>{
 sections.forEach(s=>{
@@ -366,15 +348,24 @@ s.classList.add("show");
 });
 });
 
-/* FIREWORK + CAKE FIX */
+/* WISH + FIREWORK */
 function wish(){
 
-playAudio(document.getElementById("birthdayMusic"));
+document.getElementById("wishBox").style.display="block";
+document.getElementById("birthdayMusic").play().catch(()=>{});
 
-for(let i=0;i<120;i++){
+for(let i=0;i<80;i++){
+let c=document.createElement("div");
+c.className="confetti";
+c.style.left=Math.random()*100+"vw";
+document.body.appendChild(c);
+setTimeout(()=>c.remove(),3000);
+}
+
+for(let i=0;i<25;i++){
 let f=document.createElement("div");
 f.className="firework";
-f.innerHTML=["🎆","✨","💥"][Math.floor(Math.random()*3)];
+f.innerHTML="✨";
 f.style.left=Math.random()*100+"vw";
 f.style.top=Math.random()*60+"vh";
 document.body.appendChild(f);
@@ -383,7 +374,6 @@ setTimeout(()=>f.remove(),1500);
 
 document.body.classList.add("shake");
 setTimeout(()=>document.body.classList.remove("shake"),500);
-
 }
 
 </script>
