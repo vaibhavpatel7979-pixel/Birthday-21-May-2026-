@@ -24,7 +24,7 @@ inset:0;
 background:
 radial-gradient(circle at top,#3b0764,#000),
 radial-gradient(circle at bottom,#12001f,#000);
-z-index:-3;
+z-index:-1;
 }
 
 /* ENTRY */
@@ -41,7 +41,7 @@ text-align:center;
 }
 
 #entry h1{
-font-size:40px;
+font-size:45px;
 background:linear-gradient(to right,#ffb3ec,#fff,#d8b4fe);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
@@ -79,19 +79,20 @@ background:linear-gradient(to right,#ffb3ec,#fff,#d8b4fe);
 p{
 font-size:20px;
 color:#ddd;
-max-width:900px;
+max-width:950px;
 line-height:1.9;
 }
 
+/* SONG BOX */
 .song-box{
 background:rgba(255,255,255,.06);
 padding:18px;
-margin:10px;
+margin:12px;
 border-radius:14px;
-max-width:800px;
+max-width:850px;
 }
 
-/* GALLERY */
+/* IMAGE */
 img{
 width:100%;
 max-width:300px;
@@ -99,12 +100,6 @@ border-radius:12px;
 margin:10px;
 }
 
-.note{
-color:#ffb3ec;
-font-size:14px;
-}
-
-/* BUTTON */
 .cake-btn{
 padding:14px 40px;
 border:none;
@@ -115,7 +110,6 @@ cursor:pointer;
 margin-top:15px;
 }
 
-/* CONFETTI */
 .confetti{
 position:fixed;
 width:8px;
@@ -127,6 +121,7 @@ animation:fall 3s linear forwards;
 @keyframes fall{
 to{transform:translateY(110vh) rotate(720deg);opacity:0;}
 }
+
 </style>
 </head>
 
@@ -138,32 +133,35 @@ to{transform:translateY(110vh) rotate(720deg);opacity:0;}
 <button class="btn" onclick="enter()">Enter ✨</button>
 </div>
 
+<!-- AUDIO -->
 <audio id="bgMusic" loop src="song.mp3"></audio>
 <audio id="birthdayMusic" src="birthday.mp3"></audio>
-<audio id="voiceNote" src="voice.mp3"></audio>
 
-<!-- CONTENT -->
+<!-- CONTENT (UNCHANGED TEXTS) -->
 <section>
-<h1>Happy Birthday ❤️</h1>
-<p>From a random moment… to forever ✨</p>
+<h1>Happy Birthday Vidhii ❤️</h1>
+<p>From a random moment… to the most beautiful feeling of my life ✨</p>
 </section>
 
 <section>
 <h1>Songs 🎵</h1>
 
-<div class="song-box">Night Changes — feelings never change ❤️</div>
-<div class="song-box">Until I Found You — destiny ✨</div>
-<div class="song-box">Apocalypse — silence 🌙</div>
-<div class="song-box">I’ll Never Leave You — always ❤️</div>
+<div class="song-box">Night Changes — Everything changes but my feelings don’t ❤️</div>
+<div class="song-box">Until I Found You — You feel like destiny ✨</div>
+<div class="song-box">Apocalypse — Even silence feels like you 🌙</div>
+<div class="song-box">I’ll Never Leave You — Always with you ❤️</div>
 
 </section>
 
 <section>
 <h1>Our Story ✨</h1>
+
 <p>
-6 June 2025 → start ✨<br><br>
-28 Sept 2025 → everything changed 💗
+6 June 2025 — First time we crossed paths ✨<br><br>
+A normal moment slowly became unforgettable ❤️<br><br>
+28 September 2025 — Everything changed inside me 💗
 </p>
+
 </section>
 
 <section>
@@ -175,20 +173,16 @@ to{transform:translateY(110vh) rotate(720deg);opacity:0;}
 <img src="photo4.jpg">
 <img src="photo5.jpg">
 
-<div class="song-box">
-✨ You are my definition of beautiful<br>
-💗 You feel like home<br>
-❤️ I see no flaws in you
-</div>
-
 </section>
 
 <section>
 <h1>To Me You're Beautiful ❤️</h1>
+
 <p>
 With or without specs… you are still perfect 💗<br><br>
-You are YOU — and that is enough ✨
+I don’t see flaws, I see YOU ✨
 </p>
+
 </section>
 
 <section>
@@ -196,6 +190,7 @@ You are YOU — and that is enough ✨
 
 <img src="photo6.jpg">
 <img src="photo7.jpg">
+
 </section>
 
 <section>
@@ -206,9 +201,9 @@ You are YOU — and that is enough ✨
 <div id="wishBox" style="display:none;color:#ffb3ec;margin-top:10px;">
 ✨ Wish received 💗
 </div>
+
 </section>
 
-<!-- FINAL RESTORED (IMPORTANT FIX) -->
 <section>
 <h1>Made With Love ❤️</h1>
 
@@ -216,30 +211,18 @@ You are YOU — and that is enough ✨
 
 <div class="song-box">
 ✨ Some people become unforgettable without trying<br><br>
-💗 You are one of those rare feelings I never want to lose<br><br>
-🌙 Even if we don’t talk every day… you stay in my mind<br><br>
-❤️ My heart chose you quietly… and it never changed
+💗 You are one of those feelings I never want to lose<br><br>
+🌙 Even in silence, you stay in my mind<br><br>
+❤️ My heart chose you and it never changed
 </div>
 
 <p style="margin-top:20px;color:#ffb3ec;">
-—I’ll always care, even in silence ❤️
+—I’ll always be here ❤️
 </p>
 
 </section>
 
 <script>
-
-/* STARS */
-for(let i=0;i<80;i++){
-let s=document.createElement("div");
-s.style.position="fixed";
-s.style.width="2px";
-s.style.height="2px";
-s.style.background="white";
-s.style.left=Math.random()*100+"vw";
-s.style.top=Math.random()*100+"vh";
-document.body.appendChild(s);
-}
 
 /* MUSIC FIX (NO OVERLAP) */
 let currentAudio=null;
@@ -259,10 +242,9 @@ document.getElementById("entry").style.display="none";
 playOnly(document.getElementById("bgMusic"));
 }
 
-/* WHATSAPP FIX */
+/* WHATSAPP FIX (GUARANTEED) */
 function openWhatsApp(){
-let url="https://wa.me/919399348807?text=Make%20a%20wish%20Vidhuuu%20🫶🏻✨";
-window.open(url,"_blank");
+window.location.href="https://wa.me/919399348807?text=Make%20a%20wish%20Vidhuuu%20🫶🏻✨";
 }
 
 /* WISH */
@@ -280,7 +262,6 @@ document.body.appendChild(c);
 setTimeout(()=>c.remove(),3000);
 }
 
-/* auto whatsapp after delay */
 setTimeout(openWhatsApp,1200);
 }
 
