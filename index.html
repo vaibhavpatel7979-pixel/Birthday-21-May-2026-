@@ -36,7 +36,7 @@ padding:80px 20px;
 }
 
 h1{
-font-size:60px;
+font-size:65px;
 background:linear-gradient(to right,#ffb3ec,#fff,#d8b4fe);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
@@ -47,7 +47,6 @@ font-size:20px;
 color:#ddd;
 max-width:900px;
 line-height:1.8;
-margin-top:15px;
 }
 
 .btn{
@@ -61,7 +60,6 @@ cursor:pointer;
 font-size:18px;
 }
 
-/* gallery */
 .gallery{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -90,7 +88,6 @@ color:#ffb3ec;
 font-size:14px;
 }
 
-/* entry */
 #entry{
 position:fixed;
 inset:0;
@@ -107,14 +104,8 @@ text-align:center;
 font-size:38px;
 }
 
-#entry p{
-color:#bbb;
-margin-top:10px;
-}
-
 .scroll{
 margin-top:15px;
-color:#ddd;
 animation:bounce 2s infinite;
 }
 
@@ -143,7 +134,7 @@ animation:bounce 2s infinite;
 <!-- HERO -->
 <section>
 <h1>Happy Birthday Vidhii ❤️</h1>
-<p>A random moment became forever ✨</p>
+<p>From a random moment… to forever ✨</p>
 </section>
 
 <!-- SONGS -->
@@ -158,7 +149,7 @@ animation:bounce 2s infinite;
 <p>6 June 2025 — We met<br>28 Sept 2025 — Everything changed</p>
 </section>
 
-<!-- MY BEAUTIFUL (5 PHOTOS FIXED) -->
+<!-- MY BEAUTIFUL (5 PHOTOS RESTORED) -->
 <section>
 <h1>MY BEAUTIFUL ❤️</h1>
 
@@ -171,7 +162,7 @@ animation:bounce 2s infinite;
 </div>
 </section>
 
-<!-- INSECURITY (FULL + 2 PHOTOS ONLY) -->
+<!-- INSECURITY (FULL PARA + 2 PHOTOS) -->
 <section>
 <h1>To Me You're Beautiful ❤️</h1>
 
@@ -219,9 +210,9 @@ I just see the girl I love ❤️
 
 <button class="btn" onclick="wish()">Blow Candles ✨</button>
 
-<p id="wishMsg" style="display:none;color:#ffb3ec;margin-top:15px;">
-✨ Wish sent to stars ❤️
-</p>
+<div id="wishMsg" style="display:none;color:#ffb3ec;margin-top:15px;">
+✨ Wish sent ❤️
+</div>
 </section>
 
 <!-- VOICE -->
@@ -240,20 +231,18 @@ I just see the girl I love ❤️
 
 let musicStarted=false;
 
-/* ENTRY MUSIC FIX */
+/* ENTER */
 function enter(){
 document.getElementById("entry").style.display="none";
-
 if(!musicStarted){
 document.getElementById("bgMusic").play().catch(()=>{});
 musicStarted=true;
 }
 }
 
-/* WISH FIX (NO GLITCH) */
+/* WISH */
 function wish(){
 const b=document.getElementById("birthdayMusic");
-b.pause();
 b.currentTime=0;
 b.play();
 
@@ -264,10 +253,9 @@ window.open("https://wa.me/919399348807?text=Make%20a%20wish%20for%20Vidhii%20�
 },1200);
 }
 
-/* VOICE FIX (NO GLITCH) */
+/* VOICE FIX */
 function playVoice(){
 const v=document.getElementById("voiceNote");
-v.pause();
 v.currentTime=0;
 v.play().catch(()=>{});
 }
