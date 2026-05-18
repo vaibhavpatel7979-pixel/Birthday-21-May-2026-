@@ -364,7 +364,7 @@ to{opacity:1;transform:scale(1)}
 
 <div class="stars" id="stars"></div>
 
-<div class="music-note">
+<div class="music-note" onclick="toggleMusic()" style="cursor:pointer;">
 🎵 Romantic Mode
 </div>
 
@@ -381,7 +381,7 @@ From one random Free Fire match...
 to becoming my favorite person forever ✨
 </p>
 
-<button class="tap-btn" onclick="playMusic()">
+<button class="tap-btn" onclick="startExperience()">
 Tap To Begin ✨
 </button>
 
@@ -519,13 +519,82 @@ Replace these with Vidhii’s real photos ✨
 PRESS & HOLD ❤️
 </h1>
 
-<div class="heart-box">
+<div class="heart-box" id="heartBox">
 ❤️
 </div>
 
-<p class="final-para">
-Every heartbeat chooses you ✨
+<p class="final-para" id="heartMessage">
+Touch and hold the heart ✨
 </p>
+
+</section>
+
+<section>
+
+<h1 class="match-title">
+MAKE A WISH 🎂
+</h1>
+
+<div class="heart-box" style="font-size:90px;">
+🎂
+</div>
+
+<p class="final-para">
+Blow the candles and make a wish ❤️
+</p>
+
+<button class="tap-btn" onclick="sendWish()">
+Make A Wish ✨
+</button>
+
+</section>
+
+<section>
+
+<h1 class="match-title">
+FOR YOU ❤️
+</h1>
+
+<div class="timeline">
+
+<div class="event">
+<h3>💗 Happy Birthday Sweetheart</h3>
+<p>
+You are the most beautiful part of my life ✨
+</p>
+</div>
+
+<div class="event">
+<h3>💟 I Loveeeee Youuuuu Soooo Muucchhh Vidhuuuu</h3>
+<p>
+Every moment with you feels magical ❤️
+</p>
+</div>
+
+<div class="event">
+<h3>🫶🏻 I'll Always Be There With You</h3>
+<p>
+In every situation,
+every emotion,
+and every phase of life ✨
+</p>
+</div>
+
+<div class="event">
+<h3>🤍 I'll Never Leave You ISTG</h3>
+<p>
+No distance can reduce my love for you ❤️
+</p>
+</div>
+
+<div class="event">
+<h3>💍 I'll Be Yours Forever</h3>
+<p>
+Forever started the moment I met you 🎮❤️
+</p>
+</div>
+
+</div>
 
 </section>
 
@@ -585,6 +654,41 @@ stars.appendChild(star);
 function playMusic(){
 document.getElementById('music').play();
 }
+
+function startExperience(){
+window.scrollTo({
+top:window.innerHeight,
+behavior:'smooth'
+});
+playMusic();
+}
+
+function toggleMusic(){
+const music = document.getElementById('music');
+
+if(music.paused){
+music.play();
+}else{
+music.pause();
+}
+}
+
+function sendWish(){
+window.open('https://wa.me/919399348807?text=Happy%20Birthday%20Vidhii%20❤️');
+}
+
+const heart = document.getElementById('heartBox');
+const heartMessage = document.getElementById('heartMessage');
+
+heart.addEventListener('touchstart',()=>{
+heart.style.transform='scale(1.2)';
+heart.style.boxShadow='0 0 120px rgba(255,20,147,.9)';
+heartMessage.innerHTML='Every heartbeat chooses you ❤️';
+});
+
+heart.addEventListener('touchend',()=>{
+heart.style.transform='scale(1)';
+});
 
 </script>
 
