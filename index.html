@@ -32,7 +32,7 @@ body::after{
 content:'';
 position:fixed;
 inset:0;
-background:radial-gradient(circle at center,rgba(255,20,147,0.10),transparent 60%);
+background:radial-gradient(circle at center,rgba(255,20,147,0.12),transparent 60%);
 z-index:-1;
 }
 
@@ -67,7 +67,7 @@ font-size:18px;
 cursor:pointer;
 }
 
-/* SCROLL LINE (RESTORED PROPERLY) */
+/* SCROLL */
 #scrollHint{
 display:none;
 margin-top:15px;
@@ -101,7 +101,7 @@ background:linear-gradient(to right,#ffb3ec,#fff,#d8b4fe);
 p{
 font-size:20px;
 color:#ddd;
-max-width:950px;
+max-width:900px;
 line-height:1.9;
 }
 
@@ -112,6 +112,7 @@ padding:18px;
 margin:12px;
 border-radius:14px;
 max-width:850px;
+backdrop-filter:blur(10px);
 }
 
 /* IMAGE */
@@ -155,185 +156,9 @@ animation:fall 3s linear forwards;
 to{transform:translateY(110vh) rotate(720deg);opacity:0;}
 }
 
-</style>
-</head>
-
-<body>
-
-<!-- ENTRY -->
-<div id="entry">
-<h1>Happy Birthday Vidhii ❤️</h1>
-<button class="btn" onclick="enter()">Enter ✨</button>
-
-<!-- ✅ SCROLL LINE RESTORED -->
-<div id="scrollHint">⬇ Scroll down to explore your surprise ✨</div>
-</div>
-
-<!-- AUDIO -->
-<audio id="bgMusic" loop src="song.mp3"></audio>
-<audio id="birthdayMusic" src="birthday.mp3"></audio>
-<audio id="voiceNote" src="voice.mp3"></audio>
-
-<!-- HERO -->
-<section>
-<h1>Happy Birthday Vidhii ❤️</h1>
-
-<!-- LONG PARA (kept as requested style) -->
-<p>
-From a random moment that I never expected… to something that slowly became one of the most meaningful feelings in my life ✨<br><br>
-Today is your birthday, but for me it is more than just a date… it is a reminder that someone like you exists in my world ❤️
-</p>
-</section>
-
-<!-- STORY -->
-<section>
-<h1>Our Story ✨</h1>
-
-<p>
-6 June 2025 — First time we crossed paths ✨<br><br>
-A normal moment slowly became unforgettable ❤️<br><br>
-28 September 2025 — Everything changed inside me 💗
-</p>
-</section>
-
-<!-- MY BEAUTIFUL -->
-<section>
-<h1>MY BEAUTIFUL 💟</h1>
-
-<img src="photo1.jpg">
-<img src="photo2.jpg">
-<img src="photo3.jpg">
-<img src="photo4.jpg">
-<img src="photo5.jpg">
-
-</section>
-
-<!-- INSECURITY -->
-<section>
-<h1>To Me You're Beautiful ❤️</h1>
-
-<p>
-I know sometimes you feel insecure without specs 💗<br><br>
-But I don’t see flaws… I see YOU ✨<br><br>
-With or without specs, nothing changes for me ❤️<br><br>
-You are not less or more… you are just you — and that is enough 💗
-</p>
-
-</section>
-
-<!-- ALWAYS YOU -->
-<section>
-<h1>Always You ❤️</h1>
-
-<img src="photo6.jpg">
-<img src="photo7.jpg">
-
-</section>
-
-<!-- SONGS (NO OVERLAP FIXED LATER IN JS) -->
-<section>
-<h1>Songs 🎵</h1>
-
-<div class="song-box">
-Night Changes — Life keeps changing like seasons… but my feelings for you stay constant no matter what happens ❤️
-</div>
-
-<div class="song-box">
-Until I Found You — It feels like destiny wrote your name into my story without asking me ✨
-</div>
-
-<div class="song-box">
-Apocalypse — Even in silence or distance… my mind still finds you everywhere 🌙
-</div>
-
-<div class="song-box">
-I’ll Never Leave You — No matter what life brings… I will always stay with you ❤️
-</div>
-
-</section>
-
-<!-- CAKE -->
-<section>
-<h1>🎂 Cake Moment</h1>
-
-<div class="cake">🎂</div>
-
-<button class="cake-btn" onclick="wfunction wish(){
-
-document.getElementById("wishBox").style.display="block";
-
-/* 🎧 MUSIC DROP EFFECT */
-let music=document.getElementById("birthdayMusic");
-music.volume=0.2;
-music.play().catch(()=>{});
-
-setTimeout(()=>{ music.volume=1; },400);
-
-/* 🎬 ZOOM EFFECT */
-document.body.classList.add("zoom-effect");
-setTimeout(()=>document.body.classList.remove("zoom-effect"),1200);
-
-/* 🎆 BIG FIREWORK BURST */
-for(let i=0;i<35;i++){
-let f=document.createElement("div");
-f.className="big-firework";
-f.innerHTML=["🎆","✨","🎇","💥"][Math.floor(Math.random()*4)];
-f.style.left=Math.random()*100+"vw";
-f.style.top=Math.random()*70+"vh";
-document.body.appendChild(f);
-
-setTimeout(()=>f.remove(),1500);
-}
-
-/* 🎊 CONFETTI */
-for(let i=0;i<100;i++){
-let c=document.createElement("div");
-c.className="confetti";
-c.style.left=Math.random()*100+"vw";
-document.body.appendChild(c);
-setTimeout(()=>c.remove(),3000);
-}
-
-/* 📲 WHATSAPP */
-setTimeout(()=>{
-  window.location.href="https://wa.me/919399348807?text=Make%20a%20wish%20Vidhuuu%20🫶🏻✨";
-},1500);
-
-}">Make Wish ✨</button>
-
-<div id="wishBox" style="display:none;color:#ffb3ec;margin-top:10px;">
-✨ Wish received 💗
-</div>
-
-</section>
-
-<!-- VOICE NOTE (RESTORED) -->
-<section>
-<h1>A Message 🎙️</h1>
-
-<button class="cake-btn" onclick="playVoice()">Play Voice Note</button>
-
-</section>
-
-<!-- FINAL QUOTES -->
-<section>
-<h1>Made With Love ❤️</h1>
-
-<p><b>Vaibhav Patel</b></p>
-
-<div class="song-box">
-✨ Some people don’t just come into life… they stay in thoughts<br><br>
-💗 And you became one of those thoughts I never want to lose<br><br>
-🌙 Even silence feels better when it carries your presence<br><br>
-❤️ My heart quietly chose you… and it never changed
-</div>
-
-<p style="margin-top:20px;color:#ffb3ec;">
-—I’ll always be here… even when nothing is said ❤️
-/* 🔥 CINEMATIC ZOOM EFFECT */
+/* ZOOM */
 .zoom-effect{
 animation:zoomIn 1.2s ease-in-out;
-transform-origin:center;
 }
 
 @keyframes zoomIn{
@@ -342,7 +167,7 @@ transform-origin:center;
 100%{transform:scale(1);}
 }
 
-/* BIG FIREWORK BURST */
+/* FIREWORK */
 .big-firework{
 position:fixed;
 font-size:28px;
@@ -354,8 +179,116 @@ animation:burst 1.5s ease-out forwards;
 0%{transform:scale(0);opacity:1;}
 100%{transform:scale(4);opacity:0;}
 }
-</p>
+</style>
+</head>
 
+<body>
+
+<!-- ENTRY -->
+<div id="entry">
+<h1>Happy Birthday Vidhii ❤️</h1>
+<button class="btn" onclick="enter()">Enter ✨</button>
+
+<div id="scrollHint">⬇ Scroll down to explore your surprise ✨</div>
+</div>
+
+<!-- AUDIO -->
+<audio id="bgMusic" loop src="song.mp3"></audio>
+<audio id="birthdayMusic" src="birthday.mp3"></audio>
+<audio id="voiceNote" src="voice.mp3"></audio>
+
+<!-- HERO -->
+<section>
+<h1>Happy Birthday Vidhii ❤️</h1>
+<p>
+From a random moment that I never expected… to something that slowly became one of the most meaningful feelings in my life ✨<br><br>
+Today is your birthday, but for me it is more than just a date… it is a reminder that someone like you exists in my world ❤️
+</p>
+</section>
+
+<!-- STORY -->
+<section>
+<h1>Our Story ✨</h1>
+<p>
+6 June 2025 — First time we crossed paths ✨<br><br>
+A normal moment slowly became unforgettable ❤️<br><br>
+28 September 2025 — Everything changed inside me 💗
+</p>
+</section>
+
+<!-- MY BEAUTIFUL -->
+<section>
+<h1>MY BEAUTIFUL 💟</h1>
+<img src="photo1.jpg">
+<img src="photo2.jpg">
+<img src="photo3.jpg">
+<img src="photo4.jpg">
+<img src="photo5.jpg">
+</section>
+
+<!-- INSECURITY -->
+<section>
+<h1>To Me You're Beautiful ❤️</h1>
+<p>
+I know sometimes you feel insecure without specs 💗<br><br>
+But I don’t see flaws… I see YOU ✨<br><br>
+With or without specs, nothing changes for me ❤️<br><br>
+You are not less or more… you are just you — and that is enough 💗
+</p>
+</section>
+
+<!-- ALWAYS YOU -->
+<section>
+<h1>Always You ❤️</h1>
+<img src="photo6.jpg">
+<img src="photo7.jpg">
+</section>
+
+<!-- SONGS -->
+<section>
+<h1>Songs 🎵</h1>
+
+<div class="song-box">Night Changes — Life changes but my feelings don’t ❤️</div>
+<div class="song-box">Until I Found You — It feels like destiny ✨</div>
+<div class="song-box">Apocalypse — You are everywhere in my silence 🌙</div>
+<div class="song-box">I’ll Never Leave You — Always yours ❤️</div>
+</section>
+
+<!-- CAKE -->
+<section>
+<h1>🎂 Cake Moment</h1>
+
+<div class="cake">🎂</div>
+
+<button class="cake-btn" onclick="wish()">Make Wish ✨</button>
+
+<div id="wishBox" style="display:none;color:#ffb3ec;margin-top:10px;">
+✨ Wish received 💗
+</div>
+</section>
+
+<!-- VOICE -->
+<section>
+<h1>A Message 🎙️</h1>
+<button class="cake-btn" onclick="playVoice()">Play Voice Note</button>
+</section>
+
+<!-- FINAL -->
+<section>
+<h1>Made With Love ❤️</h1>
+
+<p><b>Vaibhav Patel</b></p>
+
+<div class="song-box">
+✨ Some people become unforgettable without trying<br><br>
+💗 And you are one of those feelings<br><br>
+🌙 Even silence feels better with you in it<br><br>
+❤️ My heart chose you… always
+</div>
+
+<p style="margin-top:20px;color:#ffb3ec;">
+—I’ll always be here ❤️
+</p>
 </section>
 
 <script>
@@ -371,7 +304,7 @@ currentAudio=audio;
 audio.play().catch(()=>{});
 }
 
-/* ENTRY */
+/* ENTER */
 function enter(){
 document.getElementById("entry").style.display="none";
 document.getElementById("scrollHint").style.display="block";
@@ -380,9 +313,28 @@ playOnly(document.getElementById("bgMusic"));
 
 /* WISH */
 function wish(){
-document.getElementById("wishBox").style.display="block";
-playOnly(document.getElementById("birthdayMusic"));
 
+document.getElementById("wishBox").style.display="block";
+
+let music=document.getElementById("birthdayMusic");
+music.volume=0.3;
+playOnly(music);
+
+document.body.classList.add("zoom-effect");
+setTimeout(()=>document.body.classList.remove("zoom-effect"),1200);
+
+/* fireworks */
+for(let i=0;i<35;i++){
+let f=document.createElement("div");
+f.className="big-firework";
+f.innerHTML=["🎆","✨","🎇","💥"][Math.floor(Math.random()*4)];
+f.style.left=Math.random()*100+"vw";
+f.style.top=Math.random()*70+"vh";
+document.body.appendChild(f);
+setTimeout(()=>f.remove(),1500);
+}
+
+/* confetti */
 for(let i=0;i<80;i++){
 let c=document.createElement("div");
 c.className="confetti";
@@ -390,9 +342,15 @@ c.style.left=Math.random()*100+"vw";
 document.body.appendChild(c);
 setTimeout(()=>c.remove(),3000);
 }
+
+/* WHATSAPP FIX */
+setTimeout(()=>{
+window.location.href="https://wa.me/919399348807?text=Make%20a%20wish%20Vidhuuu%20🫶🏻✨";
+},1500);
+
 }
 
-/* VOICE NOTE */
+/* VOICE */
 function playVoice(){
 playOnly(document.getElementById("voiceNote"));
 }
