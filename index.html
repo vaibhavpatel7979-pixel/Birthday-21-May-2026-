@@ -8,7 +8,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&display=swap" rel="stylesheet">
 
 <style>
-
 *{margin:0;padding:0;box-sizing:border-box;}
 
 body{
@@ -18,7 +17,6 @@ color:white;
 overflow-x:hidden;
 }
 
-/* BACKGROUND */
 body::before{
 content:'';
 position:fixed;
@@ -29,21 +27,6 @@ radial-gradient(circle at bottom,#12001f,#000);
 z-index:-3;
 }
 
-/* STAR */
-.star{
-position:fixed;
-width:2px;
-height:2px;
-background:white;
-animation:twinkle 3s infinite alternate;
-z-index:-2;
-}
-
-@keyframes twinkle{
-from{opacity:.2;}
-to{opacity:1;}
-}
-
 /* ENTRY */
 #entry{
 position:fixed;
@@ -52,50 +35,27 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-background:radial-gradient(circle,#2a0040,#000);
+background:black;
 z-index:9999;
 text-align:center;
 }
 
 #entry h1{
-font-size:45px;
+font-size:40px;
 background:linear-gradient(to right,#ffb3ec,#fff,#d8b4fe);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
 
 .btn{
-margin-top:25px;
-padding:16px 45px;
+margin-top:20px;
+padding:14px 40px;
 border:none;
-border-radius:50px;
-background:linear-gradient(135deg,#ff1493,#9333ea);
+border-radius:40px;
+background:#ff1493;
 color:white;
-cursor:pointer;
 font-size:18px;
-box-shadow:0 0 40px rgba(255,20,147,.4);
-}
-
-/* SCROLL PAGE (NEW FIX) */
-#scrollPage{
-position:fixed;
-inset:0;
-background:black;
-display:none;
-justify-content:center;
-align-items:center;
-z-index:9998;
-text-align:center;
-}
-
-#scrollPage h2{
-color:#ffb3ec;
-font-size:22px;
-animation:blink 1.5s infinite;
-}
-
-@keyframes blink{
-50%{opacity:0.4;}
+cursor:pointer;
 }
 
 /* SECTIONS */
@@ -106,11 +66,11 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-padding:80px 20px;
+padding:70px 20px;
 }
 
 h1{
-font-size:62px;
+font-size:60px;
 background:linear-gradient(to right,#ffb3ec,#fff,#d8b4fe);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
@@ -119,108 +79,54 @@ background:linear-gradient(to right,#ffb3ec,#fff,#d8b4fe);
 p{
 font-size:20px;
 color:#ddd;
-max-width:950px;
+max-width:900px;
 line-height:1.9;
 }
 
-/* SONG BOX */
 .song-box{
 background:rgba(255,255,255,.06);
-padding:20px;
-border-radius:18px;
-margin:12px;
-max-width:850px;
-backdrop-filter:blur(12px);
-border:1px solid rgba(255,255,255,.1);
+padding:18px;
+margin:10px;
+border-radius:14px;
+max-width:800px;
 }
 
 /* GALLERY */
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:22px;
+img{
 width:100%;
-max-width:1200px;
-margin-top:30px;
-}
-
-.photo-frame{
-background:rgba(255,255,255,.06);
-padding:12px;
-border-radius:18px;
-}
-
-.photo-frame img{
-width:100%;
-height:340px;
-object-fit:cover;
-border-radius:14px;
+max-width:300px;
+border-radius:12px;
+margin:10px;
 }
 
 .note{
-margin-top:8px;
 color:#ffb3ec;
 font-size:14px;
 }
 
-/* CAKE */
-.cake{font-size:180px;animation:pulse 2s infinite;}
-
-@keyframes pulse{50%{transform:scale(1.12);}}
-
+/* BUTTON */
 .cake-btn{
-margin-top:20px;
-padding:16px 45px;
+padding:14px 40px;
 border:none;
-border-radius:40px;
-background:linear-gradient(135deg,#ff1493,#9333ea);
+border-radius:30px;
+background:#9333ea;
 color:white;
 cursor:pointer;
+margin-top:15px;
 }
 
-/* EFFECTS */
+/* CONFETTI */
 .confetti{
 position:fixed;
-width:10px;
-height:10px;
+width:8px;
+height:8px;
 top:-10px;
 animation:fall 3s linear forwards;
-z-index:9999;
 }
 
 @keyframes fall{
 to{transform:translateY(110vh) rotate(720deg);opacity:0;}
 }
-
-.firework{
-position:fixed;
-font-size:18px;
-animation:boom 1.5s ease-out forwards;
-z-index:9999;
-}
-
-@keyframes boom{
-0%{transform:scale(0);opacity:1;}
-100%{transform:scale(3);opacity:0;}
-}
-
-.shake{animation:shake .5s;}
-
-@keyframes shake{
-0%,100%{transform:translate(0);}
-20%{transform:translate(-6px,6px);}
-40%{transform:translate(6px,-6px);}
-60%{transform:translate(-6px,-6px);}
-80%{transform:translate(6px,6px);}
-}
-
-#wishBox{
-display:none;
-margin-top:15px;
-color:#ffb3ec;
-font-size:18px;
-}
-
 </style>
 </head>
 
@@ -228,142 +134,143 @@ font-size:18px;
 
 <!-- ENTRY -->
 <div id="entry">
-<h1>Welcome ❤️</h1>
-<p>A world made only for Vidhuuu ✨</p>
+<h1>Happy Birthday Vidhii ❤️</h1>
 <button class="btn" onclick="enter()">Enter ✨</button>
-</div>
-
-<!-- NEW SCROLL SCREEN -->
-<div id="scrollPage">
-<h2>⬇ Scroll down to explore your surprise ✨</h2>
 </div>
 
 <audio id="bgMusic" loop src="song.mp3"></audio>
 <audio id="birthdayMusic" src="birthday.mp3"></audio>
 <audio id="voiceNote" src="voice.mp3"></audio>
 
-<!-- HERO -->
+<!-- CONTENT -->
 <section>
-<h1>Happy Birthday Vidhii ❤️</h1>
-<p>From a random moment… to the most beautiful feeling of my life ✨</p>
+<h1>Happy Birthday ❤️</h1>
+<p>From a random moment… to forever ✨</p>
 </section>
 
-<!-- SONGS (LONG TEXT FIXED) -->
 <section>
 <h1>Songs 🎵</h1>
 
-<div class="song-box">
-Night Changes — This song reminds me that everything in life changes, moments pass, people change, time moves forward… but one thing I want you to know is that my feelings for you will never change, no matter how much life changes around us ❤️
-</div>
-
-<div class="song-box">
-Until I Found You — I never believed in destiny… until you came into my life and suddenly everything made sense, like I was always searching for you without even knowing it ✨
-</div>
-
-<div class="song-box">
-Apocalypse — Even in silence, even when there is distance, even when nothing is being said… I still feel you everywhere around me 🌙
-</div>
-
-<div class="song-box">
-I’ll Never Leave You — No matter how hard life gets, no matter what happens between us, no matter where we end up… I will always stay, I will never leave you ❤️
-</div>
+<div class="song-box">Night Changes — feelings never change ❤️</div>
+<div class="song-box">Until I Found You — destiny ✨</div>
+<div class="song-box">Apocalypse — silence 🌙</div>
+<div class="song-box">I’ll Never Leave You — always ❤️</div>
 
 </section>
 
-<!-- STORY -->
 <section>
 <h1>Our Story ✨</h1>
 <p>
-6 June 2025 — First time we crossed paths ✨<br><br>
-A normal moment slowly became unforgettable ❤️<br><br>
-28 September 2025 — Everything changed inside me 💗
+6 June 2025 → start ✨<br><br>
+28 Sept 2025 → everything changed 💗
 </p>
 </section>
 
-<!-- MY BEAUTIFUL -->
 <section>
 <h1>MY BEAUTIFUL 💟</h1>
 
-<div class="gallery">
-<div class="photo-frame"><img src="photo1.jpg"><div class="note">Smile ❤️</div></div>
-<div class="photo-frame"><img src="photo2.jpg"><div class="note">Eyes ✨</div></div>
-<div class="photo-frame"><img src="photo3.jpg"><div class="note">Cute 💗</div></div>
-<div class="photo-frame"><img src="photo4.jpg"><div class="note">Peace 🌸</div></div>
-<div class="photo-frame"><img src="photo5.jpg"><div class="note">Forever ❤️</div></div>
+<img src="photo1.jpg">
+<img src="photo2.jpg">
+<img src="photo3.jpg">
+<img src="photo4.jpg">
+<img src="photo5.jpg">
+
+<div class="song-box">
+✨ You are my definition of beautiful<br>
+💗 You feel like home<br>
+❤️ I see no flaws in you
 </div>
 
 </section>
 
-<!-- INSECURITY -->
 <section>
 <h1>To Me You're Beautiful ❤️</h1>
-
 <p>
 With or without specs… you are still perfect 💗<br><br>
-I don’t see flaws, I see YOU ✨
+You are YOU — and that is enough ✨
 </p>
-
 </section>
 
-<!-- PHOTO 6 & 7 -->
 <section>
 <h1>Always You ❤️</h1>
 
-<div class="gallery">
-<div class="photo-frame"><img src="photo6.jpg"><div class="note">Without Specs 💗</div></div>
-<div class="photo-frame"><img src="photo7.jpg"><div class="note">Still Perfect ✨</div></div>
-</div>
-
+<img src="photo6.jpg">
+<img src="photo7.jpg">
 </section>
 
-<!-- CAKE -->
 <section>
-<h1>🎂 Birthday Moment</h1>
-
-<div class="cake">🎂</div>
-
-<p>Make a wish ✨</p>
+<h1>🎂 Cake Moment</h1>
 
 <button class="cake-btn" onclick="wish()">Make Wish ✨</button>
 
-<div id="wishBox">✨ Wish received 💗</div>
+<div id="wishBox" style="display:none;color:#ffb3ec;margin-top:10px;">
+✨ Wish received 💗
+</div>
 </section>
 
-<!-- FINAL -->
+<!-- FINAL RESTORED (IMPORTANT FIX) -->
 <section>
 <h1>Made With Love ❤️</h1>
+
 <p><b>Vaibhav Patel</b></p>
+
+<div class="song-box">
+✨ Some people become unforgettable without trying<br><br>
+💗 You are one of those rare feelings I never want to lose<br><br>
+🌙 Even if we don’t talk every day… you stay in my mind<br><br>
+❤️ My heart chose you quietly… and it never changed
+</div>
+
+<p style="margin-top:20px;color:#ffb3ec;">
+—I’ll always care, even in silence ❤️
+</p>
+
 </section>
 
 <script>
 
 /* STARS */
-for(let i=0;i<100;i++){
+for(let i=0;i<80;i++){
 let s=document.createElement("div");
-s.className="star";
+s.style.position="fixed";
+s.style.width="2px";
+s.style.height="2px";
+s.style.background="white";
 s.style.left=Math.random()*100+"vw";
 s.style.top=Math.random()*100+"vh";
 document.body.appendChild(s);
 }
 
-/* ENTER + SCROLL SCREEN FIX */
+/* MUSIC FIX (NO OVERLAP) */
+let currentAudio=null;
+
+function playOnly(audio){
+if(currentAudio){
+currentAudio.pause();
+currentAudio.currentTime=0;
+}
+currentAudio=audio;
+audio.play().catch(()=>{});
+}
+
+/* ENTRY */
 function enter(){
 document.getElementById("entry").style.display="none";
+playOnly(document.getElementById("bgMusic"));
+}
 
-/* show scroll screen */
-document.getElementById("scrollPage").style.display="flex";
-
-setTimeout(()=>{
-document.getElementById("scrollPage").style.display="none";
-document.getElementById("bgMusic").play().catch(()=>{});
-},1800);
+/* WHATSAPP FIX */
+function openWhatsApp(){
+let url="https://wa.me/919399348807?text=Make%20a%20wish%20Vidhuuu%20🫶🏻✨";
+window.open(url,"_blank");
 }
 
 /* WISH */
 function wish(){
 
 document.getElementById("wishBox").style.display="block";
-document.getElementById("birthdayMusic").play().catch(()=>{});
+
+playOnly(document.getElementById("birthdayMusic"));
 
 for(let i=0;i<80;i++){
 let c=document.createElement("div");
@@ -373,18 +280,8 @@ document.body.appendChild(c);
 setTimeout(()=>c.remove(),3000);
 }
 
-for(let i=0;i<25;i++){
-let f=document.createElement("div");
-f.className="firework";
-f.innerHTML="✨";
-f.style.left=Math.random()*100+"vw";
-f.style.top=Math.random()*60+"vh";
-document.body.appendChild(f);
-setTimeout(()=>f.remove(),1500);
-}
-
-document.body.classList.add("shake");
-setTimeout(()=>document.body.classList.remove("shake"),500);
+/* auto whatsapp after delay */
+setTimeout(openWhatsApp,1200);
 }
 
 </script>
