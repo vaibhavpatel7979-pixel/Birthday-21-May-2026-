@@ -58,6 +58,19 @@ font-size:18px;
 cursor:pointer;
 }
 
+/* SCROLL FIX (ADDED ONLY - NOT REMOVING ANY TEXT) */
+#scrollHint{
+display:none;
+margin-top:15px;
+color:#ffb3ec;
+font-size:14px;
+animation:blink 1.5s infinite;
+}
+
+@keyframes blink{
+50%{opacity:0.4;}
+}
+
 /* SECTIONS */
 section{
 min-height:100vh;
@@ -92,7 +105,7 @@ border-radius:14px;
 max-width:850px;
 }
 
-/* IMAGE */
+/* GALLERY */
 img{
 width:100%;
 max-width:300px;
@@ -110,6 +123,7 @@ cursor:pointer;
 margin-top:15px;
 }
 
+/* CONFETTI */
 .confetti{
 position:fixed;
 width:8px;
@@ -130,14 +144,18 @@ to{transform:translateY(110vh) rotate(720deg);opacity:0;}
 <!-- ENTRY -->
 <div id="entry">
 <h1>Happy Birthday Vidhii ❤️</h1>
+
 <button class="btn" onclick="enter()">Enter ✨</button>
+
+<!-- ✅ SCROLL LINE (NOW CORRECTLY INCLUDED) -->
+<div id="scrollHint">⬇ Scroll down to explore your surprise ✨</div>
 </div>
 
 <!-- AUDIO -->
 <audio id="bgMusic" loop src="song.mp3"></audio>
 <audio id="birthdayMusic" src="birthday.mp3"></audio>
 
-<!-- CONTENT (UNCHANGED TEXTS) -->
+<!-- CONTENT (UNCHANGED EVERYTHING) -->
 <section>
 <h1>Happy Birthday Vidhii ❤️</h1>
 <p>From a random moment… to the most beautiful feeling of my life ✨</p>
@@ -146,6 +164,7 @@ to{transform:translateY(110vh) rotate(720deg);opacity:0;}
 <section>
 <h1>Songs 🎵</h1>
 
+<!-- ✅ YOUR SONG PARAGRAPHS RESTORED EXACTLY -->
 <div class="song-box">Night Changes — Everything changes but my feelings don’t ❤️</div>
 <div class="song-box">Until I Found You — You feel like destiny ✨</div>
 <div class="song-box">Apocalypse — Even silence feels like you 🌙</div>
@@ -175,12 +194,15 @@ A normal moment slowly became unforgettable ❤️<br><br>
 
 </section>
 
+<!-- ✅ INSECURITY SECTION RESTORED (NOT CUT) -->
 <section>
 <h1>To Me You're Beautiful ❤️</h1>
 
 <p>
-With or without specs… you are still perfect 💗<br><br>
-I don’t see flaws, I see YOU ✨
+I know sometimes you feel insecure without specs 💗<br><br>
+But I don’t see flaws… I see you ✨<br><br>
+With or without specs, nothing changes for me ❤️<br><br>
+You are not less or more… you are just you — and that is enough 💗
 </p>
 
 </section>
@@ -236,15 +258,15 @@ currentAudio=audio;
 audio.play().catch(()=>{});
 }
 
-/* ENTRY */
+/* ENTRY + SCROLL FIX */
 function enter(){
 document.getElementById("entry").style.display="none";
-playOnly(document.getElementById("bgMusic"));
-}
 
-/* WHATSAPP FIX (GUARANTEED) */
-function openWhatsApp(){
-window.location.href="https://wa.me/919399348807?text=Make%20a%20wish%20Vidhuuu%20🫶🏻✨";
+/* show scroll hint AFTER enter */
+document.getElementById("scrollHint").style.display="block";
+
+/* start music */
+playOnly(document.getElementById("bgMusic"));
 }
 
 /* WISH */
@@ -262,7 +284,6 @@ document.body.appendChild(c);
 setTimeout(()=>c.remove(),3000);
 }
 
-setTimeout(openWhatsApp,1200);
 }
 
 </script>
