@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Vidhii ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:black;
+color:white;
+overflow-x:hidden;
+}
+
+body::before{
+content:'';
+position:fixed;
+inset:0;
+background:
+radial-gradient(circle at top,#3b0764,#000);
+z-index:-2;
+}
+
+.stars{
+position:fixed;
+width:100%;
+height:100%;
+overflow:hidden;
+z-index:-1;
+}
+
+.star{
+position:absolute;
+width:2px;
+height:2px;
+background:white;
+border-radius:50%;
+animation:twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle{
+from{opacity:.2;}
+to{opacity:1;}
+}
+
+section{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:40px 20px;
+position:relative;
+}
+
+.hero h1{
+font-size:90px;
+font-weight:800;
+line-height:1.1;
+background:linear-gradient(to right,#ffb3ec,#fff,#d8b4fe);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:glow 2s infinite alternate;
+}
+
+.hero p{
+margin-top:30px;
+font-size:28px;
+color:#ddd;
+max-width:900px;
+line-height:1.8;
+}
+
+.tap-btn{
+margin-top:50px;
+padding:18px 45px;
+border:none;
+border-radius:50px;
+background:linear-gradient(to right,#ff1493,#9333ea);
+color:white;
+font-size:22px;
+font-weight:700;
+cursor:pointer;
+box-shadow:0 0 40px rgba(255,20,147,.5);
+transition:.4s;
+}
+
+.tap-btn:hover{
+transform:scale(1.08);
+}
+
+.match-box{
+background:rgba(255,255,255,.08);
+border:1px solid rgba(255,255,255,.1);
+backdrop-filter:blur(15px);
+padding:40px;
+border-radius:35px;
+max-width:900px;
+width:100%;
+box-shadow:0 0 50px rgba(255,255,255,.05);
+}
+
+.match-title{
+font-size:70px;
+font-weight:800;
+background:linear-gradient(to right,#ff8ad8,#fff,#c084fc);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+margin-bottom:25px;
+}
+
+.match-sub{
+font-size:28px;
+color:#ddd;
+line-height:1.8;
+}
+
+.players{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:35px;
+width:100%;
+max-width:1100px;
+margin-top:70px;
+}
+
+.player-card{
+background:rgba(255,255,255,.08);
+border:1px solid rgba(255,255,255,.1);
+border-radius:35px;
+padding:40px 20px;
+backdrop-filter:blur(15px);
+transition:.4s;
+}
+
+.player-card:hover{
+transform:translateY(-10px) scale(1.03);
+}
+
+.player-card h2{
+font-size:42px;
+margin-bottom:15px;
+color:#ff9de6;
+}
+
+.player-card p{
+font-size:22px;
+color:#ddd;
+line-height:1.8;
+}
+
+.timeline{
+max-width:1000px;
+width:100%;
+margin-top:50px;
+}
+
+.event{
+background:rgba(255,255,255,.08);
+border-left:5px solid #ff4fd8;
+padding:35px;
+border-radius:25px;
+margin:30px 0;
+text-align:left;
+backdrop-filter:blur(15px);
+}
+
+.event h3{
+font-size:32px;
+color:#ffb3ec;
+margin-bottom:10px;
+}
+
+.event p{
+font-size:22px;
+color:#ddd;
+line-height:1.8;
+}
+
+.gallery-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+width:100%;
+max-width:1200px;
+margin-top:60px;
+}
+
+.memory-card{
+background:rgba(255,255,255,.08);
+border-radius:30px;
+overflow:hidden;
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,.1);
+transition:.4s;
+}
+
+.memory-card:hover{
+transform:translateY(-10px);
+}
+
+.memory-image{
+height:320px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:90px;
+background:linear-gradient(to bottom right,#ff1493,#9333ea);
+}
+
+.memory-card p{
+padding:25px;
+font-size:20px;
+line-height:1.8;
+color:#ddd;
+}
+
+.heart-box{
+width:240px;
+height:240px;
+border-radius:50%;
+background:radial-gradient(circle,#ff1493,#7e22ce);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:110px;
+box-shadow:0 0 80px rgba(255,20,147,.5);
+animation:pulse 2s infinite;
+margin-top:40px;
+}
+
+.final-text{
+font-size:65px;
+font-weight:800;
+line-height:1.4;
+background:linear-gradient(to right,#ffb3ec,#fff,#d8b4fe);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:glow 2s infinite alternate;
+}
+
+.final-para{
+margin-top:40px;
+font-size:28px;
+color:#ddd;
+max-width:900px;
+line-height:2;
+}
+
+.music-note{
+position:fixed;
+bottom:20px;
+right:20px;
+background:rgba(255,255,255,.1);
+padding:15px 20px;
+border-radius:50px;
+backdrop-filter:blur(10px);
+font-size:18px;
+}
+
+@keyframes glow{
+from{
+text-shadow:0 0 20px rgba(255,255,255,.2);
+}
+
+to{
+text-shadow:
+0 0 30px #ff4fd8,
+0 0 60px #ff4fd8;
+}
+}
+
+@keyframes pulse{
+0%,100%{
+transform:scale(1);
+}
+50%{
+transform:scale(1.05);
+}
+}
+
+@media(max-width:768px){
+
+.hero h1,
+.final-text,
+.match-title{
+font-size:52px;
+}
+
+.hero p,
+.final-para,
+.match-sub,
+.event p,
+.player-card p{
+font-size:20px;
+}
+
+.event h3,
+.player-card h2{
+font-size:28px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<audio autoplay loop id="music">
+<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3?filename=romantic-piano-ambient-110624.mp3" type="audio/mpeg">
+</audio>
+
+<div class="stars" id="stars"></div>
+
+<div class="music-note">
+🎵 Romantic Mode
+</div>
+
+<section class="hero">
+
+<h1>
+Happy Birthday<br>
+Vidhii ❤️
+</h1>
+
+<p>
+From one random Free Fire match...
+<br>
+to becoming my favorite person forever ✨
+</p>
+
+<button class="tap-btn" onclick="playMusic()">
+Tap To Begin ✨
+</button>
+
+</section>
+
+<section>
+
+<div class="match-box">
+
+<h2 class="match-title">
+MATCH FOUND 🎮
+</h2>
+
+<p class="match-sub">
+Searching for teammate...
+<br><br>
+Connection Established ❤️
+<br><br>
+6 June 2025 changed everything ✨
+</p>
+
+</div>
+
+</section>
+
+<section>
+
+<h1 class="match-title">
+DUO CREATED ❤️
+</h1>
+
+<div class="players">
+
+<div class="player-card">
+<h2>PLAYER 1</h2>
+<p>
+VAIBHAV ❤️
+<br><br>
+Loves Vidhii infinitely ✨
+</p>
+</div>
+
+<div class="player-card">
+<h2>PLAYER 2</h2>
+<p>
+VIDHII ❤️
+<br><br>
+The best thing ever happened to Vaibhav ✨
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h1 class="match-title">
+MISSIONS UNLOCKED 💌
+</h1>
+
+<div class="timeline">
+
+<div class="event">
+<h3>🎮 Mission 1 — First Match</h3>
+<p>
+We met in Free Fire on 6 June 2025...
+and little did I know that one random game would change my life forever ❤️
+</p>
+</div>
+
+<div class="event">
+<h3>💬 Mission 2 — Endless Talks</h3>
+<p>
+Slowly our chats became special,
+our nights became longer,
+and you became my comfort person ✨
+</p>
+</div>
+
+<div class="event">
+<h3>❤️ Mission 3 — Relationship</h3>
+<p>
+28 September 2025 • 10:21 PM
+<br><br>
+The moment we officially became each other’s favorite person ❤️
+</p>
+</div>
+
+<div class="event">
+<h3>🌙 Mission 4 — Long Distance Love</h3>
+<p>
+Even from far away,
+you still became the closest person to my heart ✨
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h1 class="match-title">
+UNLOCKED MEMORIES 📸
+</h1>
+
+<div class="gallery-grid">
+
+<div class="memory-card">
+<div class="memory-image">🎮</div>
+<p>
+Our first Free Fire memories ❤️
+</p>
+</div>
+
+<div class="memory-card">
+<div class="memory-image">💬</div>
+<p>
+Late night chats and endless talks ✨
+</p>
+</div>
+
+<div class="memory-card">
+<div class="memory-image">🌙</div>
+<p>
+Different cities...
+Same moon...
+Same love ❤️
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h1 class="match-title">
+PRESS & HOLD ❤️
+</h1>
+
+<div class="heart-box">
+❤️
+</div>
+
+<p class="final-para">
+Every heartbeat chooses you ✨
+</p>
+
+</section>
+
+<section>
+
+<h1 class="final-text">
+From Free Fire...
+<br>
+To Forever ❤️
+</h1>
+
+<p class="final-para">
+Thank you for every smile,
+late night talk,
+love,
+and every beautiful moment you gave me ✨
+<br><br>
+Happy Birthday My Love ❤️
+</p>
+
+</section>
+
+<script>
+
+const stars = document.getElementById('stars');
+
+for(let i=0;i<200;i++){
+const star = document.createElement('div');
+star.classList.add('star');
+star.style.left = Math.random()*100 + '%';
+star.style.top = Math.random()*100 + '%';
+star.style.animationDuration = (Math.random()*3+2)+'s';
+stars.appendChild(star);
+}
+
+function playMusic(){
+document.getElementById('music').play();
+}
+
+</script>
+
+</body>
+</html>
