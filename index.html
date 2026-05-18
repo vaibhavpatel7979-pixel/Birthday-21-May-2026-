@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&display=swap" rel="stylesheet">
 
 <style>
+
 *{margin:0;padding:0;box-sizing:border-box;}
 
 body{
@@ -17,6 +18,7 @@ color:white;
 overflow-x:hidden;
 }
 
+/* BACKGROUND */
 body::before{
 content:'';
 position:fixed;
@@ -27,6 +29,7 @@ radial-gradient(circle at bottom,#12001f,#000);
 z-index:-3;
 }
 
+/* STAR */
 .star{
 position:fixed;
 width:2px;
@@ -41,6 +44,7 @@ from{opacity:.2;}
 to{opacity:1;}
 }
 
+/* ENTRY */
 #entry{
 position:fixed;
 inset:0;
@@ -72,6 +76,29 @@ font-size:18px;
 box-shadow:0 0 40px rgba(255,20,147,.4);
 }
 
+/* SCROLL PAGE (NEW FIX) */
+#scrollPage{
+position:fixed;
+inset:0;
+background:black;
+display:none;
+justify-content:center;
+align-items:center;
+z-index:9998;
+text-align:center;
+}
+
+#scrollPage h2{
+color:#ffb3ec;
+font-size:22px;
+animation:blink 1.5s infinite;
+}
+
+@keyframes blink{
+50%{opacity:0.4;}
+}
+
+/* SECTIONS */
 section{
 min-height:100vh;
 display:flex;
@@ -96,6 +123,7 @@ max-width:950px;
 line-height:1.9;
 }
 
+/* SONG BOX */
 .song-box{
 background:rgba(255,255,255,.06);
 padding:20px;
@@ -106,6 +134,7 @@ backdrop-filter:blur(12px);
 border:1px solid rgba(255,255,255,.1);
 }
 
+/* GALLERY */
 .gallery{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -134,7 +163,9 @@ color:#ffb3ec;
 font-size:14px;
 }
 
+/* CAKE */
 .cake{font-size:180px;animation:pulse 2s infinite;}
+
 @keyframes pulse{50%{transform:scale(1.12);}}
 
 .cake-btn{
@@ -147,6 +178,7 @@ color:white;
 cursor:pointer;
 }
 
+/* EFFECTS */
 .confetti{
 position:fixed;
 width:10px;
@@ -188,6 +220,7 @@ margin-top:15px;
 color:#ffb3ec;
 font-size:18px;
 }
+
 </style>
 </head>
 
@@ -200,6 +233,11 @@ font-size:18px;
 <button class="btn" onclick="enter()">Enter ✨</button>
 </div>
 
+<!-- NEW SCROLL SCREEN -->
+<div id="scrollPage">
+<h2>⬇ Scroll down to explore your surprise ✨</h2>
+</div>
+
 <audio id="bgMusic" loop src="song.mp3"></audio>
 <audio id="birthdayMusic" src="birthday.mp3"></audio>
 <audio id="voiceNote" src="voice.mp3"></audio>
@@ -210,65 +248,48 @@ font-size:18px;
 <p>From a random moment… to the most beautiful feeling of my life ✨</p>
 </section>
 
-<!-- SONGS -->
+<!-- SONGS (LONG TEXT FIXED) -->
 <section>
 <h1>Songs 🎵</h1>
 
-<div class="song-box">Night Changes — feelings never change ❤️</div>
-<div class="song-box">Until I Found You — destiny ✨</div>
-<div class="song-box">Apocalypse — silence 🌙</div>
-<div class="song-box">I’ll Never Leave You ❤️</div>
+<div class="song-box">
+Night Changes — This song reminds me that everything in life changes, moments pass, people change, time moves forward… but one thing I want you to know is that my feelings for you will never change, no matter how much life changes around us ❤️
+</div>
+
+<div class="song-box">
+Until I Found You — I never believed in destiny… until you came into my life and suddenly everything made sense, like I was always searching for you without even knowing it ✨
+</div>
+
+<div class="song-box">
+Apocalypse — Even in silence, even when there is distance, even when nothing is being said… I still feel you everywhere around me 🌙
+</div>
+
+<div class="song-box">
+I’ll Never Leave You — No matter how hard life gets, no matter what happens between us, no matter where we end up… I will always stay, I will never leave you ❤️
+</div>
 
 </section>
 
 <!-- STORY -->
 <section>
 <h1>Our Story ✨</h1>
-
 <p>
 6 June 2025 — First time we crossed paths ✨<br><br>
 A normal moment slowly became unforgettable ❤️<br><br>
 28 September 2025 — Everything changed inside me 💗
 </p>
-
 </section>
 
-<!-- 💟 MY BEAUTIFUL (RESTORED FULL SECTION) -->
+<!-- MY BEAUTIFUL -->
 <section>
 <h1>MY BEAUTIFUL 💟</h1>
 
 <div class="gallery">
-<div class="photo-frame">
-<img src="photo1.jpg">
-<div class="note">Smile ❤️</div>
-</div>
-
-<div class="photo-frame">
-<img src="photo2.jpg">
-<div class="note">Eyes ✨</div>
-</div>
-
-<div class="photo-frame">
-<img src="photo3.jpg">
-<div class="note">Cute 💗</div>
-</div>
-
-<div class="photo-frame">
-<img src="photo4.jpg">
-<div class="note">Peace 🌸</div>
-</div>
-
-<div class="photo-frame">
-<img src="photo5.jpg">
-<div class="note">Forever ❤️</div>
-</div>
-</div>
-
-<div class="song-box">
-✨ “Your smile is my favorite view.”<br><br>
-💗 “You don’t need perfection, you already feel perfect to me.”<br><br>
-🌙 “Every photo of you feels like a memory I want to keep forever.”<br><br>
-❤️ “You are my definition of beautiful.”
+<div class="photo-frame"><img src="photo1.jpg"><div class="note">Smile ❤️</div></div>
+<div class="photo-frame"><img src="photo2.jpg"><div class="note">Eyes ✨</div></div>
+<div class="photo-frame"><img src="photo3.jpg"><div class="note">Cute 💗</div></div>
+<div class="photo-frame"><img src="photo4.jpg"><div class="note">Peace 🌸</div></div>
+<div class="photo-frame"><img src="photo5.jpg"><div class="note">Forever ❤️</div></div>
 </div>
 
 </section>
@@ -278,31 +299,19 @@ A normal moment slowly became unforgettable ❤️<br><br>
 <h1>To Me You're Beautiful ❤️</h1>
 
 <p>
-I know sometimes you feel insecure without specs 💗<br><br>
-
-But I don’t see flaws… I see you ✨<br><br>
-
-With or without specs, nothing changes for me ❤️<br><br>
-
-You are not less or more… you are just you — and that is enough 💗
+With or without specs… you are still perfect 💗<br><br>
+I don’t see flaws, I see YOU ✨
 </p>
 
 </section>
 
-<!-- PHOTO 6 & 7 AFTER INSECURITY -->
+<!-- PHOTO 6 & 7 -->
 <section>
 <h1>Always You ❤️</h1>
 
 <div class="gallery">
-<div class="photo-frame">
-<img src="photo6.jpg">
-<div class="note">Without Specs 💗</div>
-</div>
-
-<div class="photo-frame">
-<img src="photo7.jpg">
-<div class="note">Still Beautiful ✨</div>
-</div>
+<div class="photo-frame"><img src="photo6.jpg"><div class="note">Without Specs 💗</div></div>
+<div class="photo-frame"><img src="photo7.jpg"><div class="note">Still Perfect ✨</div></div>
 </div>
 
 </section>
@@ -313,42 +322,23 @@ You are not less or more… you are just you — and that is enough 💗
 
 <div class="cake">🎂</div>
 
-<p>Close your eyes… make your wish ✨</p>
+<p>Make a wish ✨</p>
 
-<button class="cake-btn" onclick="wish()">Make a Wish ✨</button>
+<button class="cake-btn" onclick="wish()">Make Wish ✨</button>
 
-<div id="wishBox">✨ Make a wish Vidhuuu 🫶🏻✨</div>
-</section>
-
-<!-- VOICE -->
-<section>
-<h1>A Message 🎙️</h1>
-<button class="cake-btn" onclick="playVoice()">Play Voice</button>
+<div id="wishBox">✨ Wish received 💗</div>
 </section>
 
 <!-- FINAL -->
 <section>
 <h1>Made With Love ❤️</h1>
-
 <p><b>Vaibhav Patel</b></p>
-
-<div class="song-box">
-✨ “Some people change your life without trying…”<br><br>
-💗 “You will always stay in my feelings.”<br><br>
-🌙 “I just need you in my world.”<br><br>
-❤️ “My forever wish will always be you.”
-</div>
-
-<p style="margin-top:20px;color:#ffb3ec;">
-—I’ll always be here… even in silence ❤️
-</p>
-
 </section>
 
 <script>
 
 /* STARS */
-for(let i=0;i<120;i++){
+for(let i=0;i<100;i++){
 let s=document.createElement("div");
 s.className="star";
 s.style.left=Math.random()*100+"vw";
@@ -356,61 +346,45 @@ s.style.top=Math.random()*100+"vh";
 document.body.appendChild(s);
 }
 
+/* ENTER + SCROLL SCREEN FIX */
 function enter(){
 document.getElementById("entry").style.display="none";
+
+/* show scroll screen */
+document.getElementById("scrollPage").style.display="flex";
+
+setTimeout(()=>{
+document.getElementById("scrollPage").style.display="none";
 document.getElementById("bgMusic").play().catch(()=>{});
+},1800);
 }
 
-function stopAll(){
-document.getElementById("bgMusic").pause();
-document.getElementById("birthdayMusic").pause();
-document.getElementById("voiceNote").pause();
-}
+/* WISH */
+function wish(){
 
-function confetti(){
-for(let i=0;i<120;i++){
+document.getElementById("wishBox").style.display="block";
+document.getElementById("birthdayMusic").play().catch(()=>{});
+
+for(let i=0;i<80;i++){
 let c=document.createElement("div");
 c.className="confetti";
 c.style.left=Math.random()*100+"vw";
 document.body.appendChild(c);
-setTimeout(()=>c.remove(),3500);
-}
+setTimeout(()=>c.remove(),3000);
 }
 
-function firework(){
 for(let i=0;i<25;i++){
 let f=document.createElement("div");
 f.className="firework";
 f.innerHTML="✨";
 f.style.left=Math.random()*100+"vw";
+f.style.top=Math.random()*60+"vh";
 document.body.appendChild(f);
 setTimeout(()=>f.remove(),1500);
 }
-}
 
-function shake(){
 document.body.classList.add("shake");
 setTimeout(()=>document.body.classList.remove("shake"),500);
-}
-
-function wish(){
-stopAll();
-document.getElementById("wishBox").style.display="block";
-
-document.getElementById("birthdayMusic").play();
-
-confetti();
-firework();
-shake();
-
-setTimeout(()=>{
-window.open("https://wa.me/919399348807?text=Make%20a%20wish%20Vidhuuu%20🫶🏻✨","_blank");
-},1200);
-}
-
-function playVoice(){
-stopAll();
-document.getElementById("voiceNote").play().catch(()=>{});
 }
 
 </script>
