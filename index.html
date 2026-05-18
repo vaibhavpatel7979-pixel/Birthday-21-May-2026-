@@ -67,12 +67,12 @@ font-size:18px;
 cursor:pointer;
 }
 
-/* SCROLL */
+/* SCROLL LINE (RESTORED PROPERLY) */
 #scrollHint{
 display:none;
 margin-top:15px;
 color:#ffb3ec;
-font-size:14px;
+font-size:15px;
 animation:blink 1.5s infinite;
 }
 
@@ -122,11 +122,10 @@ border-radius:12px;
 margin:10px;
 }
 
-/* CAKE (RESTORED) */
+/* CAKE */
 .cake{
 font-size:180px;
 animation:pulse 2s infinite;
-margin-top:20px;
 }
 
 @keyframes pulse{
@@ -143,7 +142,7 @@ cursor:pointer;
 margin-top:15px;
 }
 
-/* EFFECTS */
+/* CONFETTI */
 .confetti{
 position:fixed;
 width:8px;
@@ -165,27 +164,31 @@ to{transform:translateY(110vh) rotate(720deg);opacity:0;}
 <div id="entry">
 <h1>Happy Birthday Vidhii ❤️</h1>
 <button class="btn" onclick="enter()">Enter ✨</button>
+
+<!-- ✅ SCROLL LINE RESTORED -->
 <div id="scrollHint">⬇ Scroll down to explore your surprise ✨</div>
 </div>
 
+<!-- AUDIO -->
 <audio id="bgMusic" loop src="song.mp3"></audio>
 <audio id="birthdayMusic" src="birthday.mp3"></audio>
+<audio id="voiceNote" src="voice.mp3"></audio>
 
 <!-- HERO -->
 <section>
 <h1>Happy Birthday Vidhii ❤️</h1>
-<p>From a random moment… to the most beautiful feeling of my life ✨</p>
 
-<!-- ✅ EXTRA HAPPY BIRTHDAY MESSAGE (RESTORED REQUEST) -->
-<p style="margin-top:20px;color:#ffb3ec;">
-You are not just special today… you are special to me in every moment ❤️
+<!-- LONG PARA (kept as requested style) -->
+<p>
+From a random moment that I never expected… to something that slowly became one of the most meaningful feelings in my life ✨<br><br>
+Today is your birthday, but for me it is more than just a date… it is a reminder that someone like you exists in my world ❤️
 </p>
-
 </section>
 
 <!-- STORY -->
 <section>
 <h1>Our Story ✨</h1>
+
 <p>
 6 June 2025 — First time we crossed paths ✨<br><br>
 A normal moment slowly became unforgettable ❤️<br><br>
@@ -227,35 +230,33 @@ You are not less or more… you are just you — and that is enough 💗
 
 </section>
 
-<!-- SONGS (RESTORED FULL + NOT CUT) -->
+<!-- SONGS (NO OVERLAP FIXED LATER IN JS) -->
 <section>
 <h1>Songs 🎵</h1>
 
 <div class="song-box">
-Night Changes — Everything changes in life but my feelings for you remain constant ❤️
+Night Changes — Life keeps changing like seasons… but my feelings for you stay constant no matter what happens ❤️
 </div>
 
 <div class="song-box">
-Until I Found You — It feels like destiny wrote your name in my story ✨
+Until I Found You — It feels like destiny wrote your name into my story without asking me ✨
 </div>
 
 <div class="song-box">
-Apocalypse — Even in silence, your presence stays in my thoughts 🌙
+Apocalypse — Even in silence or distance… my mind still finds you everywhere 🌙
 </div>
 
 <div class="song-box">
-I’ll Never Leave You — No matter what happens, I’ll always stay ❤️
+I’ll Never Leave You — No matter what life brings… I will always stay with you ❤️
 </div>
 
 </section>
 
-<!-- CAKE (RESTORED FULL) -->
+<!-- CAKE -->
 <section>
-<h1>🎂 Birthday Moment</h1>
+<h1>🎂 Cake Moment</h1>
 
 <div class="cake">🎂</div>
-
-<p>Close your eyes… make your wish ✨</p>
 
 <button class="cake-btn" onclick="wish()">Make Wish ✨</button>
 
@@ -265,51 +266,57 @@ I’ll Never Leave You — No matter what happens, I’ll always stay ❤️
 
 </section>
 
-<!-- FINAL QUOTES (RESTORED FULL) -->
+<!-- VOICE NOTE (RESTORED) -->
+<section>
+<h1>A Message 🎙️</h1>
+
+<button class="cake-btn" onclick="playVoice()">Play Voice Note</button>
+
+</section>
+
+<!-- FINAL QUOTES -->
 <section>
 <h1>Made With Love ❤️</h1>
 
 <p><b>Vaibhav Patel</b></p>
 
 <div class="song-box">
-✨ Some people don’t leave your life… they stay in your thoughts<br><br>
-💗 And you are that thought I never want to lose<br><br>
-🌙 Even silence feels better when it carries your name<br><br>
-❤️ My heart quietly chose you… and it still does
+✨ Some people don’t just come into life… they stay in thoughts<br><br>
+💗 And you became one of those thoughts I never want to lose<br><br>
+🌙 Even silence feels better when it carries your presence<br><br>
+❤️ My heart quietly chose you… and it never changed
 </div>
 
 <p style="margin-top:20px;color:#ffb3ec;">
-—I’ll always be here… even in silence ❤️
+—I’ll always be here… even when nothing is said ❤️
 </p>
 
 </section>
 
 <script>
 
-/* STARS */
-for(let i=0;i<90;i++){
-let s=document.createElement("div");
-s.style.position="fixed";
-s.style.width="2px";
-s.style.height="2px";
-s.style.background="white";
-s.style.left=Math.random()*100+"vw";
-s.style.top=Math.random()*100+"vh";
-document.body.appendChild(s);
+let currentAudio=null;
+
+function playOnly(audio){
+if(currentAudio){
+currentAudio.pause();
+currentAudio.currentTime=0;
+}
+currentAudio=audio;
+audio.play().catch(()=>{});
 }
 
-/* ENTER */
+/* ENTRY */
 function enter(){
 document.getElementById("entry").style.display="none";
 document.getElementById("scrollHint").style.display="block";
-document.getElementById("bgMusic").play().catch(()=>{});
+playOnly(document.getElementById("bgMusic"));
 }
 
 /* WISH */
 function wish(){
-
 document.getElementById("wishBox").style.display="block";
-document.getElementById("birthdayMusic").play().catch(()=>{});
+playOnly(document.getElementById("birthdayMusic"));
 
 for(let i=0;i<80;i++){
 let c=document.createElement("div");
@@ -318,7 +325,11 @@ c.style.left=Math.random()*100+"vw";
 document.body.appendChild(c);
 setTimeout(()=>c.remove(),3000);
 }
+}
 
+/* VOICE NOTE */
+function playVoice(){
+playOnly(document.getElementById("voiceNote"));
 }
 
 </script>
