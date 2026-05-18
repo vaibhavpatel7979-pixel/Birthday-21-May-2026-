@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday Vidhii ❤️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&display=swap" rel="stylesheet">
 
 <style>
 
@@ -18,12 +18,14 @@ color:white;
 overflow-x:hidden;
 }
 
-/* BACKGROUND */
+/* CINEMATIC BACKGROUND */
 body::before{
 content:'';
 position:fixed;
 inset:0;
-background:radial-gradient(circle at top,#3b0764,#000);
+background:
+radial-gradient(circle at top,#3b0764,#000),
+radial-gradient(circle at bottom,#12001f,#000);
 z-index:-3;
 }
 
@@ -33,7 +35,7 @@ position:fixed;
 width:2px;
 height:2px;
 background:white;
-opacity:.6;
+opacity:.7;
 animation:twinkle 3s infinite alternate;
 }
 
@@ -56,10 +58,15 @@ text-align:center;
 }
 
 #entry h1{
-font-size:44px;
+font-size:45px;
 background:linear-gradient(to right,#ffb3ec,#fff,#d8b4fe);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
+}
+
+#entry p{
+margin-top:10px;
+color:#ccc;
 }
 
 .btn{
@@ -71,6 +78,7 @@ background:linear-gradient(135deg,#ff1493,#9333ea);
 color:white;
 cursor:pointer;
 font-size:18px;
+box-shadow:0 0 40px rgba(255,20,147,.4);
 }
 
 /* SECTIONS */
@@ -85,39 +93,81 @@ padding:80px 20px;
 }
 
 h1{
-font-size:60px;
+font-size:62px;
 background:linear-gradient(to right,#ffb3ec,#fff,#d8b4fe);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
+text-shadow:0 0 25px rgba(255,255,255,.15);
 }
 
 p{
 font-size:20px;
 color:#ddd;
-max-width:900px;
+max-width:950px;
+line-height:1.9;
+}
+
+/* SONG BOX */
+.song-box{
+background:rgba(255,255,255,.06);
+padding:20px;
+border-radius:18px;
+margin:12px;
+max-width:850px;
+backdrop-filter:blur(12px);
+border:1px solid rgba(255,255,255,.1);
+}
+
+/* GALLERY */
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:22px;
+width:100%;
+max-width:1200px;
+margin-top:30px;
+}
+
+.photo-frame{
+background:rgba(255,255,255,.06);
+padding:12px;
+border-radius:18px;
+backdrop-filter:blur(10px);
+}
+
+.photo-frame img{
+width:100%;
+height:340px;
+object-fit:cover;
+border-radius:14px;
+}
+
+.note{
+margin-top:8px;
+color:#ffb3ec;
+font-size:14px;
 }
 
 /* CAKE */
 .cake{
 font-size:180px;
 animation:pulse 2s infinite;
-text-shadow:0 0 40px rgba(255,20,147,.6);
+text-shadow:0 0 50px rgba(255,20,147,.6);
 }
 
 @keyframes pulse{
-50%{transform:scale(1.1);}
+50%{transform:scale(1.12);}
 }
 
 /* BUTTON */
 .cake-btn{
-margin-top:25px;
+margin-top:20px;
 padding:16px 45px;
 border:none;
 border-radius:40px;
 background:linear-gradient(135deg,#ff1493,#9333ea);
 color:white;
 cursor:pointer;
-font-size:18px;
 }
 
 /* CONFETTI */
@@ -157,10 +207,10 @@ animation:shake .5s;
 
 @keyframes shake{
 0%,100%{transform:translate(0);}
-20%{transform:translate(-5px,5px);}
-40%{transform:translate(5px,-5px);}
-60%{transform:translate(-5px,-5px);}
-80%{transform:translate(5px,5px);}
+20%{transform:translate(-6px,6px);}
+40%{transform:translate(6px,-6px);}
+60%{transform:translate(-6px,-6px);}
+80%{transform:translate(6px,6px);}
 }
 
 #wishBox{
@@ -175,31 +225,141 @@ font-size:18px;
 
 <body>
 
-<!-- ENTRY -->
 <div id="entry">
 <h1>Welcome ❤️</h1>
+<p>A world made only for Vidhuuu ✨</p>
 <button class="btn" onclick="enter()">Enter ✨</button>
 </div>
 
 <audio id="bgMusic" loop src="song.mp3"></audio>
 <audio id="birthdayMusic" src="birthday.mp3"></audio>
+<audio id="voiceNote" src="voice.mp3"></audio>
 
+<!-- HERO -->
+<section>
+<h1>Happy Birthday Vidhii ❤️</h1>
+<p>From a random moment… to the most beautiful feeling of my life ✨</p>
+</section>
+
+<!-- SONGS (LONG + RELATABLE) -->
+<section>
+<h1>Songs 🎵</h1>
+
+<div class="song-box">
+Night Changes — Everything in life changes… but I promise my feelings for you will never change ❤️
+</div>
+
+<div class="song-box">
+Until I Found You — I never believed in destiny… until I met you 🎶
+</div>
+
+<div class="song-box">
+Apocalypse — Even in silence, even in distance… I still feel you everywhere 🌙
+</div>
+
+<div class="song-box">
+I’ll Never Leave You — No matter what happens in life, no matter how far we go… I’ll always stay ❤️
+</div>
+
+</section>
+
+<!-- STORY -->
+<section>
+<h1>Our Story ✨</h1>
+<p>6 June 2025 — We met<br>28 Sept 2025 — Everything changed forever</p>
+</section>
+
+<!-- MY BEAUTIFUL (5 PHOTOS) -->
+<section>
+<h1>MY BEAUTIFUL ❤️</h1>
+
+<div class="gallery">
+<div class="photo-frame"><img src="photo1.jpg"><div class="note">Smile ❤️</div></div>
+<div class="photo-frame"><img src="photo2.jpg"><div class="note">Eyes 😭</div></div>
+<div class="photo-frame"><img src="photo3.jpg"><div class="note">Cute 💗</div></div>
+<div class="photo-frame"><img src="photo4.jpg"><div class="note">Peace ✨</div></div>
+<div class="photo-frame"><img src="photo5.jpg"><div class="note">Forever ❤️</div></div>
+</div>
+</section>
+
+<!-- INSECURITY (FULL LONG RESTORED + EMOTIONAL) -->
+<section>
+<h1>To Me You're Beautiful ❤️</h1>
+
+<p>
+I know sometimes you look at yourself and doubt things…
+
+<br><br>
+but listen carefully —
+
+<br><br>
+you are not just beautiful…
+you are my definition of beautiful ❤️
+
+<br><br>
+Not because of face, makeup, or anything…
+
+<br><br>
+but because your existence feels warm to me ✨
+
+<br><br>
+Your smile fixes my mood instantly,
+your eyes feel like peace,
+and your presence feels like home 💗
+
+<br><br>
+And even the things you overthink about yourself…
+I see them as the cutest things ever 😭❤️
+
+<br><br>
+You don’t need to become anyone else…
+
+<br><br>
+because in my eyes, you are already perfect ❤️
+</p>
+
+<div class="gallery">
+<div class="photo-frame"><img src="photo6.jpg"><div class="note">This smile ❤️</div></div>
+<div class="photo-frame"><img src="photo7.jpg"><div class="note">Perfect ✨</div></div>
+</div>
+</section>
+
+<!-- CAKE (MAIN CINEMATIC MOMENT) -->
 <section>
 <h1>🎂 Birthday Moment</h1>
 
 <div class="cake">🎂</div>
 
-<p>Make a wish… this moment is yours ❤️</p>
+<p>Close your eyes… make your wish slowly… ✨</p>
 
 <button class="cake-btn" onclick="wish()">Make a Wish ✨</button>
 
 <div id="wishBox">✨ Make a wish Vidhuuu 🫶🏻✨</div>
 </section>
 
+<!-- VOICE -->
+<section>
+<h1>A Message 🎙️</h1>
+<button class="cake-btn" onclick="playVoice()">Play Voice</button>
+</section>
+
+<!-- FINAL -->
+<section>
+<h1>Made With Love ❤️</h1>
+<p><b>Vaibhav Patel</b><br><br>Once again Happy Birthday Dear ❤️</p>
+</section>
+
 <script>
 
-/* ENTER */
+/* MUSIC CONTROL FIX (NO OVERLAP) */
+function stopAll(){
+document.getElementById("bgMusic").pause();
+document.getElementById("birthdayMusic").pause();
+document.getElementById("voiceNote").pause();
+}
+
 let musicStarted=false;
+
 function enter(){
 document.getElementById("entry").style.display="none";
 if(!musicStarted){
@@ -209,7 +369,7 @@ musicStarted=true;
 }
 
 /* CONFETTI */
-function confettiBurst(){
+function confetti(){
 for(let i=0;i<80;i++){
 let c=document.createElement("div");
 c.className="confetti";
@@ -221,11 +381,11 @@ setTimeout(()=>c.remove(),3000);
 }
 
 /* FIREWORK */
-function fireworks(){
+function firework(){
 for(let i=0;i<25;i++){
 let f=document.createElement("div");
 f.className="firework";
-f.innerHTML=["🎆","✨","💥","🎇"][Math.floor(Math.random()*4)];
+f.innerHTML=["🎆","✨","🎇","💥"][Math.floor(Math.random()*4)];
 f.style.left=Math.random()*100+"vw";
 f.style.top=Math.random()*60+"vh";
 document.body.appendChild(f);
@@ -234,27 +394,26 @@ setTimeout(()=>f.remove(),1500);
 }
 
 /* SHAKE */
-function screenShake(){
+function shake(){
 document.body.classList.add("shake");
 setTimeout(()=>document.body.classList.remove("shake"),500);
 }
 
-/* WISH MOMENT */
+/* WISH */
 function wish(){
+
+stopAll();
 
 document.getElementById("wishBox").style.display="block";
 
-/* music */
 let b=document.getElementById("birthdayMusic");
 b.currentTime=0;
 b.play();
 
-/* cinematic effects */
-confettiBurst();
-fireworks();
-screenShake();
+confetti();
+firework();
+shake();
 
-/* whatsapp */
 setTimeout(()=>{
 window.open(
 "https://wa.me/919399348807?text=Make%20a%20wish%20Vidhuuu%20🫶🏻✨",
@@ -262,6 +421,14 @@ window.open(
 );
 },1200);
 
+}
+
+/* VOICE */
+function playVoice(){
+stopAll();
+let v=document.getElementById("voiceNote");
+v.currentTime=0;
+v.play().catch(()=>{});
 }
 
 </script>
