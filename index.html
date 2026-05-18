@@ -17,17 +17,12 @@ color:white;
 overflow-x:hidden;
 }
 
-/* 🌌 Netflix cinematic background */
 body::before{
 content:'';
 position:fixed;
 inset:0;
-background:
-radial-gradient(circle at top,#2a0040,#000),
-url("https://images.unsplash.com/photo-1518837695005-2083093ee35b") center/cover;
-opacity:.25;
+background:radial-gradient(circle at top,#3b0764,#000);
 z-index:-2;
-filter:blur(2px);
 }
 
 .stars{
@@ -48,7 +43,6 @@ animation:twinkle 3s infinite alternate;
 
 @keyframes twinkle{from{opacity:.2}to{opacity:1}}
 
-/* 🎬 cinematic scroll */
 section{
 min-height:100vh;
 display:flex;
@@ -57,26 +51,21 @@ justify-content:center;
 align-items:center;
 text-align:center;
 padding:80px 20px;
-
 opacity:0;
-transform:translateY(60px) scale(.98);
-filter:blur(10px);
-transition:1.4s ease;
+transform:translateY(50px);
+transition:1s;
 }
 
 section.show{
 opacity:1;
-transform:translateY(0) scale(1);
-filter:blur(0);
+transform:translateY(0);
 }
 
-/* headings */
 h1{
-font-size:68px;
+font-size:65px;
 background:linear-gradient(to right,#ffb3ec,#fff,#d8b4fe);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
-text-shadow:0 0 25px rgba(255,20,147,.3);
 }
 
 p{
@@ -87,31 +76,8 @@ line-height:1.8;
 margin-top:15px;
 }
 
-/* entry screen Netflix style */
-#entry{
-position:fixed;
-inset:0;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-background:black;
-z-index:9999;
-}
-
-#entry h1{
-font-size:42px;
-text-align:center;
-text-shadow:0 0 25px #ff1493;
-}
-
-#entry p{
-margin-top:15px;
-color:#aaa;
-}
-
 .btn{
-margin-top:30px;
+margin-top:25px;
 padding:15px 40px;
 border:none;
 border-radius:40px;
@@ -119,10 +85,8 @@ background:linear-gradient(to right,#ff1493,#9333ea);
 color:white;
 font-size:18px;
 cursor:pointer;
-box-shadow:0 0 40px rgba(255,20,147,.4);
 }
 
-/* cards */
 .quote-box{
 background:rgba(255,255,255,.06);
 padding:25px;
@@ -131,11 +95,12 @@ margin:15px;
 max-width:850px;
 backdrop-filter:blur(15px);
 border:1px solid rgba(255,255,255,.12);
-transition:.4s;
 }
-.quote-box:hover{transform:translateY(-8px);}
 
-.cake{font-size:150px;animation:pulse 2s infinite;}
+.cake{
+font-size:150px;
+animation:pulse 2s infinite;
+}
 @keyframes pulse{50%{transform:scale(1.08);}}
 
 .gallery{
@@ -168,19 +133,39 @@ font-size:15px;
 color:#ffb3ec;
 }
 
-/* scroll hint */
+/* ENTRY */
+#entry{
+position:fixed;
+inset:0;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background:radial-gradient(circle,#2a0040,#000);
+z-index:9999;
+text-align:center;
+}
+
+#entry h1{
+font-size:40px;
+text-shadow:0 0 20px #ff1493;
+}
+
+#entry p{
+margin-top:10px;
+color:#bbb;
+}
+
 .scroll{
-position:absolute;
-bottom:30px;
-animation:bounce 2s infinite;
+margin-top:20px;
 color:#ddd;
+animation:bounce 2s infinite;
 }
 
 @keyframes bounce{
 0%,100%{transform:translateY(0);}
 50%{transform:translateY(10px);}
 }
-
 </style>
 </head>
 
@@ -189,9 +174,8 @@ color:#ddd;
 <!-- ENTRY -->
 <div id="entry">
 <h1>MAKE A WISH VIDHUUU 🫶🏻</h1>
-<p>A Netflix style love story begins here ❤️</p>
-<button class="btn" onclick="enter()">Enter My World ✨</button>
-<div class="scroll">⬇ Scroll Slowly Like A Movie ❤️</div>
+<p>Scroll slowly to enter the story ❤️</p>
+<button class="btn" onclick="enter()">Enter ✨</button>
 </div>
 
 <div class="stars" id="stars"></div>
@@ -204,7 +188,7 @@ color:#ddd;
 <!-- HERO -->
 <section>
 <h1>Happy Birthday<br>Vidhii ❤️</h1>
-<p>A story that started randomly… but stayed forever ✨</p>
+<p>A random moment turned into forever ✨</p>
 </section>
 
 <!-- SONGS -->
@@ -213,52 +197,54 @@ color:#ddd;
 
 <div class="quote-box">
 Night Changes<br>
-<span style="font-size:14px;">Everything changes… except you in my heart ❤️</span>
+<span style="font-size:13px;">Everything changes but feelings don’t ❤️</span>
 </div>
 
 <div class="quote-box">
 Until I Found You<br>
-<span style="font-size:14px;">I never knew love like this 🎶</span>
+<span style="font-size:13px;">You feel like destiny 🎶</span>
 </div>
 
 <div class="quote-box">
 Apocalypse<br>
-<span style="font-size:14px;">Even silence feels like you 🌙</span>
+<span style="font-size:13px;">Even silence feels like you 🌙</span>
 </div>
 </section>
 
 <!-- STORY -->
 <section>
 <h1>Our Story ✨</h1>
-<div class="quote-box">🎮 6 June 2025 — Destiny met us</div>
-<div class="quote-box">💗 28 Sept 2025 — Heart changed forever</div>
+<div class="quote-box">🎮 6 June 2025 — We met</div>
+<div class="quote-box">💗 28 Sept 2025 — Everything changed</div>
 </section>
 
 <!-- MY BEAUTIFUL -->
 <section>
 <h1>MY BEAUTIFUL ❤️</h1>
 
-<p>Every picture feels like a memory I never want to lose ✨</p>
+<p>Every picture feels like a memory ✨</p>
 
 <div class="gallery">
+
 <div class="photo-frame">
 <img src="photo1.jpg">
-<div class="note">Your smile ❤️</div>
+<div class="note">Your smile is my peace ❤️</div>
 </div>
 
 <div class="photo-frame">
 <img src="photo2.jpg">
-<div class="note">I adore you 😭</div>
+<div class="note">I love your eyes 😭✨</div>
 </div>
 
 <div class="photo-frame">
 <img src="photo3.jpg">
-<div class="note">So beautiful 💗</div>
+<div class="note">You are naturally beautiful 💗</div>
 </div>
+
 </div>
 </section>
 
-<!-- 💔 INSECURITY (FULL RESTORED — NO CUT) -->
+<!-- 💔 INSECURITY FULL RESTORED + 3 PICS -->
 <section>
 <h1>To Me You're Beautiful ❤️</h1>
 
@@ -266,25 +252,20 @@ Apocalypse<br>
 I know sometimes you don't see yourself the way I see you...
 
 <br><br>
-
 but honestly?
 
 <br><br>
-
 you are genuinely one of the cutest and most beautiful girls to me ❤️
 
 <br><br>
-
 Not because of makeup,
 not because of specs,
 not because of what people say...
 
 <br><br>
-
 but because there’s something about you that feels special naturally ✨
 
 <br><br>
-
 Your smile makes me happy,
 your eyes feel comforting,
 your little expressions are adorable,
@@ -293,27 +274,36 @@ and even the things you overthink about yourself...
 are beautiful to me 💗
 
 <br><br>
-
-And your nose?
-
-<br><br>
-
-I really mean this —
-it's cute 😭❤️
+And your nose? it's cute 😭❤️
 
 <br><br>
-
-Please never let people's opinions
-change the way you see yourself.
+Please never change yourself for anyone.
 
 <br><br>
-
 Because when I look at you,
-I don't see flaws...
+I don’t see flaws...
 
 <br><br>
-
 I just see the girl I love ❤️
+</div>
+
+<div class="gallery">
+
+<div class="photo-frame">
+<img src="photo6.jpg">
+<div class="note">This smile deserves happiness ❤️</div>
+</div>
+
+<div class="photo-frame">
+<img src="photo7.jpg">
+<div class="note">You are perfect as you are ✨</div>
+</div>
+
+<div class="photo-frame">
+<img src="photo8.jpg">
+<div class="note">My definition of beautiful ❤️</div>
+</div>
+
 </div>
 </section>
 
@@ -344,8 +334,8 @@ I just see the girl I love ❤️
 
 <div class="quote-box">
 Vaibhav Patel<br>
-Hope you like it 💗<br>
-A small Netflix style love story ✨
+Hope you like it 💗<br><br>
+Once again Happy Birthday Dear ❤️
 </div>
 </section>
 
@@ -370,14 +360,21 @@ s.classList.add("show");
 });
 });
 
-/* ENTRY FIX */
+/* ENTRY + MUSIC FIX (NO GLITCH) */
+let musicStarted=false;
+
 function enter(){
 document.getElementById("entry").style.display="none";
-bgMusic.play(); // only after click
+
+if(!musicStarted){
+bgMusic.play();
+musicStarted=true;
+}
 }
 
 /* wish */
 function wish(){
+birthdayMusic.currentTime=0;
 birthdayMusic.play();
 
 document.getElementById("wishMsg").style.display="block";
