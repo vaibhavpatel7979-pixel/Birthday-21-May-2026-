@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -178,10 +179,13 @@ backdrop-filter:blur(15px);
 border:1px solid rgba(255,255,255,.1);
 box-shadow:0 0 40px rgba(255,20,147,.15);
 transition:.5s;
+overflow:hidden;
+position:relative;
 }
 
 .photo-frame:hover{
-transform:scale(1.04) translateY(-10px);
+transform:scale(1.05) translateY(-10px);
+box-shadow:0 0 60px rgba(255,20,147,.4);
 }
 
 .photo-frame img{
@@ -189,6 +193,11 @@ width:100%;
 height:420px;
 object-fit:cover;
 border-radius:25px;
+transition:1s;
+}
+
+.photo-frame:hover img{
+transform:scale(1.08);
 }
 
 .cake{
@@ -261,6 +270,20 @@ to{
 opacity:1;
 transform:translateY(0);
 }
+}
+
+@keyframes floatUp{
+
+0%{
+transform:translateY(0) scale(.8);
+opacity:1;
+}
+
+100%{
+transform:translateY(-120vh) scale(1.4);
+opacity:0;
+}
+
 }
 
 @media(max-width:768px){
@@ -374,6 +397,44 @@ I'll always be yours forever ✨
 <section>
 
 <h1 class="title">
+Our Story ✨
+</h1>
+
+<div class="quote-box">
+<h2>🎮 6 June 2025</h2>
+<p>
+The day destiny made us meet ❤️
+</p>
+</div>
+
+<div class="quote-box">
+<h2>💗 28 Sept 2025 • 10:21 PM</h2>
+<p>
+The moment my heart officially became yours ✨
+</p>
+</div>
+
+<div class="quote-box">
+<h2>🌙 Long Distance</h2>
+<p>
+Even from far away,
+you still became the closest person to my heart ❤️
+</p>
+</div>
+
+<div class="quote-box">
+<h2>💌 Forever</h2>
+<p>
+No matter how many people I meet in life...
+you will always feel special to me ✨
+</p>
+</div>
+
+</section>
+
+<section>
+
+<h1 class="title">
 Beautiful Memories 📸
 </h1>
 
@@ -422,7 +483,7 @@ Blow Candles ✨
 </button>
 
 <div class="wish-message" id="wishMessage">
-Wish received ❤️✨
+✨ Your wish has been sent to the stars ❤️
 </div>
 
 </section>
@@ -472,7 +533,7 @@ Happy Birthday My Love ❤️
 
 const stars = document.getElementById('stars');
 
-for(let i=0;i<200;i++){
+for(let i=0;i<250;i++){
 
 const star = document.createElement('div');
 
@@ -501,11 +562,11 @@ behavior:'smooth'
 
 function blowCandles(){
 
-document.getElementById('cake').innerHTML='🕯️❌';
-
 document.getElementById('wishMessage').style.display='block';
 
 document.getElementById('birthdayMusic').play();
+
+createHearts();
 
 setTimeout(()=>{
 
@@ -513,7 +574,37 @@ window.open(
 'https://wa.me/919399348807?text=She%20made%20a%20wish%20❤️✨'
 );
 
-},2000);
+},2500);
+
+}
+
+function createHearts(){
+
+for(let i=0;i<40;i++){
+
+const heart = document.createElement('div');
+
+heart.innerHTML='❤️';
+
+heart.style.position='fixed';
+
+heart.style.left=Math.random()*100+'vw';
+
+heart.style.top='100vh';
+
+heart.style.fontSize=(Math.random()*20+20)+'px';
+
+heart.style.zIndex='9999';
+
+heart.style.animation='floatUp 4s linear forwards';
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},4000);
+
+}
 
 }
 
