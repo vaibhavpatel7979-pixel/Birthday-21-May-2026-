@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Vidhii ❤️</title>
+<title>Birthday Movie ❤️</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&display=swap" rel="stylesheet">
 
@@ -17,7 +17,7 @@ color:white;
 overflow-x:hidden;
 }
 
-/* BACKGROUND */
+/* CINEMATIC BACKGROUND */
 body::before{
 content:'';
 position:fixed;
@@ -32,8 +32,14 @@ body::after{
 content:'';
 position:fixed;
 inset:0;
-background:radial-gradient(circle at center,rgba(255,20,147,0.12),transparent 60%);
+background:radial-gradient(circle at center,rgba(255,20,147,0.15),transparent 60%);
 z-index:-1;
+animation:glow 6s infinite alternate;
+}
+
+@keyframes glow{
+0%{opacity:0.2;}
+100%{opacity:0.6;}
 }
 
 /* ENTRY */
@@ -49,8 +55,8 @@ z-index:9999;
 text-align:center;
 }
 
-#entry h1{
-font-size:42px;
+#introText{
+font-size:40px;
 background:linear-gradient(to right,#ffb3ec,#fff,#d8b4fe);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
@@ -67,7 +73,7 @@ font-size:18px;
 cursor:pointer;
 }
 
-/* SCROLL */
+/* SCROLL LINE (REQUIRED) */
 #scrollHint{
 display:none;
 margin-top:15px;
@@ -89,6 +95,14 @@ justify-content:center;
 align-items:center;
 text-align:center;
 padding:70px 20px;
+opacity:0;
+transform:translateY(40px);
+transition:all 1s ease;
+}
+
+section.show{
+opacity:1;
+transform:translateY(0);
 }
 
 h1{
@@ -156,17 +170,6 @@ animation:fall 3s linear forwards;
 to{transform:translateY(110vh) rotate(720deg);opacity:0;}
 }
 
-/* ZOOM */
-.zoom-effect{
-animation:zoomIn 1.2s ease-in-out;
-}
-
-@keyframes zoomIn{
-0%{transform:scale(1);}
-50%{transform:scale(1.15);}
-100%{transform:scale(1);}
-}
-
 /* FIREWORK */
 .big-firework{
 position:fixed;
@@ -179,6 +182,7 @@ animation:burst 1.5s ease-out forwards;
 0%{transform:scale(0);opacity:1;}
 100%{transform:scale(4);opacity:0;}
 }
+
 </style>
 </head>
 
@@ -186,9 +190,8 @@ animation:burst 1.5s ease-out forwards;
 
 <!-- ENTRY -->
 <div id="entry">
-<h1>Happy Birthday Vidhii ❤️</h1>
+<h1 id="introText"></h1>
 <button class="btn" onclick="enter()">Enter ✨</button>
-
 <div id="scrollHint">⬇ Scroll down to explore your surprise ✨</div>
 </div>
 
@@ -201,8 +204,8 @@ animation:burst 1.5s ease-out forwards;
 <section>
 <h1>Happy Birthday Vidhii ❤️</h1>
 <p>
-From a random moment that I never expected… to something that slowly became one of the most meaningful feelings in my life ✨<br><br>
-Today is your birthday, but for me it is more than just a date… it is a reminder that someone like you exists in my world ❤️
+From a random moment… to something unforgettable ✨<br><br>
+Today is not just a birthday… it is a feeling ❤️
 </p>
 </section>
 
@@ -212,11 +215,11 @@ Today is your birthday, but for me it is more than just a date… it is a remind
 <p>
 6 June 2025 — First time we crossed paths ✨<br><br>
 A normal moment slowly became unforgettable ❤️<br><br>
-28 September 2025 — Everything changed inside me 💗
+28 September 2025 — Everything changed 💗
 </p>
 </section>
 
-<!-- MY BEAUTIFUL -->
+<!-- BEAUTY -->
 <section>
 <h1>MY BEAUTIFUL 💟</h1>
 <img src="photo1.jpg">
@@ -231,9 +234,8 @@ A normal moment slowly became unforgettable ❤️<br><br>
 <h1>To Me You're Beautiful ❤️</h1>
 <p>
 I know sometimes you feel insecure without specs 💗<br><br>
-But I don’t see flaws… I see YOU ✨<br><br>
-With or without specs, nothing changes for me ❤️<br><br>
-You are not less or more… you are just you — and that is enough 💗
+But I see YOU ✨<br><br>
+With or without specs… nothing changes ❤️
 </p>
 </section>
 
@@ -248,10 +250,10 @@ You are not less or more… you are just you — and that is enough 💗
 <section>
 <h1>Songs 🎵</h1>
 
-<div class="song-box">Night Changes — Life changes but my feelings don’t ❤️</div>
-<div class="song-box">Until I Found You — It feels like destiny ✨</div>
-<div class="song-box">Apocalypse — You are everywhere in my silence 🌙</div>
-<div class="song-box">I’ll Never Leave You — Always yours ❤️</div>
+<div class="song-box">Night Changes — feelings don’t change ❤️</div>
+<div class="song-box">Until I Found You — destiny ✨</div>
+<div class="song-box">Apocalypse — you are everywhere 🌙</div>
+<div class="song-box">I’ll Never Leave You ❤️</div>
 </section>
 
 <!-- CAKE -->
@@ -280,36 +282,44 @@ You are not less or more… you are just you — and that is enough 💗
 <p><b>Vaibhav Patel</b></p>
 
 <div class="song-box">
-✨ Some people become unforgettable without trying<br><br>
-💗 And you are one of those feelings<br><br>
-🌙 Even silence feels better with you in it<br><br>
-❤️ My heart chose you… always
+✨ You became a feeling I never want to lose<br><br>
+💗 Even silence feels better with you<br><br>
+🌙 My heart chose you… always ❤️
 </div>
 
-<p style="margin-top:20px;color:#ffb3ec;">
-—I’ll always be here ❤️
-</p>
 </section>
 
 <script>
 
-let currentAudio=null;
+/* TYPEWRITER */
+let text="This is for you 🫶🏻💟";
+let i=0;
 
-function playOnly(audio){
-if(currentAudio){
-currentAudio.pause();
-currentAudio.currentTime=0;
+function typeWriter(){
+if(i<text.length){
+document.getElementById("introText").innerHTML+=text.charAt(i);
+i++;
+setTimeout(typeWriter,80);
 }
-currentAudio=audio;
-audio.play().catch(()=>{});
 }
+typeWriter();
 
 /* ENTER */
 function enter(){
 document.getElementById("entry").style.display="none";
 document.getElementById("scrollHint").style.display="block";
-playOnly(document.getElementById("bgMusic"));
+document.getElementById("bgMusic").play().catch(()=>{});
 }
+
+/* SCROLL ANIMATION */
+window.addEventListener("scroll",()=>{
+document.querySelectorAll("section").forEach(sec=>{
+let top=sec.getBoundingClientRect().top;
+if(top<600){
+sec.classList.add("show");
+}
+});
+});
 
 /* WISH */
 function wish(){
@@ -317,11 +327,10 @@ function wish(){
 document.getElementById("wishBox").style.display="block";
 
 let music=document.getElementById("birthdayMusic");
-music.volume=0.3;
-playOnly(music);
+music.play().catch(()=>{});
 
-document.body.classList.add("zoom-effect");
-setTimeout(()=>document.body.classList.remove("zoom-effect"),1200);
+document.body.classList.add("zoom");
+setTimeout(()=>document.body.classList.remove("zoom"),1200);
 
 /* fireworks */
 for(let i=0;i<35;i++){
@@ -343,7 +352,7 @@ document.body.appendChild(c);
 setTimeout(()=>c.remove(),3000);
 }
 
-/* WHATSAPP FIX */
+/* WhatsApp */
 setTimeout(()=>{
 window.location.href="https://wa.me/919399348807?text=Make%20a%20wish%20Vidhuuu%20🫶🏻✨";
 },1500);
@@ -352,7 +361,7 @@ window.location.href="https://wa.me/919399348807?text=Make%20a%20wish%20Vidhuuu%
 
 /* VOICE */
 function playVoice(){
-playOnly(document.getElementById("voiceNote"));
+document.getElementById("voiceNote").play().catch(()=>{});
 }
 
 </script>
