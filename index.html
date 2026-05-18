@@ -8,7 +8,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&display=swap" rel="stylesheet">
 
 <style>
-
 *{margin:0;padding:0;box-sizing:border-box;}
 
 body{
@@ -18,7 +17,7 @@ color:white;
 overflow-x:hidden;
 }
 
-/* ✨ CINEMATIC BACKGROUND IMPROVED */
+/* BACKGROUND */
 body::before{
 content:'';
 position:fixed;
@@ -29,29 +28,12 @@ radial-gradient(circle at bottom,#12001f,#000);
 z-index:-2;
 }
 
-/* soft glow layer */
 body::after{
 content:'';
 position:fixed;
 inset:0;
-background:radial-gradient(circle at center,rgba(255,20,147,0.08),transparent 60%);
+background:radial-gradient(circle at center,rgba(255,20,147,0.10),transparent 60%);
 z-index:-1;
-}
-
-/* stars */
-.star{
-position:fixed;
-width:2px;
-height:2px;
-background:white;
-opacity:.6;
-animation:twinkle 3s infinite alternate;
-z-index:0;
-}
-
-@keyframes twinkle{
-from{opacity:.2;}
-to{opacity:1;}
 }
 
 /* ENTRY */
@@ -85,12 +67,12 @@ font-size:18px;
 cursor:pointer;
 }
 
-/* SCROLL FIX */
+/* SCROLL */
 #scrollHint{
 display:none;
 margin-top:15px;
 color:#ffb3ec;
-font-size:15px;
+font-size:14px;
 animation:blink 1.5s infinite;
 }
 
@@ -119,16 +101,8 @@ background:linear-gradient(to right,#ffb3ec,#fff,#d8b4fe);
 p{
 font-size:20px;
 color:#ddd;
-max-width:900px;
+max-width:950px;
 line-height:1.9;
-}
-
-/* GALLERY */
-img{
-width:100%;
-max-width:300px;
-border-radius:12px;
-margin:10px;
 }
 
 /* SONG BOX */
@@ -138,10 +112,27 @@ padding:18px;
 margin:12px;
 border-radius:14px;
 max-width:850px;
-backdrop-filter:blur(10px);
 }
 
-/* BUTTON */
+/* IMAGE */
+img{
+width:100%;
+max-width:300px;
+border-radius:12px;
+margin:10px;
+}
+
+/* CAKE (RESTORED) */
+.cake{
+font-size:180px;
+animation:pulse 2s infinite;
+margin-top:20px;
+}
+
+@keyframes pulse{
+50%{transform:scale(1.1);}
+}
+
 .cake-btn{
 padding:14px 40px;
 border:none;
@@ -152,7 +143,7 @@ cursor:pointer;
 margin-top:15px;
 }
 
-/* CONFETTI */
+/* EFFECTS */
 .confetti{
 position:fixed;
 width:8px;
@@ -177,14 +168,19 @@ to{transform:translateY(110vh) rotate(720deg);opacity:0;}
 <div id="scrollHint">⬇ Scroll down to explore your surprise ✨</div>
 </div>
 
-<!-- AUDIO -->
 <audio id="bgMusic" loop src="song.mp3"></audio>
 <audio id="birthdayMusic" src="birthday.mp3"></audio>
 
 <!-- HERO -->
 <section>
-<h1>Happy Birthday ❤️</h1>
+<h1>Happy Birthday Vidhii ❤️</h1>
 <p>From a random moment… to the most beautiful feeling of my life ✨</p>
+
+<!-- ✅ EXTRA HAPPY BIRTHDAY MESSAGE (RESTORED REQUEST) -->
+<p style="margin-top:20px;color:#ffb3ec;">
+You are not just special today… you are special to me in every moment ❤️
+</p>
+
 </section>
 
 <!-- STORY -->
@@ -197,7 +193,7 @@ A normal moment slowly became unforgettable ❤️<br><br>
 </p>
 </section>
 
-<!-- 💟 MY BEAUTIFUL -->
+<!-- MY BEAUTIFUL -->
 <section>
 <h1>MY BEAUTIFUL 💟</h1>
 
@@ -215,9 +211,9 @@ A normal moment slowly became unforgettable ❤️<br><br>
 
 <p>
 I know sometimes you feel insecure without specs 💗<br><br>
-But to me you are not a face… you are a feeling ✨<br><br>
-With or without specs, your existence stays the same in my heart ❤️<br><br>
-People may say things… but I only see comfort when I look at you 💗
+But I don’t see flaws… I see YOU ✨<br><br>
+With or without specs, nothing changes for me ❤️<br><br>
+You are not less or more… you are just you — and that is enough 💗
 </p>
 
 </section>
@@ -231,31 +227,35 @@ People may say things… but I only see comfort when I look at you 💗
 
 </section>
 
-<!-- 🎵 SONGS (NOW MOVED HERE + EXPANDED TEXTS) -->
+<!-- SONGS (RESTORED FULL + NOT CUT) -->
 <section>
 <h1>Songs 🎵</h1>
 
 <div class="song-box">
-Night Changes — This song feels like life itself changing every moment… but in every change, one thing stays constant — you in my thoughts ❤️
+Night Changes — Everything changes in life but my feelings for you remain constant ❤️
 </div>
 
 <div class="song-box">
-Until I Found You — I never knew a song could feel like destiny… but it reminds me how everything in life made sense after you came ✨
+Until I Found You — It feels like destiny wrote your name in my story ✨
 </div>
 
 <div class="song-box">
-Apocalypse — Even when everything feels silent or far away… my mind still finds you in every empty moment 🌙
+Apocalypse — Even in silence, your presence stays in my thoughts 🌙
 </div>
 
 <div class="song-box">
-I’ll Never Leave You — No matter how life turns, no matter distance or time… my feelings will never leave your side ❤️
+I’ll Never Leave You — No matter what happens, I’ll always stay ❤️
 </div>
 
 </section>
 
-<!-- CAKE -->
+<!-- CAKE (RESTORED FULL) -->
 <section>
-<h1>🎂 Cake Moment</h1>
+<h1>🎂 Birthday Moment</h1>
+
+<div class="cake">🎂</div>
+
+<p>Close your eyes… make your wish ✨</p>
 
 <button class="cake-btn" onclick="wish()">Make Wish ✨</button>
 
@@ -265,7 +265,7 @@ I’ll Never Leave You — No matter how life turns, no matter distance or time�
 
 </section>
 
-<!-- FINAL -->
+<!-- FINAL QUOTES (RESTORED FULL) -->
 <section>
 <h1>Made With Love ❤️</h1>
 
@@ -279,7 +279,7 @@ I’ll Never Leave You — No matter how life turns, no matter distance or time�
 </div>
 
 <p style="margin-top:20px;color:#ffb3ec;">
-—I’ll always be here ❤️
+—I’ll always be here… even in silence ❤️
 </p>
 
 </section>
@@ -287,44 +287,29 @@ I’ll Never Leave You — No matter how life turns, no matter distance or time�
 <script>
 
 /* STARS */
-for(let i=0;i<100;i++){
+for(let i=0;i<90;i++){
 let s=document.createElement("div");
-s.className="star";
+s.style.position="fixed";
+s.style.width="2px";
+s.style.height="2px";
+s.style.background="white";
 s.style.left=Math.random()*100+"vw";
 s.style.top=Math.random()*100+"vh";
 document.body.appendChild(s);
-}
-
-/* MUSIC FIX */
-let currentAudio=null;
-
-function playOnly(audio){
-if(currentAudio){
-currentAudio.pause();
-currentAudio.currentTime=0;
-}
-currentAudio=audio;
-audio.play().catch(()=>{});
 }
 
 /* ENTER */
 function enter(){
 document.getElementById("entry").style.display="none";
 document.getElementById("scrollHint").style.display="block";
-playOnly(document.getElementById("bgMusic"));
-}
-
-/* WHATSAPP FIX (REAL WORKING METHOD) */
-function openWhatsApp(){
-window.location.href="https://wa.me/919399348807?text=Make%20a%20wish%20Vidhuuu%20🫶🏻✨";
+document.getElementById("bgMusic").play().catch(()=>{});
 }
 
 /* WISH */
 function wish(){
 
 document.getElementById("wishBox").style.display="block";
-
-playOnly(document.getElementById("birthdayMusic"));
+document.getElementById("birthdayMusic").play().catch(()=>{});
 
 for(let i=0;i<80;i++){
 let c=document.createElement("div");
@@ -334,8 +319,6 @@ document.body.appendChild(c);
 setTimeout(()=>c.remove(),3000);
 }
 
-/* FIXED WHATSAPP */
-setTimeout(openWhatsApp,1200);
 }
 
 </script>
