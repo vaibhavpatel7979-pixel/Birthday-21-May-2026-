@@ -8,7 +8,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
 body{
 font-family:Poppins,sans-serif;
@@ -28,7 +32,7 @@ radial-gradient(circle at bottom,#12001f,#000);
 z-index:-3;
 }
 
-/* STAR */
+/* STARS */
 .star{
 position:fixed;
 width:2px;
@@ -41,6 +45,83 @@ z-index:-2;
 @keyframes twinkle{
 from{opacity:.2;}
 to{opacity:1;}
+}
+
+/* PASSWORD SCREEN */
+#lockScreen{
+position:fixed;
+inset:0;
+background:
+radial-gradient(circle at top,#3b0764,#000),
+radial-gradient(circle at bottom,#12001f,#000);
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:10000;
+}
+
+.lock-box{
+background:rgba(255,255,255,0.08);
+padding:40px;
+border-radius:25px;
+backdrop-filter:blur(15px);
+text-align:center;
+width:90%;
+max-width:400px;
+box-shadow:0 0 40px rgba(255,20,147,0.3);
+border:1px solid rgba(255,255,255,0.1);
+}
+
+.lock-box h1{
+font-size:38px;
+margin-bottom:15px;
+background:linear-gradient(to right,#ffb3ec,#fff,#d8b4fe);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.lock-box p{
+color:#ddd;
+margin-bottom:18px;
+}
+
+.lock-box input{
+width:100%;
+padding:14px;
+border:none;
+border-radius:15px;
+outline:none;
+font-size:16px;
+margin-bottom:18px;
+background:rgba(255,255,255,0.1);
+color:white;
+text-align:center;
+}
+
+.lock-box input::placeholder{
+color:#ddd;
+}
+
+.lock-box button{
+padding:14px 35px;
+border:none;
+border-radius:40px;
+background:linear-gradient(135deg,#ff1493,#9333ea);
+color:white;
+font-size:16px;
+cursor:pointer;
+box-shadow:0 0 25px rgba(255,20,147,.4);
+transition:.3s;
+}
+
+.lock-box button:hover{
+transform:scale(1.05);
+}
+
+#wrongPass{
+margin-top:12px;
+color:#ff6b81;
+font-size:14px;
 }
 
 /* ENTRY */
@@ -75,7 +156,7 @@ font-size:18px;
 box-shadow:0 0 40px rgba(255,20,147,.4);
 }
 
-/* SCROLL INSTRUCTION (FIXED TOP AFTER ENTER) */
+/* SCROLL */
 #scrollHint{
 position:fixed;
 top:15px;
@@ -128,17 +209,47 @@ backdrop-filter:blur(12px);
 }
 
 /* IMAGE */
+.photo-frame{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+margin-top:30px;
+}
+
+.photo-frame div{
+display:flex;
+flex-direction:column;
+align-items:center;
+}
+
 .photo-frame img{
 width:100%;
-max-width:320px;
-border-radius:15px;
-margin:10px;
+max-width:280px;
+border-radius:20px;
+box-shadow:0 0 25px rgba(255,255,255,.12);
+transition:.4s;
+}
+
+.photo-frame img:hover{
+transform:scale(1.05);
+}
+
+.note{
+margin-top:10px;
+color:#ffb3ec;
+font-size:16px;
 }
 
 /* CAKE */
-.cake{font-size:180px;animation:pulse 2s infinite;}
+.cake{
+font-size:180px;
+animation:pulse 2s infinite;
+}
 
-@keyframes pulse{50%{transform:scale(1.12);}}
+@keyframes pulse{
+50%{transform:scale(1.12);}
+}
 
 .cake-btn{
 margin-top:20px;
@@ -149,10 +260,85 @@ background:linear-gradient(135deg,#ff1493,#9333ea);
 color:white;
 cursor:pointer;
 }
+
+/* FINAL */
+.final-section{
+text-align:center;
+padding:80px 20px;
+}
+
+.final-section h1{
+font-size:2.2rem;
+color:white;
+margin-bottom:25px;
+letter-spacing:1px;
+}
+
+.name-glow{
+font-size:3rem;
+font-weight:900;
+letter-spacing:8px;
+text-transform:uppercase;
+
+background:linear-gradient(90deg,#ff4d6d,#ffd6e0,#ffffff,#ff4d6d);
+background-size:300%;
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+animation:shine 5s linear infinite,
+pulse2 2s ease-in-out infinite;
+
+text-shadow:
+0 0 10px rgba(255,255,255,0.5),
+0 0 20px rgba(255,77,109,0.6),
+0 0 40px rgba(255,77,109,0.8);
+}
+
+@keyframes shine{
+0%{background-position:0%;}
+100%{background-position:300%;}
+}
+
+@keyframes pulse2{
+0%,100%{transform:scale(1);}
+50%{transform:scale(1.08);}
+}
+
+@keyframes glow{
+from{
+text-shadow:0 0 15px rgba(255,182,193,.3);
+}
+to{
+text-shadow:0 0 35px rgba(255,182,193,.7);
+}
+}
+
+@keyframes fadeIn{
+from{opacity:0;}
+to{opacity:1;}
+}
+
 </style>
 </head>
 
 <body>
+
+<!-- PASSWORD SCREEN -->
+<div id="lockScreen">
+<div class="lock-box">
+
+<h1>🔒 Private Surprise</h1>
+<p>Enter Passcode to Continue ❤️</p>
+
+<input type="password" id="passInput" placeholder="Enter Passcode">
+
+<button onclick="checkPassword()">Unlock ✨</button>
+
+<p id="wrongPass"></p>
+
+</div>
+</div>
 
 <!-- ENTRY -->
 <div id="entry">
@@ -171,6 +357,7 @@ cursor:pointer;
 <!-- HERO -->
 <section>
 <h1>Happiest Birthday Vidhii 🩷🫶🏻</h1>
+
 <p>
 From a random moment… to something that became very special ✨<br><br>
 You are not just someone… you are a feeling I never want to lose ❤️
@@ -180,6 +367,7 @@ You are not just someone… you are a feeling I never want to lose ❤️
 <!-- STORY -->
 <section>
 <h1>Our Story ✨</h1>
+
 <p>
 6 June 2025 — First time we crossed paths ✨<br><br>
 A normal moment slowly turned into something unforgettable ❤️<br><br>
@@ -192,68 +380,36 @@ A normal moment slowly turned into something unforgettable ❤️<br><br>
 <h1>MY BEAUTIFUL 💗🫶🏻</h1>
 
 <div class="photo-frame">
-<img src="photo1.jpg"><div class="note">Smile ❤️</div>
-<img src="photo2.jpg"><div class="note">Eyes ✨</div>
-<img src="photo3.jpg"><div class="note">Cute 💗</div>
-<img src="photo4.jpg"><div class="note">Peace 🌸</div>
-<img src="photo5.jpg"><div class="note">Forever 🧿</div>
+
+<div>
+<img src="photo1.jpg">
+<div class="note">Smile ❤️</div>
 </div>
 
-</section>
-
-<!-- INSECURITY (UPDATED WITH ALL PHOTOS) -->
-<section>
-<h1>To Me You're Beautiful ❤️</h1>
-
-<p>
-I know sometimes you feel insecure about how you look when you remove specs… or what people say about your nose when you remove specs 💗<br><br>
-
-But listen carefully — I don’t see what others say, I only see YOU ✨<br><br>
-
-You don’t need to change anything about yourself… not your face, not your smile, not anything ❤️<br><br>
-
-Even when you think you are not looking perfect, to me you are still the most beautiful person in the world 💫<br><br>
-
-People will always talk, but their words don’t define you… your heart does 💗<br><br>
-
-And your heart is something I admire the most ❤️<br><br>
-
-With or without specs, with or without anything… you are still the same beautiful person I care about ✨<br><br>
-
-And honestly?<br>
-These pictures only made me realize one more thing…<br>
-you look beautiful in every version of yourself 🌸
-
-</p>
-
-<div class="photo-frame">
-
-<img src="photo6.jpg">
-<div class="note">Without Specs 💗</div>
-
-<img src="photo7.jpg">
-<div class="note">Still Perfect ✨</div>
-
-<img src="photo8.jpg">
-<div class="note">Natural Beauty 🌸</div>
-
-<img src="photo9.jpg">
-<div class="note">Pretty Eyes ❤️</div>
-
-<img src="photo10.jpg">
-<div class="note">Beautiful Soul 🌙</div>
-
-<img src="photo11.jpg">
-<div class="note">Just Her 🫶🏻</div>
-
-<img src="photo12.jpg">
-<div class="note">Prettiest Girl ✨</div>
-
+<div>
+<img src="photo2.jpg">
+<div class="note">Eyes ✨</div>
 </div>
 
+<div>
+<img src="photo3.jpg">
+<div class="note">Cute 💗</div>
+</div>
+
+<div>
+<img src="photo4.jpg">
+<div class="note">Peace 🌸</div>
+</div>
+
+<div>
+<img src="photo5.jpg">
+<div class="note">Forever 🧿</div>
+</div>
+
+</div>
 </section>
 
-<!-- SONGS (NOW AFTER PHOTOS + INSECURITY) -->
+<!-- SONGS -->
 <section>
 <h1>Songs 🎵</h1>
 
@@ -277,6 +433,7 @@ I’ll Never Leave You — because it always feels like you ❤️
 
 <!-- CAKE -->
 <section>
+
 <h1>🎂 Birthday Moment</h1>
 
 <div class="cake">🎂</div>
@@ -286,70 +443,24 @@ I’ll Never Leave You — because it always feels like you ❤️
 <div id="wishBox" style="display:none;color:#ffb3ec;margin-top:10px;">
 ✨ Wish received 💗
 </div>
+
 </section>
 
 <!-- VOICE -->
 <section>
+
 <h1>A Voice Note 🎙</h1>
+
 <button class="cake-btn" onclick="playVoice()">Play Voice</button>
+
 </section>
 
 <!-- FINAL -->
 <section class="final-section">
-  <h1>Made With Endless Love ❣️</h1>
 
-  <p class="name-glow">VAIBHAV PATEL</p>
-</section>
+<h1>Made With Endless Love ❣️</h1>
 
-<style>
-.final-section{
-  text-align:center;
-  padding:80px 20px;
-}
-
-.final-section h1{
-  font-size:2.2rem;
-  color:white;
-  margin-bottom:25px;
-  letter-spacing:1px;
-}
-
-/* NAME EFFECT */
-.name-glow{
-  font-size:3rem;
-  font-weight:900;
-  letter-spacing:8px;
-  text-transform:uppercase;
-
-  background: linear-gradient(90deg,#ff4d6d,#ffd6e0,#ffffff,#ff4d6d);
-  background-size:300%;
-
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-
-  animation: shine 5s linear infinite,
-             pulse 2s ease-in-out infinite;
-
-  text-shadow:
-    0 0 10px rgba(255,255,255,0.5),
-    0 0 20px rgba(255,77,109,0.6),
-    0 0 40px rgba(255,77,109,0.8);
-}
-
-@keyframes shine{
-  0%{background-position:0%;}
-  100%{background-position:300%;}
-}
-
-@keyframes pulse{
-  0%,100%{
-    transform:scale(1);
-  }
-  50%{
-    transform:scale(1.08);
-  }
-}
-</style>
+<p class="name-glow">VAIBHAV PATEL</p>
 
 <div class="song-box">
 
@@ -368,37 +479,6 @@ I’ll Never Leave You — because it always feels like you ❤️
 ✨ “I genuinely feel blessed to have you in my world.”<br><br>
 
 💫 “No matter what happens… you will always mean something beautiful to me.”
-
-</div>
-
-<div class="song-box" style="margin-top:25px;">
-
-<p style="color:#ffb3ec;line-height:1.9;font-size:18px;max-width:900px;">
-
-Everything here is just a small feeling for you ❤️<br><br>
-
-Thank you for existing in my life…<br>
-you made ordinary days feel beautiful 🌸<br><br>
-
-I’ll never leave you… that’s my promise 🫂❤️<br><br>
-
-No matter where life takes us,<br>
-a part of my heart will always stay with you ✨<br><br>
-
-And honestly…<br>
-I just want to see you happy, peaceful, smiling, and successful forever 💗<br><br>
-
-I hope you achieve every dream you wish for 🌙<br>
-I hope life gives you everything you truly deserve ✨<br><br>
-
-Because someone as beautiful as you,<br>
-inside and outside both,<br>
-deserves all the love and happiness in this world ❤️<br><br>
-
-You will always be special to me…<br>
-more than these words could ever explain 🫶🏻✨
-
-</p>
 
 </div>
 
@@ -427,7 +507,8 @@ text-align:center;
 animation:fadeIn 3s ease;
 ">
 
-I hope you like this small surprise 🫶🏻💗✨
+I hope you like this small surprise 🫶🏻💗✨<br><br>
+
 Hope this brings a smile to your face 🫶🏻🫂🧿
 
 </p>
@@ -438,42 +519,91 @@ Hope this brings a smile to your face 🫶🏻🫂🧿
 
 /* STARS */
 for(let i=0;i<120;i++){
+
 let s=document.createElement("div");
+
 s.className="star";
+
 s.style.left=Math.random()*100+"vw";
+
 s.style.top=Math.random()*100+"vh";
+
 document.body.appendChild(s);
+
 }
 
+/* PASSWORD */
+
+function checkPassword(){
+
+let password=document.getElementById("passInput").value;
+
+if(password==="1021"){
+
+document.getElementById("lockScreen").style.display="none";
+
+}else{
+
+document.getElementById("wrongPass").innerHTML="Wrong Passcode 💔";
+
+}
+
+}
+
+/* ENTER */
+
 function enter(){
+
 document.getElementById("entry").style.display="none";
 
-/* SHOW SCROLL AFTER ENTER */
 document.getElementById("scrollHint").style.opacity="1";
-setTimeout(()=>{ document.getElementById("scrollHint").style.opacity="0"; },4000);
+
+setTimeout(()=>{
+
+document.getElementById("scrollHint").style.opacity="0";
+
+},4000);
 
 document.getElementById("bgMusic").play().catch(()=>{});
+
 }
 
 function stopAll(){
+
 document.getElementById("bgMusic").pause();
+
 document.getElementById("birthdayMusic").pause();
+
 document.getElementById("voiceNote").pause();
+
 }
 
+/* WISH */
+
 function wish(){
+
 stopAll();
+
 document.getElementById("wishBox").style.display="block";
+
 document.getElementById("birthdayMusic").play();
 
 setTimeout(()=>{
+
 window.open("https://wa.me/919399348807?text=Make%20a%20wish%20Vidhuuu%20💗🤌🏻","_blank");
+
 },1200);
+
 }
 
+/* VOICE */
+
 function playVoice(){
+
 stopAll();
+
 document.getElementById("voiceNote").play().catch(()=>{});
+
 }
 
 </script>
